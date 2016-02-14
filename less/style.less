@@ -1,0 +1,434 @@
+@import "bootstrap/bootstrap.less";
+@import "variables.less";
+
+p {
+  margin: 20px 0;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+.btn {
+  font-family: @brand-font;
+}
+
+a {
+  color: @color-orange;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: @color-black;
+}
+
+h1.lead {
+  font-size: 48px;
+  font-weight: bold;
+  color: @color-white;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+/* -- buttons ---------------*/
+.btn {
+  padding: 10px 25px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: none;
+  min-width: 140px;
+}
+
+.btn-primary {
+  &:hover {
+    background-color: lighter(@btn-primary-bg, 10%); 
+  }
+}
+
+.btn-warning {
+  background-color: @color-orange;
+
+  &:hover {
+    background-color: lighter(@btn-primary-bg, 10%);
+  }
+}
+
+.btn-submit {
+  border-radius: 0px;
+  padding: 10px;
+  min-width: 30px;
+}
+
+/* helpers-------------------*/
+.uppercase {
+  text-transform: uppercase;
+}
+
+.textright {
+  text-align: right;
+}
+
+.no-padding-left {
+  padding-left: 0px;
+}
+
+.no-padding-right {
+  padding-right: 0px;
+}
+
+.border-bt {
+  border-bottom: 1px solid @brand-primary;
+}
+
+.block {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.link {
+  color: @color-orange;
+}
+
+
+
+/*----------------------- maim styles-----------------------*/
+
+  /*----------------------- header styles-------------------*/
+  .header {
+    .uppercase;
+    padding: 20px 0;
+    color: @color-blue-text;
+    background: @brand-primary;
+    
+    .phone {
+      padding-right: 0px;
+
+      span {
+        padding-right: 5px;
+      }
+    }
+
+    .email {
+      padding-right: 0px;
+
+      span {
+        padding-right: 5px;
+      }
+      
+      a {
+        color: @color-blue-text;
+
+        &:hover {
+          text-decoration: underline
+        }
+      }
+    } 
+  }
+  /*----------------------- end header styles---------------*/
+
+
+  /* -----------------------nav styles----------------------*/
+  .main-nav {
+    .uppercase;
+    padding: 20px 0 0 0;
+
+    .logo {
+      display: block;
+    }
+
+    .navbar {
+      margin-bottom: 10px;
+
+      .navbar-toggle {
+        background-color: @color-main-blue;
+
+        span {
+          background-color: @color-white;
+        }
+      }
+
+      li {
+        a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          color: @color-blue-text;
+
+          &:hover {
+            color: @color-black;
+            background: none;
+          }
+        }
+      }
+      
+    }
+
+    .btn {
+      float: right;
+    }
+  }
+  /*-----------------------end nav styles-------------------*/
+
+
+  /*----------------------- main image styles---------- -----*/
+  .main-image {
+    .uppercase;
+    text-align: center;
+    color: @color-white;
+    background: url("../images/banner-img.jpg") no-repeat top center;
+    background-size: cover;
+
+    .row {
+      padding: 80px 0;
+    }
+  }
+  /*----------------------- end main image styles -----------*/
+
+
+  /*----------------------- about styles --------------------*/
+  .about {
+    .container {
+      padding-bottom: 70px;
+    } 
+  }
+  /* ----------------------- end about styles ---------------*/
+
+
+  /* ----------------------- members styles -----------------*/
+  .members {
+    .container {
+      .uppercase;
+      padding-top: 75px;
+      padding-bottom: 75px;
+
+      h4 {
+        font-size: 52px;
+      }
+
+      i {
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        padding-right: 70px;
+        margin-top: -5px;
+        vertical-align: middle;
+      }
+
+      .h-caption {
+        padding-left: 15px;
+      }
+
+      .icon-marketing {
+        background: url("../images/icon-marketing.png") no-repeat 0 0; 
+      }
+
+      .icon-team {
+        background: url("../images/icon-members.png") no-repeat 0 0;
+      }
+
+      .icon-project {
+        background: url("../images/icon-stars.png") no-repeat 0 0;
+      }
+
+      .icon-certificat {
+        background: url("../images/icon-first.png") no-repeat 0 0;
+      }
+
+    } 
+  }
+  /*----------------------- end members styles---------------*/
+
+
+  /*----------------------- team styles -----------------*/
+  .team {
+    background-color: @brand-primary;
+
+    .thumbnail {
+      border: none;
+      padding: 0px;
+      background-color: @color-grey;
+
+      .caption {
+        background-color: @color-white;
+      }
+
+      h3 {
+        .uppercase;
+        margin-bottom: 0px;
+      }
+
+      p {
+        margin-top: 5px;
+      }
+
+      .social-list {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+
+        a {
+          padding-right: 5px;
+          color: @color-primary-dark;
+        }
+      }
+    }
+  }
+  /* -----------------------end team styles -------------*/
+
+
+  /*----------------------- features styles -----------------*/
+  .features {
+    .text-block {
+      position: relative;
+      margin-left: 100px;
+      margin-bottom: 60px;
+
+      i {
+        position: absolute;
+        top: 0;
+        left: -90px;
+        width: 60px;
+        height: 52px;
+      }
+
+      .icon-b-book {
+        background: url("../images/icon-b-book.png") no-repeat 0 0;
+      }
+
+      .icon-b-hands {
+        background: url("../images/icon-b-hands.png") no-repeat 0 0;
+      }
+
+      .icon-b-human {
+        background: url("../images/icon-b-human.png") no-repeat 0 0;
+      }
+
+      .icon-b-diagram {
+        background: url("../images/icon-b-diagram.png") no-repeat 0 0;
+      }
+
+      .icon-b-phone {
+        background: url("../images/icon-b-phone.png") no-repeat 0 0;
+      }
+
+      .icon-b-case {
+        background: url("../images/icon-b-case.png") no-repeat 0 0;
+      }
+    }
+
+    .button-more {
+      margin-top: 70px;
+      text-align: center;
+
+      .btn {
+        display: inline-block;
+        margin: 0 auto;
+      }
+    }
+  }
+  /*----------------------- end features styles -----------------*/
+
+
+  /*----------------------- service styles -----------------*/
+  .service {
+    .service-title {
+      font-size: 30px;
+    }
+
+    p {
+      margin-top: 0px;
+    }
+
+    .center-block {
+      margin-top: 33px;
+    }
+
+    .btn-warning {
+      margin-left: 25px;
+    }
+  }
+  /*----------------------- end service styles -----------------*/
+
+
+  /*----------------------- footer styles -----------------*/
+
+  .footer {
+    position: relative;
+    color: @color-primary-dark;
+    padding-bottom: 50px;
+
+    &::after {
+      position: absolute;
+      bottom: 110px;
+      left: 0;
+      content: '';
+      width: 0;
+      height: 0;
+      border-bottom: 222px solid @color-orange; 
+      border-right: 512px solid transparent;
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-bottom: 222px solid @color-main-blue; 
+      border-left: 512px solid transparent;
+    }
+
+    .form-control {
+      height: 40px;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: @color-primary-dark;
+    }
+
+    .footer-list {
+      -moz-column-count: 2; /* Для Firefox */
+      -webkit-column-count: 2; /* Для Safari и Chrome */
+      column-count: 2;
+
+      li {
+        margin-bottom: 20px;
+
+        a {
+          color: @color-primary-dark;
+        }
+      }
+    }
+
+    dt, dd {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    dt {
+      font-weight: normal;
+      color: @color-black;
+    }
+  }
+  /*----------------------- end footer styles -----------------*/
+
