@@ -1,0 +1,695 @@
+---
+title: "Shop: Accessories product list"
+
+author: Marina Shumeiko, Telenor
+date: August, 2014
+status: in progress
+index: 10
+fullpage-prototype: true
+description: Shop accessories product list
+
+config:
+  hero:
+    title: Shop accessories
+    breadcrumb:
+    - Shop
+    - Accessories
+  filterblock:
+    filters:
+      row:
+        primary: true
+        multifilter:
+          - label: Update filter
+            title: Categories
+            attributes:
+              id: "example-table-multi-filter"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+          - label: Update filter
+            title: Brands
+            attributes:
+              id: "example-table-multi-filter1"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter1"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter1"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter         
+          - label: Update filter
+            title: Something else
+            attributes:
+              id: "example-table-multi-filter2"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter2"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter2"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+            title: Something else
+            attributes:
+              id: "example-table-multi-filter3"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter3"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter3"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+      row1:
+        primary: false
+        multifilter:
+          - label: Update filter
+            title: Somthing else
+            attributes:
+              id: "example-table-multi-filter"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+          - label: Update filter
+            title: Somthing else
+            attributes:
+              id: "example-table-multi-filter4"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter4"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter4"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+          - label: Update filter
+            title: Something else
+            attributes:
+              id: "example-table-multi-filter5"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter5"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter5"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+            title: Something else
+            attributes:
+              id: "example-table-multi-filter6"
+              data-module: "table.multifilter"
+              data-target: "#example-table"
+              data-source: "#example-table-accordion-filter6"
+              data-target-column: 6
+            speachBubble:
+              topBarLabel:  Select types
+              attributes:
+                id: "type-filter-accordion"
+              content:
+                - type: accordion-filter
+                  attributes:
+                    id: "example-table-accordion-filter6"
+                    data-label-all-selected: "Show all"
+                    data-label-postselected-plural: " types"
+                    data-label-preselected-plural: ""
+                  items:
+                  - label: Category name<span class="count"> (5)</span>
+                    id: parent1
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 6
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 12
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 9
+                    checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent2
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342
+                      checked: false
+                  - label: Category name<span class="count"> (5)</span>
+                    expanded: true
+                    id: parent3
+                    items:
+                    - label: Category name<span class="count"> (1)</span>
+                      id: 1234234
+                      checked: false
+                    - label: Category name<span class="count"> (4)</span>
+                      id: 62342234
+                      checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 8
+                    checked: false
+                  - label: Category name<span class="count"> (3)</span>
+                    id: 7
+                    checked: false
+                - type: multi-filter-apply
+                  label: Update filter
+  selectslider:
+    items:
+      - title: Price rang
+        id: Slider1
+        attributes:
+          data-target: "#example-table"
+          data-target-column: "5"
+          data-allownull: "true"
+          data-step: 50
+        options:
+          - val:
+              key: 0
+              value: 0 Kr
+              minSelected: true
+          - val:
+              key: 50
+              value: 50 Kr
+          - val:
+              key: 100
+              value: 100 Kr
+          - val:
+              key: 150
+              value: 150 Kr
+          - val:
+              key: 200
+              value: 200 Kr
+          - val:
+              key: 250
+              value: 250 Kr
+          - val:
+              key: 300
+              value: 300 Kr
+          - val:
+              key: 350
+              value: 350 Kr
+          - val:
+              key: 400
+              value: 400 Kr
+          - val:
+              key: 450
+              value: 450 Kr
+          - val:
+              key: 500
+              value: 500 Kr
+          - val:
+              key: 550
+              value: 5.500 Kr
+          - val:
+              key: 600
+              value: 600 Kr
+          - val:
+              key: 650
+              value: 650 Kr
+          - val:
+              key: 700
+              value: 700 Kr
+          - val:
+              key: 750
+              value: 750Kr
+  productblock:
+    products:
+    - id: 1
+      title: Beats Wireless Headphones
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 111
+      status: green
+      large: true
+      splashcolor: orange
+    - id: 2
+      title: Beats Wireless Headphones
+      price: 99,00 kr./mo.
+      delivery: "Delivery: 4-5 days"
+      sku: 222
+      status: yellow
+      large: false
+    - id: 3
+      title: Beats Wireless Headphones
+      price: 99,00 kr./mo.
+      delivery: "Not in stock"
+      sku: 333
+      status: red
+      large: false
+    - id: 4
+      title: Beats Wireless Headphones
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 555
+      status: green
+      large: false
+    - id: 5
+      title: Beats Wireless Headphones
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 666
+      status: green
+      large: false
+    - id: 6
+      title: Beats Wireless Headphones
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: true
+
+    
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+      {{> header--navigation}}
+    {{/content}}
+
+    {{#content "region-hero" mode="append"}}
+      <div id="hero" class="section section--hero section--negative">
+      {{> block--default--hero config.hero}}
+      </div>
+    {{/content}}
+
+    {{#content "region-primary" mode="append"}}
+      <div id="product-list" data-module="shop.productlist" data-filterlist="#filters-category" data-productlist="#products-category">
+        {{> block--accessories--filtering config.filterblock}}
+        <div class="section--sort-by section container">
+          {{#each config.selectslider.items}}
+          <div class="slide-selecter-col form-item">
+           <label>{{title}}</label>
+              {{> form--selectslider}}
+          </div>
+          {{/each}}
+          <div class="form-item">
+            <label>Work with</label>
+            <div data-module="form.select" class="form-select form-item form-select--small">
+              <select>
+                <option>Device name</option>
+                <option>Device name</option>
+                <option>Device name</option>
+                <option>Device name</option>
+                <option>Device name</option>
+                <option>Device name</option>
+              </select>
+              <div class="form-select__field">--</div>
+            </div>
+          </div>
+          <div class="form-item">
+            <label>Short by</label>
+            <div data-module="form.select" class="form-select form-item form-select--small">
+              <select>
+                <option>Popularity</option>
+                <option>Novelty</option>
+                <option>Sale</option>
+              </select>
+              <div class="form-select__field">--</div>
+            </div>
+          </div>  
+        </div>
+        {{> block--product--list config.productblock}}
+        
+      </div>
+      <form id="filterProductsForm" method="post" action="src/data/productscategory.json"></form>
+    {{/content}}
+
+    {{#content "region-footer" mode="append"}}
+    {{/content}}
+
+    {{#content "region-config" mode="append" }}
+    {{/content}}
+
+{{/extend}}

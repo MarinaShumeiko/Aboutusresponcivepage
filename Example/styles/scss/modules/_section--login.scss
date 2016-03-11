@@ -1,0 +1,89 @@
+.section {
+  // Contains login section on blue background.
+  @include modifier(login) {
+    $footer-height: 30px;
+
+    background: $color-telenor-blue url("../assets/images/main_bg.png") 63% top;
+    color: #fff;
+
+    // Used to push the footer to the bottom of the panel.
+    @include modifier(wrap) {
+      margin-bottom: -$footer-height;
+      min-height: 100%;
+      transform: translateX(0);
+      transition: transform .3s ease-out;
+      width: $login-panel-width * 3;
+
+      &.step2 {
+        transform: translateX(-$login-panel-width);
+        -webkit-transition: translateX(-$login-panel-width);
+      }
+
+      &.step3 {
+        transform: translateX(-$login-panel-width * 2);
+        -webkit-transition: translateX(-$login-panel-width * 2);
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        height: $footer-height;
+      }
+    }
+
+    @include modifier(close) {
+      line-height: 27px;
+    }
+
+    .logo--negative--small {
+      margin-top: -6px;
+    }
+
+    header {
+      color: $color-white;
+    }
+
+    footer {
+      height: $footer-height;
+    }
+
+    .form-checkbox {
+      margin: 0;
+    }
+
+    .form-item label {
+      color: $color-text-blue-light;
+    }
+
+    .boxshadow & .form-item input[type="password"],
+    .boxshadow & .form-item input[type="text"] {
+      border: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .form-item--multi {
+      .form-item + .form-item {
+        input {
+          border-left: 1px solid $color-text-blue-light;
+        }
+      }
+    }
+
+    a {
+      color: $color-text-blue-light;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-white;
+      }
+    }
+
+    .button {
+      color: $color-white;
+    }
+  }
+}

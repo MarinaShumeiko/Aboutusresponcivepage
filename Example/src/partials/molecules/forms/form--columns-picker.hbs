@@ -1,0 +1,35 @@
+<!-- (form--columns-picker.hbs) -->
+
+<div class="form-item--inline {{#if pull_class}}{{pull_class}}{{/if}}">
+  {{#if title}}
+  <button id="{{id}}" class="button button--default button--small button--download is-active">{{title}}</button>
+  {{else}}
+  <button id="{{id}}" class="button button--default button--small button--column-filter is-active">
+      <span class="icon icon--only icon-31-list"></span><span class="icon icon--only icon-ico-arrow-tip"></span>
+  </button>
+  {{/if}}
+  <div class="speach-bubble is-open" data-module="speach.bubble" data-toggle-target="{{id}}">
+    <div class="speach-bubble__top-bar ">
+      {{#if subtitle}}<strong class="popup--title">{{subtitle}}</strong>{{else}}Select columns{{/if}}
+    </div>
+    <div class="" {{#if columns_picker.attributes}}
+        {{#each columns_picker.attributes}}
+          {{@key}}={{this}}
+        {{/each}}
+      {{/if}}>
+      <div class="accordion-filter " id="column-filter-1">
+        <ul>
+          {{#each columns}}            
+          <li class="accordion-filter__leaf-item accordion-filter__leaf-parent-item form-checkbox">
+            <input type="checkbox" role="checkbox" name="{{this.id}}" id="{{this.id}}" {{#if this.checked}}checked="checked"{{/if}}>
+            <label class="text--small" for="{{this.id}}">{{this.text}}</label>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="box--greyed multi-filter__submit-panel">
+        <button type="button" class="button button--action button--small" tabindex="1">Update table</button>
+      </div>
+    </div>
+  </div>
+</div>

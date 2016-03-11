@@ -1,0 +1,17 @@
+---
+title: Select menu
+status: In progress
+version: 0.5.1
+---
+<!-- : Select menu small -->
+{{#if options}}
+<div class="form-item--select form-item--small{{#if classes}} {{classes}}{{/if}}">
+  <div class="select-wrapper">
+    <select id="{{id}}">
+      {{#each options}}
+        <option value="{{this.value}}"{{#if this.selected}} selected{{/if}}>{{this.title}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+{{/if}}

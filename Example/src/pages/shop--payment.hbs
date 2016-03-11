@@ -1,0 +1,168 @@
+---
+title: "Shop: Payment page"
+
+author: Marina Shumeiko, Telenor
+date: August, 2014
+status: in progress
+index: 10
+fullpage-prototype: true
+description: Payment page
+
+config:
+  creditcard:
+    betalingservice: tru
+    invoice: true
+    heading:
+      title: Payment – credit card
+    radiomonthlypayment:
+      id: id1
+      classes: form-inline
+      li-class: form-radio--small
+      label-class: text--small
+      items:
+        - value: Same as above Card
+          label: Same as above Card
+          id: radio-id1
+          checked: true
+        - value: BetalingService
+          label: BetalingService
+          id: radio-id2
+        - value: Invoice
+          label: Invoice
+          id: radio-id3
+  cash:
+    paycard: true
+    betalingservice: true
+    invoice: true
+    splitpaymentcheked: true
+    heading:
+      title: Payment – cash
+    radiomonthlypayment:
+      id: id2
+      classes: form-inline
+      li-class: form-radio--small
+      label-class: text--small
+      items:
+        - value: Pay by Card
+          label: Pay by Card
+          id: radio-id3
+          checked: true
+        - value: BetalingService
+          label: BetalingService
+          id: radio-id4
+        - value: Invoice
+          label: Invoice
+          id: radio-id5
+    radiomonthlypaymentsplit:
+      id: id3
+      classes: form-inline
+      li-class: form-radio--small
+      label-class: text--small
+      items:
+        - value: Pay by Card
+          label: Pay by Card
+          id: radio-id6
+          checked: true
+        - value: BetalingService
+          label: BetalingService
+          id: radio-id7
+  bs:
+    heading:
+      title: Payment – BS
+  invoice:
+    heading:
+      title: Payment – Invoice
+    createnewaccount: true
+  hardwarepool:
+    findcompany: true
+    paycard: true
+    heading:
+      title: Payment – Hardware pool (hardware only)
+    radiomonthlypayment:
+      id: id4
+      classes: form-inline
+      li-class: form-radio--small
+      label-class: text--small
+      items:
+        - value: Pay by Card
+          label: Pay by Card
+          id: radio-id9
+          checked: true
+        - value: Invoice my company
+          label: Invoice my company
+          id: radio-id10
+  paii:
+    heading:
+      title: Payment – Paii
+    sendsmscode: true
+    paycard: true
+    betalingservice: true
+    radiomonthlypaymentsplit:
+      id: id7
+      classes: form-inline
+      li-class: form-radio--small
+      label-class: text--small
+      items:
+        - value: Pay by Card
+          label: Pay by Card
+          id: radio-id9
+          checked: true
+        - value: BetalingService
+          label: BetalingService
+          id: radio-id10
+    approval: true
+  moneyback:
+    heading:
+      title: Returns – money back
+    radiomonthlypaymentback:
+      id: id8
+      classes: form-inline
+      li-class: form-radio--small
+      label-class: text--small
+      items:
+        - value: Return to card
+          label: Return to card
+          id: radio-id11
+          checked: true
+        - value: Return cash
+          label: Return cash
+          id: radio-id12
+  seperated:
+    heading:
+      title: Payment – Seperated payment chooser RETAIL ONLY
+
+
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+    <section class="section section--padding section--payment-block container">
+      {{> payment--credit-card config.creditcard}}
+      {{> payment--cash config.cash}}
+      {{> payment--invoice config.invoice}}
+      {{> payment--hardware-pool config.hardwarepool}}
+      {{> payment--paii config.paii}}
+      {{> payment--moneyback config.moneyback}}
+      {{> payment--seperated config.seperated}}
+      
+    </section>
+  {{/content}}
+
+
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  {{/content}}
+
+{{/extend}}
+

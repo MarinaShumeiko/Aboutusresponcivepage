@@ -1,0 +1,24 @@
+.block {
+  // Backdrops and overlays for maps, banners etc.
+  // ----------------------------------------------
+  // .block--backdrop--tablet
+  // .block--overlay
+  @include modifier(backdrop) {
+    @include all-modifiers(block--backdrop) {
+      position: relative;
+      z-index: 1;
+    }
+
+    @include modifier(tablet) {
+      @include at-least($bp-small) {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

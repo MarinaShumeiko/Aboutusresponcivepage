@@ -1,0 +1,32 @@
+<div class="modal">
+  {{#if header}}
+  <div class="modal__header title--xxsmall">
+    <p>{{{header}}}</p>
+  </div>
+  {{/if}}
+
+  <div class="modal__body">
+    {{#if title}}
+    <h2 class="title--medium trailer">{{title}}</h2>
+    {{/if}}
+    {{#if text}}
+    <p class="trailer">{{text}}</p>
+    {{/if}}
+
+    <div class="clear trailer">
+      {{#if btn1Text}}
+      <a href="{{btn1Link}}" class="button button--action">{{btn1Text}}</a>
+      {{/if}}
+
+      {{#if btn2Text}}
+      <a href="{{btn2Link}}" class="button button--action">{{btn2Text}}</a>
+      {{/if}}
+    </div>
+
+    {{#if close}}
+    <div class="text--center">
+      <button class="modal__close text--small button--naked">{{close}}</button>
+    </div>
+    {{/if}}
+  </div>
+</div>

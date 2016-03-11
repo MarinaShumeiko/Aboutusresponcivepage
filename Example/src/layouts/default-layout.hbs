@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    {{#block "region-htmlhead"}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>telenor</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="../app/scripts/vendor/modernizr-custom.js?__inline=true"></script>
+    <script src="../app/scripts/modernizr.custom-tests.js?__inline=true"></script>
+
+    <!--[if gte IE 9]><!-->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- endbuild -->
+    <!--<![endif]-->
+
+    <!-- build:css(.tmp) styles/oldie.css -->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/styles/oldie.css">
+    <![endif]-->
+    <!-- endbuild -->
+    <!-- build:js(.tmp) scripts/oldie.js -->
+    <!--[if lte IE 8]>
+    <script src="/scripts/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script src="/scripts/bower_components/matchmedia/matchMedia.js"></script>
+    <script src="/scripts/bower_components/matchmedia/matchMedia.addListener.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+    {{/block}}
+    {{#block "region-config"}}
+      {{> styleguide-config}}
+    {{/block}}
+  </head>
+
+  <body>
+    <div class="section--oncanvas">
+      {{#block "region-status"}}
+      <!-- region: status -->
+      {{/block}}
+      <div class="section--wrap">
+        <nav role="navigation">
+          {{#block "region-header"}}
+          <!-- region: header -->
+          {{/block}}
+        </nav>
+
+        <div id="main" role="main">
+          {{#block "region-hero"}}
+            <!-- region: hero -->
+          {{/block}}
+
+
+          <div id="content" class="section--content">
+            {{#block "region-primary"}}
+            <!-- region: primary-content -->
+            {{/block}}
+
+            {{#block "region-secondary"}}
+            <!-- region: secondary-content -->
+            {{/block}}
+          </div>
+        </div>
+
+        <div id="help" class="section section--hero section--help section--negative" role="complementary">
+          {{#block "region-help"}}
+            {{> footer-help }}
+          <!-- region: help -->
+          {{/block}}
+        </div>
+      </div>
+
+      <nav id="footer" class="section section--footer" role="navigation">
+        {{!--
+        {{#block "region-footer"}}
+          <!-- region: footer -->
+          {{> footer}}
+        {{/block}}
+        --}}
+      </nav>
+    </div>
+    {{#block "region-login"}}
+      <!-- region: login-panel -->
+      {{> login-panel}}
+    {{/block}}
+
+    {{#block "region-scripts"}}
+      <script data-main="scripts/main" src="scripts/bower_components/requirejs/require.js"></script>
+    {{/block}}
+  </body>
+</html>
+
+

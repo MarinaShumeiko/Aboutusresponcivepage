@@ -1,0 +1,15 @@
+---
+title: Tabs without content rendering
+
+author: Josef Kjærgaard, Designit
+date: May, 2014
+---
+
+<!-- : Tabs -->
+<div class="tabpanel--stretch-mobile" data-module="tabpanel">
+  <ul class="tabpanel__list">
+  	{{#each this }}
+    <li class="tabpanel__tab{{#if active}} is-active{{/if}} {{#if disabled}} is-disabled{{/if}}" ><a href="#">{{label}}</a></li>
+    {{/each}}
+  </ul>
+</div>

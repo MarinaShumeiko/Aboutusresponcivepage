@@ -1,0 +1,9 @@
+.border {
+  @include modifier(left) {
+    border-left: $border;
+  }
+}
+
+.table-disp {
+  display: table;
+}

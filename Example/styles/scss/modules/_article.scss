@@ -1,0 +1,103 @@
+.article {
+  // General article styling.
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  // Styling for article with border for title
+  @include modifier(title-border) {
+    .article__bodytext {
+      padding-top: 0;
+    }
+  }
+
+  // Styling for image in the left part
+  @include modifier(expand-left) {
+    img {
+      @include rem('margin-left', -$xlarge-spacing-unit);
+    }
+  }
+
+  @include modifier(expand-right) {
+    img {
+      @include rem('margin-right', -$xlarge-spacing-unit);
+    }
+  }
+
+  // Media queries
+  // ----------------------------------------------
+  // Tablet, 600px ($bp-small)
+  // Tablet-wide, 850px ($bp-medium)
+  // Desktop, 1024px ($bp-large)
+
+  @include until($bp-small) {
+    .title--article {
+      margin-top: 0;
+    }
+  }
+
+  // Respond tablet.
+  @include at-least($bp-small) {
+
+    // Styling for image in the left part
+    @include modifier(expand-left) {
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: auto;
+        width: auto;
+        max-width: none;
+        margin: 0;
+      }
+    }
+
+    // Styling for image in the right part
+    @include modifier(expand-right) {
+       img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: auto;
+        width: auto;
+        max-width: none;
+        margin: 0;
+      }
+    }
+  }
+
+  @include at-least($bp-medium) {
+    @include modifier(title-border) {
+      .article__image {
+        margin-top: -105px;
+      }
+    }
+
+    @include modifier(text-right) {
+      .article__bodytext {
+        @include rem('padding-left', $large-spacing-unit);
+      }
+    }
+
+    @include modifier(text-left) {
+      .article__bodytext {
+        @include rem('padding-right', $large-spacing-unit);
+      }
+    }
+  }
+}
+
+.article__bodytext {
+  padding: $small-spacing-unit;
+
+  p {
+    @extend .trailer--large;
+  }
+}
+
+.article__image {
+  position: relative;
+  text-align: center;
+}
+

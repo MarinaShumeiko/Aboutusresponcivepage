@@ -1,0 +1,328 @@
+// Styling for panel/accordion.
+// -------------------------------------------------------
+// Panel-accordion variants
+// ----------------------------------------------
+// .panel-accordion--filter
+.panel-accordion {
+&:first-child {
+    .panel-accordion__heading {
+      border-width: 1px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+  }
+
+  // &:nth-last-child(2), disabled by josef - not clear why second last element should have rounded corners..
+  &:last-child {
+    .panel-accordion__heading {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+  }
+
+  // Styling for panel heading, .panel-accordion__heading
+  @include element(heading) {
+    @extend %transition;
+
+    @include telenor-regular;
+    @include size-16;
+    @include rem('padding', 0 $base-spacing-unit);
+
+    position: relative;
+    background: $color-white-dark;
+    background-image: $gradient-white;
+
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: $color-grey-light;
+
+    &:hover {
+      border-color: $color-grey-middle;
+      background-color: $color-grey-light;
+      background: $gradient-white-grey;
+    }
+
+    &.is-active {
+      border-color: transparent; //$color-telenor-blue;
+      background: $gradient-blue;
+      background-color: $color-telenor-blue;
+      color: $color-white;
+
+      a:after {
+        color: $color-white;
+      }
+
+      span {
+        color: $color-telenor-blue;
+        border-color: $color-telenor-blue;
+      }
+    }
+
+    &.is-active {
+      a:after {
+        @include icon-minus;
+      }
+    }
+
+    a {
+      @include rem('line-height', $step-line-height);
+
+      display: block;
+      cursor: pointer;
+
+      &:after {
+        @include icon;
+        @include icon-plus;
+        @include rem('line-height', $step-line-height);
+        @include rem('height', $step-line-height + 2);
+        @include rem("font-size", 44px);
+
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 75px;
+        cursor: pointer;
+        color: $color-grey-light;
+        text-align: center;
+      }
+    }
+
+    p {
+      display: inline-block;
+    }
+
+    // Styling for number.
+    span {
+      @include rem('line-height', 40px);
+      @include rem('margin-right', $base-spacing-unit);
+
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      border: 1px solid $color-grey-light;
+      border-radius: 50%;
+      background: $color-white;
+    }
+  }
+
+  // Styling for panel body, .panel-accordion__body
+  @include element(body) {
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: $color-grey-light;
+  }
+
+  @include modifier(filter) {
+    .panel-accordion__heading {
+      @include rem('padding', 0 $small-spacing-unit);
+      @include size-16;
+
+      a {
+        @include rem('line-height', 40px);
+
+        &:after {
+          @include rem('line-height', 40px);
+          @include rem('height', 40px);
+          @include rem("font-size", 26px);
+
+          top: -2px;
+          width: 40px;
+        }
+
+        #filters-primary & {
+          @include rem('margin-bottom', $small-spacing-unit);
+
+          line-height: normal;
+        }
+      }
+    }
+  }
+
+  @include element(body) {
+    background: $color-white;
+
+    ul {
+      @include rem('padding', $small-spacing-unit $small-spacing-unit 0 $small-spacing-unit);
+
+      line-height: 0;
+    }
+  }
+
+  // Media queries
+  // ----------------------------------------------
+  // $bp-small (tablet), 600px
+
+  // Respond tablet.
+  @include at-least($bp-small) {
+    @include modifier(filter) {
+      @include rem('margin-bottom', $small-spacing-unit/2);
+
+      #filters-secondary & {
+        border-top: 1px solid $color-grey-light;
+
+        .panel-accordion__body {
+          ul.multifilter {
+            padding-top: 10px;
+          }
+        }
+      }
+
+      .panel-accordion__heading {
+        margin: 0;
+
+        padding: 0;
+        background: none;
+        border: 0;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        &:hover,
+        &.is-active {
+          color: $color-black-light;
+
+          a:after {
+            content: none;
+          }
+        }
+      }
+
+      a {
+        &:after {
+          content: none;
+        }
+      }
+
+      .panel-accordion__body {
+        padding: 0;
+        background: none;
+        border: 0;
+
+
+        ul {
+          @include rem('min-height', 32px);
+
+          padding: 0;
+          display: inline-block;
+          vertical-align: top;
+
+          &.multifilter {
+            display: block;
+          }
+
+          li.block-multi-filter {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 1% 10px;
+
+            @include until($bp-small) {
+             margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.block-filter-accessories {
+  margin-bottom: 0;
+
+ .panel-accordion__body > ul {
+    position: relative;
+
+    @include until($bp-small) {
+      padding-right: 0;
+    }
+  }
+
+  .multi-filter {
+    margin: 0 10px 0 0;
+
+    @include until($bp-small) {
+       z-index: 1;
+    }
+
+    .multi-filter__input {
+      min-width: 185px;
+    }
+
+    .speach-bubble {
+      ul {
+        margin: 0 !important;
+        display: block;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.section--sort-by {
+    > div {
+      display: inline-block;
+      vertical-align: middle;
+      width: 26.4%;
+      margin: 0 0 10px 10%;
+
+      &:first-child {
+        margin: 0 0 10px;
+      }
+
+      .layout-slider-block,
+      .form-select {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      label {
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      @include until($bp-large) {
+        margin-left: 9%;
+      }
+
+      @include until($bp-small) {
+        display: block;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+
+
+// Transitioning helper classes for the panel/accordion.
+// -------------------------------------------------------
+.fade {
+  transition: opacity .15s linear;
+  opacity: 0;
+
+  &.is-open {
+    opacity: 1;
+  }
+}
+
+.is-collapsed {
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.collapsing {
+  transition: height .35s ease;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}

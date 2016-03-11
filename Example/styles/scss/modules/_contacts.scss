@@ -1,0 +1,109 @@
+// Styling for contacts list in company info block.
+// -------------------------------------------------------
+// Terms form variants
+// ----------------------------------------------
+// .section--company-contacts
+// .item--company-contacts
+
+.flexbox {
+  .section--company-contacts {
+    @include display(flex);
+    @include flex-flow(row wrap);
+
+    .item--company-contacts {
+      margin: 0 1% 20px;
+      width: calc(23% - 20px);
+      @include box-flex(0 0 calc(23% - 20px));
+
+      @include prefixer(box-sizing, content-box, webkit moz spec);
+
+      @media screen and (max-width: $bp-medium) {
+        width: calc(48% - 20px);
+        @include box-flex(0 0 calc(48% - 20px));
+      }
+
+      @media screen and (max-width: $bp-small) {
+        margin: 0 0 20px;
+        width: calc(100% - 20px);
+        @include box-flex(0 0 calc(100% - 20px));
+      }
+    }
+  }
+}
+
+.no-flexbox {
+  .section--company-contacts {
+    letter-spacing: -.4em;
+
+    .item--company-contacts {
+      display: inline-block;
+      float: none;
+      letter-spacing: 0;
+      margin: 0 1% 20px;
+      vertical-align: top;
+      width: 23%;
+      
+      @include until($bp-medium) {
+        width: 48%;
+      }
+
+      @include until($bp-small) {
+        margin: 0 0 20px;
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.section--company-contacts {
+  .item--company-contacts {
+    background: #038cd6 url("../assets/images/main_bg.png") 50% 50%;
+    color: #c9d7e3;
+    font-size: .8125rem;
+    line-height: 1.2em;
+    padding: 1.25rem 10px;
+    text-align: center;
+  }
+
+  ul {
+    margin-bottom: .5rem;
+
+    a {
+      color: #c9d7e3;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    li + li {
+      margin-top: .5rem;
+    }
+  }
+
+  .img--icon {
+    margin-bottom: 1.25rem;
+  }
+
+  .title--item {
+    color: #fff;
+    display: block;
+    font-size: 1rem;
+    margin: 0 0 .5rem;
+  }
+
+  .buttons--holder {
+    text-align: center;
+
+    .button {
+      display: inline-block;
+      line-height: 1rem;
+      min-width: 40%;
+      max-width: 48%;
+      padding: .7rem 10px;
+      vertical-align: top;
+    }
+  }
+}

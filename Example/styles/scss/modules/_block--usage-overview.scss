@@ -1,0 +1,158 @@
+.block--usage-overview {
+  .icon-bullet {
+    &:before {
+      font-size: 10px;
+    }
+  }
+
+  @include element(subscription-header) {
+    border-bottom: $border-light;
+    padding-right: 145px;
+    position: relative;
+  }
+
+  .message--info {
+    margin: $base-spacing-unit;
+    margin-top: 0;
+  }
+
+  .message--alert {
+    margin-bottom: $base-spacing-unit;
+
+    .icon-remove {
+      color: $color-yellow-dark;
+    }
+  }
+
+  @include element(subscription-number) {
+    margin: 15px 0;
+    padding: 10px 30px;
+    border-right: $border;
+    display: inline-block;
+    box-sizing: content-box;
+    vertical-align: middle;
+
+    @include element(top) {
+      @extend %size-15;
+      color: $color-black-light;
+    }
+
+    @include element(bottom) {
+      @extend %size-13;
+      color: $color-grey-dark;
+    }
+
+    @include until($bp-medium) {
+      width: 20%;
+    }
+
+    @include until($bp-small) {
+      width: 100%;
+      display: block;
+      border-right: 0 none;
+      margin-bottom: 5px;
+    }
+  }
+
+  @include element(subscription-content) {
+    padding-top: 40px;
+  }
+
+  @include element(subscription-title) {
+    @include element(center) {
+      box-sizing: content-box;
+
+      font-size: 23px;
+      display: inline-block;
+      margin-left: 30px;
+      vertical-align: middle;
+
+      @include until($bp-small) {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    @include element(right) {
+      &.button {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        margin-top: -20px;
+
+        @include until($bp-small) {
+          position: static;
+          margin-top: 15px;
+          margin-left: 30px;
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+
+  @include element(subscription-unit) {
+    float: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: inline-block;
+    margin-right: 0;
+    margin-bottom: 40px;
+
+    @include element(type) {
+      @extend %size-13;
+
+      color: $color-grey-dark;
+    }
+
+    @include element(value) {
+      font-size: 25px;
+      color: $color-black-light;
+    }
+
+    @include element(chart) {
+      height: 7px;
+      background-color: $color-grey-light;
+      border-radius: 3px;
+    }
+
+    @include element(line) {
+      background-color: $color-telenor-blue;
+      height: 100%;
+      border-radius: inherit;
+      width: 0;
+      transition: width 1s ease-out;
+      -webkit-transition: width 1s ease-out;
+      -ms-transition: width 1s ease-out;
+
+      .block--usage-overview__subscription-unit--full & {
+        background-color: $color-error;
+      }
+    }
+
+    @include element(period) {
+      @extend %size-13;
+
+      color: $color-grey-dark;
+      margin-top: 7px;
+      word-wrap: break-word;
+
+      & span {
+        display: inline-block;
+        max-width: 50%;
+      }
+
+      @include element(right) {
+        text-align: right;
+      }
+    }
+
+    @include element(separator) {
+      margin: 10px 0;
+      padding: 0 40px;
+    }
+
+    @include element(separator-line) {
+      border-bottom: $border;
+    }
+  }
+}

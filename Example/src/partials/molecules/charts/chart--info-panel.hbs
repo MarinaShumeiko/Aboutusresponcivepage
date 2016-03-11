@@ -1,0 +1,24 @@
+---
+title: Chart info panel used in bills chart
+
+author: Josef Kjaergaard, Designit
+date: May, 2014
+---
+<div class="chart-info-panel chart-info-panel--border chart-info-panel--white">
+	<ul>
+	{{#each this.types }}
+      <li>
+
+        {{#if dot}}
+          <span class="{{dot}}"></span>
+        {{/if}}
+
+        {{#if iconDiv }}
+          <span class="{{iconDiv}}"></span>
+        {{/if}}
+
+        {{label}}</li>
+
+	{{/each}}
+	</ul>
+</div>

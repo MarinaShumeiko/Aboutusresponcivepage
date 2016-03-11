@@ -1,0 +1,329 @@
+.section--plan {
+  .banner-info {
+    position: relative;
+    color: $color-white;
+
+    .banner-title {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 100%;
+      text-align: left;
+      z-index: 2;
+
+      strong {
+        @include telenor-light;
+        font-weight: bold;
+      }
+
+      @include at-least($bp-small) {
+        top: 40px;
+      }
+
+      // styles for basket page above 768px width
+      @include at-least($bp-medium) {
+        top: 50px;
+        width: 70%;
+      }
+    }
+  }
+
+  .banner-image {
+    min-height: 233px;
+    position: relative;
+   
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(#43c682, rgba(255, 255, 255 , 0), #038cd6);
+    }
+  }
+}
+
+.table--plan {
+  margin: 30px 0;
+  @include telenor-regular;
+
+  @include element(row) {
+    @extend %clearfix;
+    position: relative;
+    @include rem('padding', 20px);
+    padding-left: 1.5625%;// 5/320*100
+    padding-right: 1.5625%;// 5/320*100
+    border-style: solid;
+    border-width: 0 0 1px;
+    border-color: $color-grey-light;
+  }
+
+  @include element(cell) {
+    padding: 0 1.5625%;
+    border-left: 1px solid $color-white-dark;
+    color: $color-grey-dark;
+
+    &:first-child { 
+      border: none;
+    }
+  }
+
+  @include element(product) {
+    @include rem('padding', 20px 0);
+    border-left: 1px solid $color-grey-light;
+    border-right: 1px solid $color-grey-light;
+  }
+  
+
+  @include element(item) {
+    @extend %size-13;
+    width: 18.55%; 
+    margin: 0 1.5625%; 
+    text-align: center;
+    vertical-align: top;
+    text-align: left;
+
+    .plan-title {
+      @include telenor-light;
+      @include rem('font-size', 30px);
+      line-height: 1em;
+      margin-bottom: 55px;
+    }
+
+    li {
+      margin-top: 10px;
+    }
+  }
+
+  @include element(details) {
+    position: relative;
+    width: 47.625%; // 210/320*100
+    margin: 0 10.9375% 2px 1.5625%; // 35/320*100 & 5/320*100
+    vertical-align: bottom;
+    border: none;
+    @include rem('padding-right', 40px);
+
+    .premium {
+      @extend %size-11;
+      line-height: 1.4;
+      padding-left: 35px;
+      width: 200px;
+      position: relative;
+      @include rem('margin-bottom', 60px);
+
+      &:after {
+        border-radius: 16px;
+        padding: 6px;
+        content: "";
+        background: #6b2375 url("../assets/images/premium_icon.png") no-repeat 6px 11px;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    li {
+      position: relative;
+      @include linear-gradient (left, #038cd6, #22a8ad, #43c682);
+      border-radius: 3px;
+      height: 10px;
+      margin-top: 15px;
+      background-color: #038cd6;
+
+      span {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 0 3px 3px 0;
+        background-color: $color-grey;
+        box-shadow: 0 1px 0 $color-grey-light inset;
+        height: 10px;
+        width: 30%;
+      }
+    }
+  }
+
+  @include element(price) {
+    @extend %size-13;
+    vertical-align: bottom;
+    width: 18.55%; 
+    padding-right: 0;
+    margin: 0 10.9375% 0 1.5625%; // 35/320*100 & 5/320*100
+    text-align: right;
+
+    .price {
+      @include rem('font-size', 30px);
+      @include telenor-light;
+      line-height: 1em;
+    }
+
+    button {
+      @include rem('font-size', 16px);
+      width: 90%;
+      max-width: 150px;
+    }
+  }
+
+  @include element(qty) {
+    @extend %size-13;
+    vertical-align: bottom;
+    width: 13.625%; // 210/320*100
+    
+    label {
+      display: inline-block;
+      @include rem('padding', 0 10px 5px 0);
+      margin: 0;
+    }
+
+    .form-item__number-wrapper {
+      width: 100px;
+
+      input {
+        @extend %size-16;
+        text-align: center;
+      }
+
+      button {
+        display: block;
+      }
+    }
+  }
+
+  // styles for basket page until 1024px width
+  @include until($bp-large) {
+    .table--plan {
+      @include rem('padding', 0 5px);
+    }
+
+    @include element(item) {
+    width: 20.55%;
+    }
+
+    @include element(details) {
+    width: 38.625%;
+    }
+
+    @include element(qty) {
+      width: 15.625%;
+    }
+
+    @include element(price) {
+    width: 22.55%;
+    }
+  } 
+
+  // styles for basket page above 768px width
+  @include at-least($bp-medium) {
+    @include element(row) {
+      display: table;
+      width: 100%;
+
+      & > div {
+        display: table-cell; 
+        float: none;
+      }
+    }
+  }
+
+// styles for basket page until 768px width
+  @include until($bp-medium) {
+    .table--plan__cell {
+      float: left; 
+      border: none;
+    } 
+
+    @include element(item) {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 30px;
+
+      li {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 47%;
+        overflow: hidden;
+      }
+
+      .plan-title {
+        width: 44%;
+      }
+
+    }
+
+    @include element(details) {
+      width: 54.625%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-right: 1.5625%;
+      margin: 0;
+      margin-top: 93px;
+    }
+
+    @include element(price) {
+      width: 67%;
+      display: inline-block;
+      padding: 0 1.5625%;
+      margin: 0;
+      float: none;
+    }
+
+    @include element(qty) {
+      vertical-align: top;
+      width: 32.625%;
+      text-align: left;
+      display: inline-block;
+      margin: 0;
+      float: none;
+    }
+  }
+
+@include until($bp-medium) {
+  @include element(details) {
+    .premium {
+      position: absolute;
+      top: -72px;
+      left: 2px;
+      margin: 0;
+    }
+  }
+}
+
+// styles for basket page until 600px width
+  @include until($bp-small) {
+
+    .block__header [class*="title--"] {
+      margin-bottom: $base-spacing-unit;
+    }
+  }
+}
+
+
+// Styles for plan table in product detail page
+.section--plan_detail {
+  .table--plan {
+    @include element(qty) {
+      display: none;
+    }
+
+     @include element(details) {
+       width: 54.625%;
+      }
+
+    @include at-least($bp-large) {
+      @include element(details) {
+       width: 61.625%;
+      }
+    }
+
+    @include until($bp-medium) {
+      @include element(price) {
+       width: 100%;
+      }
+    }
+  }
+}
+

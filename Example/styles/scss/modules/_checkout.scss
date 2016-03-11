@@ -1,0 +1,229 @@
+.block {
+  @include modifier(product) {
+    position: relative;
+
+    @include element(color) {
+      @include modifier(vertical) {
+        position: absolute;
+        left: 38px;
+        top: 122px;
+      }
+    }
+  }
+}
+
+.table {
+  @include modifier(productoptions) {
+    @include rem('font-size', 36px);
+    @include telenor-light;
+
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    background: $color-white-grey;
+
+    // @todo: Map color to variable.
+    color: #5e6d81;
+    border-bottom: 1px solid rgba($color-grey-light, .5);
+    border-right: 1px solid rgba($color-grey-light, .5);
+
+    td,
+	th,
+	.th,
+	.td {
+      box-shadow: inset 1px 1px 0 0 rgba($color-grey-light, .5);
+      display: table-cell;
+    }
+
+    th,
+	.th {
+      @include rem('padding', $base-spacing-unit);
+      width: 20.7446809%;
+      background: $color-telenor-blue;
+      color: $color-white;
+      vertical-align: middle;
+      font-weight: normal;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    td,
+	.td {
+      @include rem('padding', $base-spacing-unit);
+      vertical-align: bottom;
+
+      &:nth-of-type(1) {
+        width: 35.5263158%;
+      }
+
+      &:last-child {
+        text-align: right;
+        background: $color-white;
+      }
+    }
+
+    th + *,
+    .th + * {
+      @include rem('padding', $base-spacing-unit (2 * $base-spacing-unit));
+      box-shadow: inset 0 1px 0 0 rgba($color-grey-light, .5);
+      position: relative;
+
+      &:before {
+        @include tn-triangle(12px, $color-telenor-blue, left);
+        right: auto;
+        left: 0;
+      }
+    }
+
+    & > a,
+    tr {
+      display: table-row;
+
+      &:hover {
+        td,
+		.td {
+          background: #eee;
+        }
+
+        th,
+		.th {
+          background: #007bbe;
+        }
+      }
+    }
+
+    .text--row {
+      @include rem('font-size', 16px);
+      line-height: 1.3;
+      @include telenor-regular;
+      display: block;
+    }
+
+    footer {
+      @include rem('margin-top', 21px);
+      @include rem('font-size', 13px);
+      line-height: 1.3;
+    }
+
+    .col--select {
+      @include rem('width', 100px);
+      @include rem('padding-left', $base-spacing-unit);
+      padding-right: 0;
+
+      & + td {
+        box-shadow: inset 0 1px 0 0 rgba($color-grey-light, .5);
+        @include rem('padding-left', $small-spacing-unit);
+      }
+    }
+  }
+}
+
+.form-item {
+  @include modifier(megaselect) {
+    /*@extend .table--productoptions;*/
+
+    @include telenor-light;
+    width: 100%;
+    max-width: 100%;
+    @include rem('font-size', 11px);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .15);
+    border-bottom: none;
+    position: absolute;
+    left: 0;
+    z-index: zindex(modal);
+    border-radius: 3px;
+
+    a {
+		display: block;
+		background: $color-white;
+		border-bottom: 1px solid $color-white-dark;
+
+  		&:hover,
+      &.active {
+  			background: $color-white-grey;
+  		}
+
+      &:first-child {
+        border-radius: 3px 3px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 3px 3px;
+      }
+  	}
+
+  	.tr {
+  		display: table;
+  		width: 100%;
+  	}
+
+  	.th,
+  	.td {
+  		display: table-cell;
+  		width: 30%;
+  		color: $color-black-light;
+  	}
+
+  	.th:first-child,
+  	.td:first-child {
+  		width: 68%;
+      padding-right: 0;
+  	}
+
+  	.th {
+  		padding-bottom: 0;
+  		background: transparent;
+  		@include rem('font-size', 24px);
+  		@include rem('padding', 18px 18px 6px);
+
+  		line-height: 1.2;
+  		vertical-align: text-bottom;
+  	}
+
+  	.th + .th {
+  		@include rem('font-size', 11px);
+  		text-align: right;
+  	}
+
+  	.td {
+  		@include rem('padding', 0 18px 12px);
+  		vertical-align: top;
+  	}
+
+  	.td + .td {
+  		@include rem('font-size', 22px);
+  		line-height: 1;
+  		text-align: right;
+  	}
+
+  	span {
+  		display: inline-block;
+  		@include rem('font-size', 11px);
+  		@include rem('padding', 3px 7px);
+  		border-radius: 2px;
+  		vertical-align: text-top;
+  		@include rem('margin-top', 5px);
+  	}
+
+  	span.current {
+  		border: 1px solid $color-grey-light;
+  		color: $color-grey-dark;
+  	}
+
+  	span.recommended {
+  		background: $color-telenor-green;
+  		color: $color-white;
+  	}
+  }
+}
+
+
+.checkout-step {
+  display: none;
+}
+
+.block--dummy-content {
+  margin-top: 50px;
+  height: 3311px;
+  background: $color-white url("../assets/graphics/dummy_content.png") center top no-repeat;
+}

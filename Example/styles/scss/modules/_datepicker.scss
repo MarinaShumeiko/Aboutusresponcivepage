@@ -1,0 +1,314 @@
+.datepick {
+  @include size-13;
+  background-color: $color-white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .07);
+  color: $color-black-light;
+  border: 1px solid $color-grey-light;
+  border-radius: 2px;
+  font-family: Arial,Helvetica,Sans-serif;
+  position: relative;
+  margin-top: $xsmall-spacing-unit + 1;
+
+  left: -32px;
+
+  &:before {
+    @include tn-triangle(9px, $color-grey-light, bottom);
+    left: 15px;
+  }
+
+  &:after {
+    @include tn-triangle(7px, $color-white, bottom);
+    left: 15px;
+  }
+
+   a {
+	color: #474747;
+	text-decoration: none;
+
+	&.datepick-disabled {
+	  color: $color-grey-middle;
+	  cursor: auto;
+	  background-color: #fff;
+	  opacity: .5;
+	}
+  }
+}
+
+.datepick-popup {
+  z-index: 1000;
+}
+
+.datepick-disable {
+  position: absolute;
+  z-index: 100;
+  background-color: #fff;
+  opacity: .5;
+}
+
+.datepick-nav {
+
+  @include telenor-regular;
+
+  border-bottom: 1px solid $color-grey-light;
+  font-size: 16px;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+
+  background-color: #f4f4f4;
+  box-shadow: $box-shadow-bubble;
+  background-image: $gradient-white;
+
+  a {
+	  padding: 12px 10px;
+  }
+}
+
+
+.datepick-ctrl {
+  background-color: $color-white-grey;
+  border-top: 1px solid $color-grey-light;
+  clear: both;
+  //display: none;
+  padding: 10px;
+
+  button {
+	width: 100%;
+  }
+}
+
+.datepick-cmd-clear {
+  display: none;
+}
+
+.datepick-cmd-prevJump,
+.datepick-cmd-nextJump {
+  width: 8%;
+}
+
+button.datepick-cmd {
+  text-align: center;
+}
+
+.datepick-cmd-prev,
+.datepick-cmd-prevJump,
+.datepick-cmd-clear {
+  float: left;
+  padding-left: 2%;
+}
+
+.datepick-cmd-current,
+.datepick-cmd-today {
+  display: block;
+  text-align: center;
+}
+
+.datepick-cmd-next,
+.datepick-cmd-nextJump,
+.datepick-cmd-close {
+  float: right;
+  padding-right: 2%;
+  text-align: right;
+}
+
+.datepick-cmd-close {
+  display: block;
+  position: relative;
+  text-align: left;
+  text-indent: -999em;
+
+  &:after {
+    @include icon;
+    @include icon-close-expand;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    text-indent: 0;
+  }
+}
+
+.datepick-month-nav {
+  float: left;
+  text-align: center;
+
+  div {
+    float: left;
+    width: 12.5%;
+    margin: 1%;
+    padding: 1%;
+  }
+}
+
+.noPrevNext .datepick-cmd.datepick-disabled {
+  visibility: hidden;
+}
+
+.datepick-month-row {
+  clear: left;
+}
+
+.datepick-month {
+  float: left;
+  padding: 0 1em 1em;
+  width: 222px;
+  text-align: center;
+
+  &.first {
+    border-right: 1px solid $color-grey-light;
+  }
+
+  &.last {
+    border-left: 1px solid $color-grey-light;
+    margin-left: -1px;
+  }
+
+  table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+
+	td {
+
+	  a {
+		  color: $color-black-light;
+		  display: block;
+		  max-width: 28px;
+		  max-height: 28px;
+		  padding: 4px 0;
+		  text-decoration: none;
+		  width: 100%;
+	  }
+
+	  span {
+		  color: $color-grey-middle;
+		  display: block;
+		  max-width: 28px;
+		  max-height: 28px;
+		  width: 100%;
+		  padding: 4px 0;
+	  }
+
+	  .datepick-other-month {
+		  color: $color-grey-middle;
+		  display: none;
+	  }
+
+	  .datepick-today {
+		  border: 1px solid $color-telenor-blue;
+		  color: $color-telenor-blue;
+	  }
+
+	  .datepick-highlight {
+		 background-color: $color-white-dark;
+	  }
+
+	 .datepick-selected {
+		  background-color: $color-telenor-blue;
+		  border: none;
+		  color: $color-white;
+	  }
+
+	  &.datepick-selected:first-child a {
+		  border-radius: 5px 0 0 5px;
+	  }
+
+	  &.datepick-selected:last-child a {
+		  border-radius: 0 5px 5px 0;
+	  }
+	}
+  }
+}
+
+.datepick-month-header {
+  border-bottom: 1px solid $color-grey-light;
+  padding: 1em 0;
+  margin-bottom: 1em;
+  position: relative;
+
+  input {
+    position: absolute;
+    display: none;
+  }
+}
+
+.datepick-cmd-prev,
+.datepick-cmd-next {
+  border: 1px solid $color-grey-light;
+  border-radius: 3px;
+  background-clip: padding-box;
+  background-color: #fff;
+  /*background-image: linear-gradient(bottom, #f4f4f4 0%, $color-white 100%);*/
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &:before {
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    text-indent: 0;
+  }
+}
+
+.datepick-cmd-prev {
+  left: 0;
+  text-indent: -999em;
+
+  &:before {
+    @include icon;
+    @include icon-arrow-prev;
+  }
+}
+
+.datepick-cmd-next {
+  right: 0;
+  text-indent: 999em;
+
+  &:before {
+    @include icon;
+    @include icon-arrow-next;
+  }
+}
+
+.datepick-month-header select,
+.datepick-month-header input {
+  height: 1.4em;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 100%;
+}
+
+.datepick-month th,
+.datepick-month td {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+.datepick-month th,
+.datepick-month th a {
+  color: $color-telenor-blue;
+  padding: 4px 0;
+}
+
+
+.datepick-status {
+  clear: both;
+  background-color: $color-grey-light;
+  text-align: center;
+}
+
+.datepick-clear-fix {
+  clear: both;
+}

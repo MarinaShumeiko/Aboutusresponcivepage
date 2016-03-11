@@ -1,0 +1,54 @@
+.section {
+  // Contains slider content in product detail suggested accessories
+  @include modifier(big-slider) {
+    background-color: $color-white-grey;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      height: 1px;
+      background-color: $color-grey-light;
+    }
+
+    @include element(item) {
+      width: 245px;
+      background-color: $color-white;
+
+      @include modifier(double) {
+        width: 450px;
+      }
+
+       @include modifier(whole-width) {
+        width: 980px;
+      }
+    }
+
+    .product-grid {
+      border-left: 0;
+
+      &.owl-responsive-1000 {
+        .section--big-slider__item {
+          //width: 100%;
+        }
+      }
+    }
+
+    @include element(middle-height) {
+      @include modifier(double) {
+        width: 375px;
+      }
+
+      .product-grid__item--slider {
+        height: 315px;
+
+        &.product-grid__item--tall {
+          height: 315px;
+        }
+      }
+    }
+  }
+}

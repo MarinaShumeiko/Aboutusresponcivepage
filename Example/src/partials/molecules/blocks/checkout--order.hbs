@@ -1,0 +1,15 @@
+---
+title: Checkout order
+
+author: Dan Sunesen, Designit
+date: March, 2014
+---
+
+{{#each cart.lines}}
+<img src="{{imageurl}}" alt="placekitten">
+<p>{{headline}} - pris/stk: {{price}} - antal: {{units}} - total liniepris: {{totalLinePrice}}</p>
+{{/each}}
+<p><strong>Antal varer: {{cart.totalItems}}</strong></p>
+<p><strong>Til betaling nu: {{cart.totalPrice}}</strong></p>
+<p><strong>Derefter pr. md: {{cart.totalMonthlyPrice}}</strong></p>
+

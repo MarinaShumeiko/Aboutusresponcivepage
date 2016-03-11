@@ -1,0 +1,28 @@
+---
+title: Right side menu
+
+author: Dan Sunesen and Jesper Wøldiche, Designit
+date: January, 2014
+---
+
+<ul class="menu--right pull-right" {{#each attributes}} {{@key}}="{{this}}" {{/each}}>
+  <li><a href="#search-box"><span class="icon-search" aria-hidden="true"></span><span class="icon--text">Search</span></a></li>
+  {{#unless hideminibasket}}
+    <li>
+      <a class="mobile-basket-open" href="http://telenor.designit.com/styleguide/shop--basket.html"></a>
+      <a class="basket-icon" href="#" aria-hidden="true" id="minibasket" tabindex="2">
+      <!--//If mini basket is display need to add class product-amount-active-->
+      <span data-module="shop.minibasket.amount" class="product-amount">3</span>
+      <span class="icon-basket"></span>
+      <span class="icon--text">Shopping cart</span>
+      </a>
+    </li>
+  {{/unless}}
+</ul>
+
+<div class="speach-bubble" id="reusebasket" data-module="speach.bubble" data-toggle-target="minibasket">
+  <div data-module="shop.basket">
+    {{> block--basket config.mini-basket}}
+  </div>
+</div>
+

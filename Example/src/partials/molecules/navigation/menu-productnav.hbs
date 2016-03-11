@@ -1,0 +1,20 @@
+---
+title: Product navigation (tabs)
+
+author: Kim Johannesen, Shift
+date: June, 2014
+---
+<nav class="section section--productnav" role="navigation">
+  <ul class="tablet-wide-container container button--tabs tabs__list" data-module="flexnav" data-moretext="More">
+    {{#if links}}
+      {{#each links}}
+      <li class="tabs__tab"><a href="#{{anchor}}" role="tab">{{text}}</a></li>
+      {{/each}}
+    {{else}}
+    <li class="tabs__tab"><a href="#donotwork" role="tab">My Phone doesn't work</a></li>
+    <li class="tabs__tab"><a href="#brokenphone" role="tab">Broken phone</a></li>
+    <li class="tabs__tab"><a href="#lostphone" role="tab">Lost phone</a></li>
+    {{/if}}
+  </ul>
+</nav>
+<!-- /.section-pagenav -->

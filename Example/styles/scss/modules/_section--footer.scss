@@ -1,0 +1,102 @@
+.section {
+  // Footer sections
+  // -------------------------------------------------------------
+
+  // Contains the footer area.
+  @include modifier(footer) {
+    @include rem('padding', 60px 0 20px);
+    @include rem('font-size', 13px);
+    background: $color-footer;
+    color: $color-footer-links;
+    z-index: -1;
+
+    a {
+      color: inherit;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: #fff;
+      }
+    }
+
+    @include at-least($bp-medium) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    @include modifier(line) {
+      @include rem('margin-bottom', 15px);
+      height: 1px;
+      color: $color-footer-links;
+      background: $color-footer-links;
+      font-size: 0;
+      border: 0;
+    }
+
+    // Contains footer menus.
+    @include modifier(menu) {
+      background-color: transparent;
+      margin-bottom: $large-spacing-unit;
+
+      h3 {
+        color: $color-white;
+      }
+
+      ul {
+        @include until($bp-small) {
+          @include visible-hidden;
+        }
+
+        @include until($bp-medium) {
+          margin-bottom: $large-spacing-unit;
+        }
+      }
+    }
+
+    // Contains the bottom footer links.
+    @include modifier(links) {
+      background-color: transparent;
+      min-height: 120px;
+
+      .section {
+        border-top: 1px solid $color-footer-links;
+        padding-top: 15px;
+      }
+    }
+  }
+
+  .footer__social {
+    li {
+      & + li {
+        margin-left: 2px;
+      }
+    }
+
+    a {
+      @include visible-hidden;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .footer__facebook {
+    background-image: url("../assets/icons/footer-facebook.png");
+  }
+
+  .footer__twitter {
+    background-image: url("../assets/icons/footer-twitter.png");
+  }
+
+  .footer__googleplus {
+    background-image: url("../assets/icons/footer-googleplus.png");
+  }
+
+  .footer__pinterest {
+    background-image: url("../assets/icons/footer-pinterest.png");
+  }
+}

@@ -1,0 +1,132 @@
+---
+title: "Shop: Product delivery-payment"
+author: Marina Shumeyko, Telenor
+date: September, 2014
+status: in progress
+index: 4
+fullpage-prototype: true
+description: Prototype of a product delivery and payment method.
+
+config:
+  hero:
+    title: One Stop Shopping
+    breadcrumb:
+    - Shop
+    - Samsung Galaxy S5
+  radiooptions:
+    id: size
+    classes: form-inline
+    label-class: text--med
+    items:
+    - value: 16 GB
+      label: 16 GB
+      id: radio-16-gb
+      checked: true
+    - value: 32 GB
+      label: 32 GB
+      id: radio-32-gb
+    - value: 64 GB
+      label: 64 GB
+      id: radio-64-gb
+  heading:
+    title: Samsung Galaxy S5
+  productblock:
+    title: Samsung Galaxy S4 - Something special
+    price: 99,00 kr.
+    delivery: "Express delivery: 1-2 days"
+    sku: 111
+    status: green
+    large: false
+    splashtitle: Halv Pris
+    splashbody: 145,00 Kr
+    splashcolor: orange
+  delivery:
+    heading:
+      title: Delivery
+  creditcard:
+    heading:
+      title: Payment – credit card
+  cash:
+    heading:
+      title: Payment – cash
+  invoice:
+    heading:
+      title: Payment – Invoice
+  hardwarepool:
+    heading:
+      title: Payment – Hardware pool (hardware only)
+  paii:
+    heading:
+      title: Payment – Paii
+  moneyback:
+    heading:
+      title: Return payment card
+  seperated:
+    heading:
+      title: Return payment cash
+
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+
+  <div id="hero" class="section section--hero section--negative">
+    {{> block--product--hero--alt}}
+    <input type="hidden" id="hiddenDetails" value="src/data/productdetail.json">
+  </div>
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+    {{> shop--usp}}
+    <section class="section section--padding section--payment-block container">
+      <div class="return-link border--top border--bottom padding-trailer--small padding-leader--small trailer--large toleft--small ">
+        <a class="bullet-link" href="/">Return to product overview</a>
+      </div>
+      {{> block--accessories--list}}
+      {{> block--delivery config.delivery}}
+      {{> payment--credit-card config.creditcard}}
+      {{> payment--paii config.paii}}
+      {{> payment--invoice config.invoice}}
+      {{> payment--hardware-pool config.hardwarepool}}
+      {{> payment--cash config.cash}}
+      {{> payment--moneyback config.moneyback}}
+      {{> payment--seperated config.seperated}}   
+  </section>
+  {{/content}}
+
+
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  <script>
+    var TN = TN || {};
+    TN.config = TN.config || {};
+    TN.config.shop = TN.config.shop || {};
+    TN.config.ajaxInclude = {
+      "proxyUrl": "proxy/concat--product-detail.html?files="
+    };
+
+    TN.config.shop['product-details'] = {
+      templateMegaselect: "<div data-module=\"form.select\" class=\"form-select\" ><label class=\"form-select__label\" for=\"<%= id %>\">[Choose installment]</label><h2 class=\"aria--visible\">[Configure installment]</h2><select id=\"<%= id %>\" aria-describedby=\"<%= id %>-popup\">\<% _.forEach(list, function(item) { %> <option data-item-id=\"<%= item.id %>\" <% if(item.isDefault) { %> selected=\"selected\" <% } %> ><%= item.name %></option><% }) %></select><div class=\"form-select__field\"><%= _.first(list).name %></div></div><div id=\"<%= id %>-popup\" style=\"display: none;\" class=\"form-item--megaselect\" data-module=\"shop.megaselect\" data-select=\"<%= id %>\"><% _.forEach(list, function(item) { %><a data-selectval=\"<%= item.name %>\" <% if(id === 'select-subscription') { %> itemprop=\"offers\" itemscope itemtype=\"http://schema.org/Offer\" <% } %>><div class=\"tr\"><div class=\"th\"><%= item.name %></div><div class=\"th\">[Monthly]</div></div><div class=\"tr\"><div class=\"td\"><ul class=\"list--greybullet <% if(id === 'select-subscription') { %> list--dual-column <%} %>\"><% _.forEach(item.softFacts, function(spec){ %><li><%= spec %></li><% }) %></ul></div><div class=\"td\"><%= item.price %><meta itemprop=\"priceCurrency\" content=\"DKK\" /></div></div></a><% }) %></div>",
+      templateDetails: '<div class=\"container\" itemscope itemtype=\"http://schema.org/Product\"> <div class=\"mobile-one-whole tablet-one-half desk-one-half\"> <div class=\"block--product__images\"> <div class=\"preview\"> <div id=\"product-detail-slider\" class=\"owl-carousel\"></div> </div> </div> </div> <div class=\"mobile-one-whole tablet-one-half desk-one-half omega\"> <header class=\"hgroup\"> <div class=\"rating--stars rating-text--inline\" itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\"> <span class=\"rating__stars\" aria-hidden=\"true\"> <span class=\"icon-star fill--whole\"></span> <span class=\"icon-star fill--whole\"></span> <span class=\"icon-star fill--whole\"></span> <span class=\"icon-star fill--whole\"></span> <span class=\"icon-star fill--half\"></span> </span> <span class=\"rating__text text--small\"> <span class=\"aria--visible\">Rated </span><span itemprop=\"ratingValue\"><%= avgRating %></span> <span class=\"aria--visible\">out of <span itemprop=\"bestRating\">5</span></span> from <span itemprop=\"reviewCount\">86</span> users reviews </span> </div> <h1 class=\"title--xlarge\" itemprop=\"name\"><%= productName %></h1> <meta itemprop=\"brand\" content=\"Apple\"/> </header> <div class=\"block--product__selector\"> <% if (colorCollection) { %> <div class=\"block--product__option\"> <ul class=\"radios--color \"> <% _.forEach(colorCollection, function(color) { %> <li> <input id=\"radio-color-<%= color.colorId %>\" data-product-id=\"<%= productId %>\" data-image-url=\"<%= color.imageUrl %>\" data-sku-id=\"<%= color.skuId %>\" name=\"optionColor\" type=\"radio\" value=\"<%= color.colorName %>\" <% if (color.isDefaultColor) { %> checked=\"checked\" <% } %> /> <label tabindex=\"0\" for=\"radio-color-<%= color.colorId %>\" class=\"radio-color__<%= color.colorName %>\"><%= color.colorName %></label> </li> <% }) %> </ul> <meta itemprop=\"color\" content=\"<%= defaultSku.color %>\"/> </div> <% } %> <div class=\"block--product__option\"> <ul class=\"form-item form-inline\"> <li class=\"form-radio--negative\"> <input type=\"radio\" name=\"optionsRadiosNegative\" id=\"radioxoptionneg0\" value=\"16 GB\" checked /> <label class=\"text--med\" for=\"radioxoptionneg0\">16 GB</label> </li> <li class=\"form-radio--negative\"> <input type=\"radio\" name=\"optionsRadiosNegative\" id=\"radioxoptionneg1\" value=\"32 GB\" /> <label class=\"text--med\" for=\"radioxoptionneg1\">32 GB</label> </li> <li class=\"form-radio--negative\"> <input type=\"radio\" name=\"optionsRadiosNegative\" id=\"radioxoptionneg2\" value=\"64 GB\" /> <label class=\"text--med\" for=\"radioxoptionneg2\">64 GB</label> </li> </ul> </div> <div class=\"container wrapper\"> <div class=\"mobile-one-whole tablet-one-half desk-one-half\"> <div class=\"block--product__payment block--product__option\"> <div class=\"form-item form-item--select\" > <h2 class=\"aria--visible\">[Configure installment]</h2> <label for=\"select-payment\">[Choose installment]</label> <div class=\"select-wrapper\"> <select id=\"select-payment\" aria-describedby=\"select-payment-popup\"> <% _.forEach(installmentList, function(installment){ %> <option data-installment-id=\"<%= installment.installmentId %>\"><%= installment.name %></option> <% }) %> </select> </div> </div> <div id=\"select-payment-popup\" style=\"display: none;\" class=\"form-item--megaselect\" data-module=\"shop.megaselect\" data-select=\"select-payment\"> <% _.forEach(installmentList, function(installment){ %> <a data-selectval=\"<%= installment.name %>\" > <div class=\"tr\"> <div class=\"th\"><%= installment.shortName %></div> <div class=\"th\">Monthly</div> </div> <div class=\"tr\"> <div class=\"td\"> <ul class=\"list--greybullet\"> <% _.forEach(installment.specifications, function(spec){ %> <li><%= spec %></li> <% }) %> </ul> </div> <div class=\"td\" > <%= installment.price %> </div> </div> </a> <% }) %> </div> </div> </div> <div class=\"mobile-one-whole tablet-one-half desk-one-half omega\"> <div class=\"block--product__subscription block--product__option\"> <div class=\"form-item form-item--select\" > <h2 class=\"aria--visible\">[Configure subscription]</h2> <label for=\"select-subscription\">[Choose subscription]</label> <div class=\"select-wrapper\"> <select id=\"select-subscription\" aria-describedby=\"select-subscription-popup\"> <% _.forEach(offerList, function(offer){ %> <option data-offer-id=\"<%= offer.offerId %>\"><%= offer.offerName %></option> <% }) %> @*add default selected*@ </select> </div> </div> <div id=\"select-subscription-popup\" style=\"display: none;\" class=\"form-item--megaselect\" data-module=\"shop.megaselect\" data-select=\"select-subscription\"> <% _.forEach(offerList, function(offer){ %> <a data-selectval=\"<%= offer.offerName %>\" itemprop=\"offers\" itemscope itemtype=\"http://schema.org/Offer\"> <div class=\"tr\"> <div class=\"th\" itemprop=\"name\"><%= offer.shortOfferName %></div> <div class=\"th\">Monthly</div> </div> <div class=\"tr\"> <div class=\"td\"> <ul class=\"list--greybullet list--dual-column\"> <% _.forEach(offer.specifications, function(spec){ %> <li itemprop=\"description\"><%= spec %></li> <% }) %> </ul> </div> <div class=\"td\" itemprop=\"price\"> <%= offer.price %> <meta itemprop=\"priceCurrency\" content=\"DKK\"/> </div> </div> </a> <% }) %> </div> </div> </div> </div> <div class=\"container block--product__option\"> <div class=\"mobile-li-one-whole tablet-li-one-half desk-li-one-half\"> <div class=\"block--product__price\"> <span class=\"block--product__period\">Monthly:</span> <strong class=\"block--product__amount\" data-itemprop=\"monthlyCost\"><%= defaultSkuMonthlyPrice.priceValue %></strong> </div> </div> <div class=\"mobile-li-one-whole tablet-li-one-half desk-li-one-half omega\"> <div class=\"mobile-one-third tablet-one-third desk-one-third \"> <div class=\"form-item form-active\"> <label for=\"qty\">Qty.</label> <input id=\"qty\" type=\"number\" value=\"1\" /> </div> </div> <div class=\"mobile-two-thirds tablet-two-thirds desk-two-thirds omega\"> <% _.forEach(skuList, function(sku) { %> <% if (sku.isDefaultSku && sku.stockInfo) { %> <p class=\"block--product__status\"> <span class=\"status-dot status-dot--<%= sku.stockInfo.style %>\" data-stock-text=\"stockInfoText\" data-itemprop=\"stockInfo\"><%= sku.stockInfo.deliveryText %></span> </p> <button class=\"button button--accept button--flow icon-arrow-next\" data-itemprop=\"purchase\"><%= sku.stockInfo.purchaseButtonText %></button> <% } %> <% }) %> </div> </div> </div> <div class=\"container block--product__details\"> <ul class=\"mobile-li-one-whole tablet-li-one-half desk-li-one-half\"> <% if (contractList.length) { %> <% _.forEach(skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == selectedSku.skuId) { %> <li><a class=\"bullet-link\" href=\"#\"><span data-itemprop=\"minPrice\"><%= skuPrice.minimumPriceText %></span></a></li> <% } %> <% }) %> <% } %> <% if (skuPriceList.length) { %> <% _.forEach(skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == selectedSku.skuId) { %> <li><a class=\"bullet-link\" href=\"#\"><span data-itemprop=\"downPayment\"><%= skuPrice.downpaymentText %></span></a></li> <% } %> <% }) %> <% } %> </ul> <ul class=\"mobile-li-one-whole tablet-li-one-half desk-li-one-half\"> <li><a class=\"bullet-link\" href=\"#\">Store pickup?</a></li> </ul> </div> </div> </div></div>',
+      templateImages: '<% _.forEach(mediaList, function(media) { %> <div> <span data-picture data-alt=\"The worlds most hyped smart phone.\"> <span data-src=\"<%= media.url %>\"></span> <span data-src=\"<%= media.url %>\" data-media=\"(min-width: 450px)\"></span> <span data-src=\"<%= media.url %>\" data-media=\"(min-width: 600px)\"></span> <noscript> <img src=\"<%= defaultImageMedia.url %>\" alt=\"The worlds most hyped smart phone.\"> </noscript> </span> </div><% }) %>',
+      productSelector: '#hiddenDetails'
+    };
+
+    TN.config.shop['product-list-details'] = {
+      templateProducts: "<% _.forEach(productList, function(product) { %><% if (product.highlightList.length > 0) { %> <div class=\"list-item list-item--large mobile-li-one-whole tablet-li-one-whole tablet-wide-li-two-thirds desk-li-one-half\"> <div class=\"list-item__inner-wrapper\"> <div class=\"form-checkbox form-item--small\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku) { %> <input type=\"checkbox\" name=\"checkbox-<%= sku.skuId %>\" id=\"checkbox-<%= sku.skuId %>\" value=\"option<%= sku.skuId %>\"> <label class=\"text--xsmall text--muted\" for=\"checkbox-<%= product.delivery %>\">[Compare]</label> <% } %> <% }) %> </div> <div class=\"mobile-one-whole tablet-one-half\"> <% _.forEach(product.mediaList, function(productImage) { %> <% if (productImage.isDefault) { %> <span data-picture data-alt=\"<%= product.productName %>\"> <span data-src=\"<%= productImage.url %>\"></span> <span data-src=\"<%= productImage.url %>\" data-media=\"(min-width: 450px)\"></span> <span data-src=\"<%= productImage.url %>\" data-media=\"(min-width: 600px)\"></span> <noscript> <img src=\"<%= productImage.url %>\" alt=\"<%= product.productName %>\"> </noscript> </span> <% } %> <% }) %> <% if (product.splashTagList.length > 0) { %> <% _.forEach(product.splashTagList, function(splash) { %> <div class=\"list-item__splash <% if (splash.splashDesign) { %>list-item__splash--<%= splash.splashDesign %><% } %> <%= splash.position %>\"> <div class=\"flag\"> <div class=\"flag__body\"> <% if (splash.title) { %> <div class=\"title--xxsmall\"><%= splash.title %></div> <% } %> <% if (splash.bodyText) { %> <div class=\"text--small\"><%= splash.bodyText %></div> <% } %> </div> </div> </div> <% }) %> <% } %> </div> <div class=\"mobile-one-whole tablet-one-half omega\"> <div class=\"rating--stars\" itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\"> <span class=\"rating__stars rating__stars--blue\" aria-hidden=\"true\"> <% for (var i = 1; i <= 5; i++) { %> <% if (i <= product.avgRating) { %> <span class=\"icon-star fill--whole\"></span> <% } else if (i - 0.67 <= product.avgRating) { %> <span class=\"icon-star fill--half\"></span> <% } else { %> <span class=\"icon-star\"></span> <% } %> <% } %> </span> <span class=\"aria--visible\"> <span class=\"aria--visible\">Rated </span><span itemprop=\"ratingValue\"><%= product.avgRating %></span> <span class=\"aria--visible\">out of <span itemprop=\"bestRating\">5</span></span> from <span itemprop=\"reviewCount\">86</span> users reviews </span> </div> <p> <span class=\"list-item__name title--medium mobile-one-whole\" itemprop=\"productName\"><%= product.productName %></span> </p> <ul class=\"list--check--dark\"> <% if (product.softFacts) { %> <% _.forEach (product.softFacts, function(fact) { %> <li><%= fact %></li> <% }) %> <% } %> </ul> <div class=\"list-item--large__call-to-action\"> <% if (product.colorCollection) { %> <ul class=\"radios--color\"> <% _.forEach(product.colorCollection, function(color) { %> <li> <input id=\"radio-color-<%= color.colorId %>\" data-product-id=\"<%= product.productId %>\" data-image-url=\"<%= color.imageUrl %>\" data-sku-id=\"<%= color.skuId %>\" name=\"optionColor\" type=\"radio\" value=\"<%= color.colorId %>\" <% if (color.isDefaultColor) { %>checked<% } %>/> <label tabindex=\"0\" for=\"radio-color-<%= color.colorId %>\" class=\"radio-color__<%= color.colorName %>\"><%= color.colorName %></label> </li> <% }) %> </ul> <% } %> <p> <span class=\"mobile-one-whole text--small\">[Monthly from]</span> <span class=\"list-item__price mobile-one-whole text--xlarge\" data-itemprop=\"monthlyCost\" itemprop=\"productPrice\"> <span><%= product.skuPriceList[0].priceList[0].priceValue %></span> </span> </p> <p class=\"list-item__status\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku && sku.stockInfo) { %> <span class=\"aria--visible\"><%= sku.stockInfo.deliveryText %></span> <span class=\"status-dot status-dot--<%= sku.stockInfo.style %> status-dot--small\" data-itemprop=\"stockInfo\" data-stock-text=\"stockInfoText\"><%= sku.stockInfo.deliveryText %></span> <% } %> <% }) %> </p> <button class=\"button button--action\">[Read more]</button> </div> </div> </div> <a href=\"<%= product.productUrl %>\" class=\"list-item__note mobile-one-whole\"> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\"> <%= product.subscriptionText %> </span> <% } %> <% if (product.skuPriceList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"downPayment\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.downpaymentText %> <% } %> <% }) %> </span> <% } %> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"minPrice\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.minimumPriceText %> <% } %> <% }) %> </span> <% } %> </a> </div><% } else { %> <div class=\"list-item list-item--normal mobile-li-one-whole tablet-li-one-half tablet-wide-li-one-third desk-li-one-quarter\"> <div class=\"list-item__inner-wrapper\"> <div class=\"mobile-one-third mobile-pull-left tablet-one-whole\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku) { %> <span data-picture data-alt=\"<%= product.productName %>\"> <span data-src=\"<%= sku.defaultImageMedia.url %>\"></span> <span data-src=\"<%= sku.defaultImageMedia.url %>\" data-media=\"(min-width: 450px)\"></span> <span data-src=\"<%= sku.defaultImageMedia.url %>\" data-media=\"(min-width: 600px)\"></span> <noscript> <img src=\"<%= sku.defaultImageMedia.url %>\" alt=\"<%= product.productName %>\"> </noscript> </span> <% } %> <% }) %> <% if (product.colorCollection) { %> <ul class=\"radios--color\"> <% _.forEach(product.colorCollection, function(color) { %> <li> <input id=\"radio-color-<%= color.colorId %>\" data-product-id=\"<%= product.productId %>\" data-image-url=\"<%= color.imageUrl %>\" data-sku-id=\"<%= color.skuId %>\" name=\"optionColor\" type=\"radio\" value=\"<%= color.colorId %>\" <% if (color.isDefaultColor) { %>checked<% } %>/> <label tabindex=\"0\" for=\"radio-color-<%= color.colorId %>\" class=\"radio-color__<%= color.colorName %>\"><%= color.colorName %></label> </li> <% }) %> </ul> <% } %> </div> <div class=\"mobile-two-thirds tablet-one-whole omega\"> <div class=\"list-item__info\"> <div class=\"rating--stars\" itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\"> <span class=\"rating__stars rating__stars--small\" aria-hidden=\"true\"> <% for (var i = 1; i <= 5; i++) { %> <% if (i <= product.avgRating) { %> <span class=\"icon-star fill--whole\"></span> <% } else if (i - 0.67 <= product.avgRating) { %> <span class=\"icon-star fill--half\"></span> <% } else { %> <span class=\"icon-star\"></span> <% } %> <% } %> </span> <span class=\"aria--visible\"> <span class=\"aria--visible\">Rated </span><span itemprop=\"ratingValue\"><%= product.avgRating %></span> <span class=\"aria--visible\">out of <span itemprop=\"bestRating\">5</span></span> from <span itemprop=\"reviewCount\">86</span> users reviews </span> </div> <p> <span class=\"list-item__name mobile-one-whole mobile-pull-left\" itemprop=\"productName\"><%= product.productName %></span> <% if (product.skuPriceList.length) { %> <span class=\"list-item__price mobile-one-whole mobile-pull-left\" data-itemprop=\"monthlyCost\" itemprop=\"productPrice\"><%= product.skuPriceList[0].priceList[0].priceValue %></span> <% } %> </p> </div> <% if (product.splashTagList.length > 0) { %> <% _.forEach(product.splashTagList, function(splash) { %> <div class=\"list-item__splash <% if (splash.splashDesign) { %>list-item__splash--<%= splash.splashDesign %><% } %> <%= splash.position %>\"> <div class=\"flag\"> <div class=\"flag__body\"> <% if (splash.header) { %> <div class=\"title--xxsmall\"><%= splash.header %></div> <% } %> <% if (splash.content) { %> <div class=\"text--small\"><%= splash.content %></div> <% } %> </div> </div> </div> <% }) %> <% } %> <p class=\"list-item__status\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku && sku.stockInfo) { %> <span class=\"aria--visible\"><%= sku.stockInfo.deliveryText %></span> <span class=\"status-dot status-dot--<%= sku.stockInfo.style %> status-dot--small\" data-itemprop=\"stockInfo\" data-stock-text=\"stockInfoText\"><%= sku.stockInfo.deliveryText %></span> <% } %> <% }) %> </p> <div> <a href=\"<%= product.productUrl %>\" class=\"button button--action\">[Read more]</a> </div> </div> <div class=\"form-checkbox form-item--small mobile-one-whole\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku) { %> <input type=\"checkbox\" name=\"checkbox-<%= sku.skuId %>\" id=\"checkbox-<%= sku.skuId %>\" value=\"option<%= sku.skuId %>\"> <label class=\"text--xsmall text--muted\" for=\"checkbox-<%= sku.skuId %>\">[Compare]</label> <% } %> <% }) %> </div> </div> <a href=\"<%= product.productUrl %>\" class=\"list-item__note mobile-one-whole\"> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\"> <%= product.subscriptionText %> </span> <% } %> <% if (product.skuPriceList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"downPayment\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.downpaymentText %> <% } %> <% }) %> </span> <% } %> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"minPrice\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.minimumPriceText %> <% } %> <% }) %> </span> <% } %> </a> </div><% }}) %>",
+      ajaxFormSelector: '#filterProductsForm',
+      catalogId: 1
+    };
+  </script>
+  {{/content}}
+
+{{/extend}}
+

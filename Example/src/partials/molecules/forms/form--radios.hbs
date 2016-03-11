@@ -1,0 +1,13 @@
+---
+title: radio buttons
+---
+<ul class="form-item {{#if inline}}form-inline{{/if}} {{styles}}">
+  {{#if options}}
+  {{#each options}}
+  <li class="form-radio">
+    <input id="radioxoption{{@index}}" type="radio" name="optionsRadios" value="{{this.value}}" {{#unless @index}} checked {{/unless}} />
+    <label class="text--med" for="radioxoption{{@index}}">{{this.value}}</label>
+  </li>
+  {{/each}}
+  {{/if}}
+</ul>

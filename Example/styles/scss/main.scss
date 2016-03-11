@@ -1,0 +1,17 @@
+$oldie: false;
+
+// Import OSEF styles
+@import "_framework/osef-main";
+
+// Import global styles
+@import "_framework/os-global";
+
+// Import development Stylesheets
+@import "base/all";
+@import "layout/all";
+@import "modules/all";
+
+// @Todo: Move icon-helpers once the new icon syntax is implemented.
+[class^="icon-telenor"]:before {
+  color: $color-telenor-blue;
+}

@@ -1,0 +1,40 @@
+---
+title: HTML5 inputs
+status: In progress
+version: 0.5.1
+field-search:
+  label:
+    text: Search product
+    inline: true
+  id: search-field-one
+---
+<!-- : Email -->
+<div class="form-item">
+  <label for="email1">Email</label>
+  <input id="email1" type="email" placeholder="name@email.com" />
+</div>
+<!-- : Search -->
+{{> field--search--ajax field-search}}
+
+<!-- : Number -->
+<div class="form-item">
+  <label for="num1">Age</label>
+  <input id="num1" type="number" placeholder="Enter a number" />
+</div>
+<!-- : Number with increment and decrement -->
+<div class="form-item">
+  <label for="inc1">Increase or decrease</label>
+  <div class="form-item__number-wrapper">
+    <input data-module="element.number" id="inc1" type="number" value="1" min="1" max="10" step="1" />
+  </div>
+</div>
+<!-- : Telephone -->
+<div class="form-item">
+  <label for="tel1">Phone</label>
+  <input id="tel1" type="tel" placeholder="+45 12 34 56 78" />
+</div>
+<!-- : Url -->
+<div class="form-item">
+  <label for="url1">Web address</label>
+  <input id="url1" type="url" placeholder="www.example.com" />
+</div>

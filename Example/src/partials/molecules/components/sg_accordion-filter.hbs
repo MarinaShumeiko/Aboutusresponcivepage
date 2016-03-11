@@ -1,0 +1,52 @@
+---
+title: Accordion filter
+
+status: In progress
+version: 0.5.1
+tabs:
+  - tab: html
+viewport:
+
+accordionFilter:
+    class: border
+    attributes:
+      id: "example-table-accordion-filter"
+    items:
+    - label: Roaming 3G<span class="count"> (3)</span>
+      id: 145
+      checked: true
+    - label: Messages<span class="count"> (5)</span>
+      id: parent1
+      items:
+      - label: SMS<span class="count"> (1)</span>
+        id: 1
+        checked: false
+      - label: Roaming MMS<span class="count"> (4)</span>
+        id: 6
+        checked: true
+    - label: Roaming 3G<span class="count"> (3)</span>
+      id: 120
+      checked: false
+    - label: Roaming call<span class="count"> (3)</span>
+      id: 9
+      checked: false
+    - label: Local call<span class="count"> (3)</span>
+      id: 8
+      checked: true
+    - label: Messages<span class="count"> (5)</span>
+      id: parent2
+      items:
+      - label: SMS<span class="count"> (1)</span>
+        id: 1245
+        checked: false
+      - label: Roaming MMS<span class="count"> (4)</span>
+        id: 34
+        checked: true
+    - label: Voice call<span class="count"> (3)</span>
+      id: 7
+      checked: false
+
+---
+
+{{> accordion-filter sgComponentContext.accordionFilter }}
+

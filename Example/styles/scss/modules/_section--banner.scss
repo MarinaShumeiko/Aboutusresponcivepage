@@ -1,0 +1,86 @@
+.section {
+
+  @include modifier(banner) {
+
+    position: relative;
+    min-height: 350px;
+    z-index: 1;
+    cursor: pointer;
+    @extend %clearfix;
+
+    .image-block {
+      img {
+        width: 100%;
+      }
+    }
+
+    .banner-image {
+        text-align: center;
+    }
+
+    .banner-text {
+      color: $color-white;
+      z-index: 2;
+
+      p span,
+      p strong {
+        display: inline-block;
+      }
+
+      @include modifier(centre) {
+        position: relative;
+        max-width: 600px;
+        margin: {
+          right: auto;
+          left: auto;
+          top: -235px;
+        }
+
+        @include until($bp-small) {
+          padding: 0 $small-spacing-unit;
+
+          .title--xlarge {
+             @include size-3x;
+          }
+        }
+
+        .button-play {
+          background: url("../assets/images/ico-play.png") no-repeat;
+          float: left;
+          width: 110px;
+          height: 110px;
+          margin-right: $large-spacing-unit;
+
+          @include until($bp-small) {
+            background: url("../assets/images/ico-play-small.png") no-repeat;
+            width: 40px;
+            height: 40px;
+            @include rem('margin-right', $small-spacing-unit);
+             @include rem('margin-top', $base-spacing-unit);
+          }
+        }
+      }
+
+      @include modifier(left) {
+        position: absolute;
+        top: 65px;
+        left: 40px;
+        max-width: 420px;
+
+        .button-play {
+          background: url("../assets/images/ico-play-small.png") no-repeat;
+          float: left;
+          width: $xlarge-spacing-unit;
+          height: $xlarge-spacing-unit;
+          margin-right: $small-spacing-unit + 3px;
+        }
+
+         @include until($bp-small) {
+          .title--xxlarge {
+             @include size-4x;
+          }
+        }
+      }
+    }
+  }
+}

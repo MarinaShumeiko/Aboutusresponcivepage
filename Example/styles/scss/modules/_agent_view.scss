@@ -1,0 +1,111 @@
+// agent-view__wrapper
+
+$agent-view-left-column-small-width: 50px;
+$agent-view-left-column-large-width: 300px;
+$agent-view-icon-height: 50px;
+$agent-view-icon-size: 24px;
+
+.agent-view {
+  @include element(head) {
+    background: $color-black;
+    position: relative;
+    z-index: 3;
+    height: 50px;
+
+    .menu a {
+      color: $color-white;
+      display: inline-block;
+      vertical-align: top;
+      height: $agent-view-icon-height;
+      width: $agent-view-left-column-small-width;
+      padding: 11px 13px 0;
+
+      &:before {
+        font-size: $agent-view-icon-size;
+      }
+    }
+  }
+
+  @include element(main) {
+    padding: 0 0 0 $agent-view-left-column-small-width;
+    position: relative;
+  }
+
+  @include element(left-column) {
+    background: $color-telenor-blue-dark;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $agent-view-left-column-small-width;
+    z-index: 2;
+    overflow: hidden;
+
+    &:after {
+      background: $color-black;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: $agent-view-left-column-small-width;
+      bottom: 0;
+    }
+
+    &.is-close {
+      .text {
+        display: none;
+      }
+    }
+  }
+
+  @include element(search-block) {
+    z-index: 3;
+    position: absolute;
+    top: $agent-view-icon-height;
+    left: $agent-view-left-column-small-width;
+  }
+
+  @include element(nav) {
+    z-index: 2;
+    position: relative;
+
+    li {
+      @extend .clear;
+      line-height: $agent-view-icon-height;
+    }
+
+    a {
+      color: $color-white;
+      display: block;
+      height: $agent-view-icon-height;
+      white-space: nowrap;
+    }
+
+    .icon {
+      width: $agent-view-left-column-small-width;
+      display: inline-block;
+      vertical-align: top;
+      height: $agent-view-icon-height;
+      padding: 0 15px;
+
+      &:before {
+        font-size: $agent-view-icon-size;
+      }
+    }
+
+    .text {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: top;
+      height: 100%;
+      text-overflow: ellipsis;
+      width: $agent-view-left-column-large-width - $agent-view-left-column-small-width;
+    }
+
+    @include element(bottom) {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,215 @@
+---
+title: "Shop: Product list"
+author: Dan Sunesen and Jesper Wøldiche, Designit
+date: January, 2014
+status: in progress
+index: 4
+fullpage-prototype: true
+description: Prototype of a product list page displaying a list of phones, including header and secondary content.
+
+media:
+  image: assets/images/resp/iphone5_white
+  type: png
+
+config:
+  hero:
+    title: Choose your next phone
+    breadcrumb:
+    - Shop
+    - Phones
+  filterblock:
+    filters:
+      brand:
+        title: Brand
+        primary: true
+        options:
+        - displayname: Apple
+          counter: 4
+        - displayname: Samsung
+          counter: 8
+          checked: false
+        - displayname: Sony
+          counter: 4
+        - displayname: HTC
+          counter: 5
+        - displayname: Doro
+          counter: 1
+      os:
+        title: OS
+        options:
+        - displayname: Android
+          counter: 4
+        - displayname: Windows
+          counter: 8
+        - displayname: iOS
+          counter: 4
+          checked: false
+        - displayname: BlackBerry
+          counter: 5
+      features:
+        title: Features
+        options:
+        - displayname: Smartphone
+          counter: 4
+        - displayname: Feature Phone
+          counter: 3
+        - displayname: Heavy Duty
+          counter: 4
+        - displayname: Large Phone
+          counter: 4
+        - displayname: We make more money
+          counter: 4
+        - displayname: Cheap
+          counter: 3
+        - displayname: Fun!
+          counter: 4
+        - displayname: Large Phone
+          counter: 4
+  productblock:
+    products:
+    - id: 1
+      title: Samsung Galaxy S4 - Something special
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 111
+      status: green
+      large: false
+      splashtitle: Halv Pris
+      splashbody: 145,00 Kr
+      splashcolor: orange
+    - id: 2
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Delivery: 4-5 days"
+      sku: 222
+      status: yellow
+      large: false
+    - id: 3
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Not in stock"
+      sku: 333
+      status: red
+      large: false
+      splashtitle: 200 MB
+      splashbody: Gratis data
+    - id: 4
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 444
+      status: green
+      large: false
+    - id: 5
+      title: Samsung Galaxy S4 G4+
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 555
+      status: green
+      large: true
+    - id: 6
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 666
+      status: green
+      large: false
+    - id: 7
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 8
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 9
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 10
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 11
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 12
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 13
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 14
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: true
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+    <div id="hero" class="section section--hero section--negative">
+    {{> block--default--hero config.hero}}
+    </div>
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+    <div id="product-list" data-module="shop.productlist" data-filterlist="#filters-category" data-productlist="#products-category">
+      {{> block--product--filtering config.filterblock}}
+      {{> block--product--list config.productblock}}
+    </div>
+    {{> block--product--list--thumbs config.productblock}}
+    <form id="filterProductsForm" method="post" action="src/data/productscategory.json"></form>
+  {{/content}}
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  <script>
+    var TN = TN || {};
+    TN.config = TN.config || {};
+
+
+    TN.config.shop = TN.config.shop || {};
+    TN.config.shop['product-list'] = {
+      templateFilters: "<ul id=\"filters-chosen\" class=\"form-item form-inline\" data-desk-append=\"panel-<% _.forEach(_.sortBy(filterTypeList, _.parseInt('filterTypeId')), function(filter) { if (_.parseInt(filter.filterTypeId) === 1) { %><%= filter.filterTypeName %><%}})%>\" data-mobile-prepend=\"filters-category\"></ul><div class=\"panel-group\" id=\"filters-primary\"></div><div class=\"panel-group is-collapsed filter-collapse\" id=\"filters-secondary\" data-desk-addClass=\"is-collapsed\" data-desk-removeClass=\"is-open\" data-mobile-removeClass=\"is-open\" data-mobile-addClass=\"is-collapsed\"> <% _.forEach(_.sortBy(filterTypeList, _.parseInt('filterTypeId')), function(filter) { %> <div class=\"panel panel-accordion panel-accordion--filter\" <% if (_.parseInt(filter.filterTypeId) === 1) { %>data-desk-append=\"filters-primary\" data-mobile-prepend=\"filters-secondary\"<% } %>> <div class=\"panel-heading panel-accordion__heading\" <% if (_.parseInt(filter.filterTypeId) === 1) { %>data-mobile-removeClass=\"is-collapsed filter-collapse is-open is-active\" data-desk-addClass=\"is-collapsed filter-collapse\" data-desk-removeClass=\"is-active\"<% } %>> <a href=\"#panel-<%= filter.filterTypeName %>\" data-toggle=\"collapse\" data-parent=\".panel-group\"> <%= filter.filterTypeName %> </a> </div> <div id=\"panel-<%= filter.filterTypeName %>\" class=\"panel-body panel-accordion__body is-collapsed\" data-mobile-addClass=\"is-collapsed\" data-desk-removeClass=\"is-collapsed filter-collapse is-open\"> <ul id=\"list-<%= filter.filterTypeName %>\" class=\"form-item form-inline\"> <% _.forEach(filter.filterList, function(filterList) {%> <li class=\"form-checkbox--filter <% if (_.parseInt(filter.filterTypeId) === 1) { %>form-checkbox--filter--primary<% } %>\"> <input type=\"checkbox\" name=\"options<%= filterList.filterName %>\" id=\"filter<%= filterList.id %>\" value=\"<%= filterList.filterDescription %>\" <% if (filterList.Selected === true) {%>checked data-filter-state=\"checked\"<%} else if (filterList.selected === false && filterList.count > 0) {%>data-filter-state=\"normal\"<% } else if (filterList.selected === false && filterList.count === 0) { %> disabled data-filter-state=\"disabled\"<%}%> data-filter-count=\"<%= filterList.count %>\" data-filter-id=\"<%= filterList.id %>\"> <label class=\"text\" for=\"filter<%= filterList.id %>\"><%= filterList.filterName %> <span class=\"filter-count\">(<%= filterList.count %>)</span></label> </li> <% }) %> </ul> </div> </div> <% }) %> <% if (offerList.length > 0) { %> <div class=\"menu--filtering__subscription mobile-one-whole omega\" data-desk-after=\"menu-filters-category\" data-mobile-append=\"filters-secondary\"> <label for=\"select-offer\" class=\"form-item__label text--small\"><%= offerList.offerDescription %></label> <div class=\"form-item--select form-item--inline form-item--small\"> <h2 class=\"aria--visible\"><%= offerList.offerDescription %></h2> <div class=\"select-wrapper\"> <select id=\"select-offer\"> <option value=\"null\" data-filter-id=\"null\">Recommended Subscription</option> <% _.forEach(offerList.offers, function(offer) { %> <option value=\"<%= offer.offerId %>\" data-filter-id=\"<%= offer.offerId %>\"><%= offer.offerName %></option> <% }) %> </select> </div> </div> </div> <% } %></div>",
+      templateProducts: "<% _.forEach(productList, function(product) { %><% if (product.highlightList.length > 0) { %> <div class=\"list-item list-item--large mobile-li-one-whole tablet-li-one-whole tablet-wide-li-two-thirds desk-li-one-half\"> <div class=\"list-item__inner-wrapper\"> <div class=\"form-checkbox form-item--small\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku) { %> <input type=\"checkbox\" name=\"checkbox-<%= sku.skuId %>\" id=\"checkbox-<%= sku.skuId %>\" value=\"option<%= sku.skuId %>\"> <label class=\"text--xsmall text--muted\" for=\"checkbox-<%= product.delivery %>\">[Compare]</label> <% } %> <% }) %> </div> <div class=\"mobile-one-whole tablet-one-half\"> <% _.forEach(product.mediaList, function(productImage) { %> <% if (productImage.isDefault) { %> <span data-picture data-alt=\"<%= product.productName %>\"> <span data-src=\"<%= productImage.url %>\"></span> <span data-src=\"<%= productImage.url %>\" data-media=\"(min-width: 450px)\"></span> <span data-src=\"<%= productImage.url %>\" data-media=\"(min-width: 600px)\"></span> <noscript> <img src=\"<%= productImage.url %>\" alt=\"<%= product.productName %>\"> </noscript> </span> <% } %> <% }) %> <% if (product.splashTagList.length > 0) { %> <% _.forEach(product.splashTagList, function(splash) { %> <div class=\"list-item__splash <% if (splash.splashDesign) { %>list-item__splash--<%= splash.splashDesign %><% } %> <%= splash.position %>\"> <div class=\"flag\"> <div class=\"flag__body\"> <% if (splash.title) { %> <div class=\"title--xxsmall\"><%= splash.title %></div> <% } %> <% if (splash.bodyText) { %> <div class=\"text--small\"><%= splash.bodyText %></div> <% } %> </div> </div> </div> <% }) %> <% } %> </div> <div class=\"mobile-one-whole tablet-one-half omega\"> <div class=\"rating--stars\" itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\"> <span class=\"rating__stars rating__stars--blue\" aria-hidden=\"true\"> <% for (var i = 1; i <= 5; i++) { %> <% if (i <= product.avgRating) { %> <span class=\"icon-star fill--whole\"></span> <% } else if (i - 0.67 <= product.avgRating) { %> <span class=\"icon-star fill--half\"></span> <% } else { %> <span class=\"icon-star\"></span> <% } %> <% } %> </span> <span class=\"aria--visible\"> <span class=\"aria--visible\">Rated </span><span itemprop=\"ratingValue\"><%= product.avgRating %></span> <span class=\"aria--visible\">out of <span itemprop=\"bestRating\">5</span></span> from <span itemprop=\"reviewCount\">86</span> users reviews </span> </div> <p> <span class=\"list-item__name title--medium mobile-one-whole\" itemprop=\"productName\"><%= product.productName %></span> </p> <ul class=\"list--check--dark\"> <% if (product.softFacts) { %> <% _.forEach (product.softFacts, function(fact) { %> <li><%= fact %></li> <% }) %> <% } %> </ul> <div class=\"list-item--large__call-to-action\"> <% if (product.colorCollection) { %> <ul class=\"radios--color\"> <% _.forEach(product.colorCollection, function(color) { %> <li> <input id=\"radio-color-<%= color.colorId %>\" data-product-id=\"<%= product.productId %>\" data-image-url=\"<%= color.imageUrl %>\" data-sku-id=\"<%= color.skuId %>\" name=\"optionColor\" type=\"radio\" value=\"<%= color.colorId %>\" <% if (color.isDefaultColor) { %>checked<% } %>/> <label tabindex=\"0\" for=\"radio-color-<%= color.colorId %>\" class=\"radio-color__<%= color.colorName %>\"><%= color.colorName %></label> </li> <% }) %> </ul> <% } %> <p> <span class=\"mobile-one-whole text--small\">[Monthly from]</span> <span class=\"list-item__price mobile-one-whole text--xlarge\" data-itemprop=\"monthlyCost\" itemprop=\"productPrice\"> <span><%= product.skuPriceList[0].priceList[0].priceValue %></span> </span> </p> <p class=\"list-item__status\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku && sku.stockInfo) { %> <span class=\"aria--visible\"><%= sku.stockInfo.deliveryText %></span> <span class=\"status-dot status-dot--<%= sku.stockInfo.style %> status-dot--small\" data-itemprop=\"stockInfo\" data-stock-text=\"stockInfoText\"><%= sku.stockInfo.deliveryText %></span> <% } %> <% }) %> </p> <button class=\"button button--action\">[Read more]</button> </div> </div> </div> <a href=\"<%= product.productUrl %>\" class=\"list-item__note mobile-one-whole\"> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\"> <%= product.subscriptionText %> </span> <% } %> <% if (product.skuPriceList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"downPayment\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.downpaymentText %> <% } %> <% }) %> </span> <% } %> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"minPrice\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.minimumPriceText %> <% } %> <% }) %> </span> <% } %> </a> </div><% } else { %> <div class=\"list-item list-item--normal mobile-li-one-whole tablet-li-one-half tablet-wide-li-one-third desk-li-one-quarter\"> <div class=\"list-item__inner-wrapper\"> <div class=\"mobile-one-third mobile-pull-left tablet-one-whole\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku) { %> <span data-picture data-alt=\"<%= product.productName %>\"> <span data-src=\"<%= sku.defaultImageMedia.url %>\"></span> <span data-src=\"<%= sku.defaultImageMedia.url %>\" data-media=\"(min-width: 450px)\"></span> <span data-src=\"<%= sku.defaultImageMedia.url %>\" data-media=\"(min-width: 600px)\"></span> <noscript> <img src=\"<%= sku.defaultImageMedia.url %>\" alt=\"<%= product.productName %>\"> </noscript> </span> <% } %> <% }) %> <% if (product.colorCollection) { %> <ul class=\"radios--color\"> <% _.forEach(product.colorCollection, function(color) { %> <li> <input id=\"radio-color-<%= color.colorId %>\" data-product-id=\"<%= product.productId %>\" data-image-url=\"<%= color.imageUrl %>\" data-sku-id=\"<%= color.skuId %>\" name=\"optionColor\" type=\"radio\" value=\"<%= color.colorId %>\" <% if (color.isDefaultColor) { %>checked<% } %>/> <label tabindex=\"0\" for=\"radio-color-<%= color.colorId %>\" class=\"radio-color__<%= color.colorName %>\"><%= color.colorName %></label> </li> <% }) %> </ul> <% } %> </div> <div class=\"mobile-two-thirds tablet-one-whole omega\"> <div class=\"list-item__info\"> <div class=\"rating--stars\" itemprop=\"aggregateRating\" itemscope itemtype=\"http://schema.org/AggregateRating\"> <span class=\"rating__stars rating__stars--small\" aria-hidden=\"true\"> <% for (var i = 1; i <= 5; i++) { %> <% if (i <= product.avgRating) { %> <span class=\"icon-star fill--whole\"></span> <% } else if (i - 0.67 <= product.avgRating) { %> <span class=\"icon-star fill--half\"></span> <% } else { %> <span class=\"icon-star\"></span> <% } %> <% } %> </span> <span class=\"aria--visible\"> <span class=\"aria--visible\">Rated </span><span itemprop=\"ratingValue\"><%= product.avgRating %></span> <span class=\"aria--visible\">out of <span itemprop=\"bestRating\">5</span></span> from <span itemprop=\"reviewCount\">86</span> users reviews </span> </div> <p> <span class=\"list-item__name mobile-one-whole mobile-pull-left\" itemprop=\"productName\"><%= product.productName %></span> <% if (product.skuPriceList.length) { %> <span class=\"list-item__price mobile-one-whole mobile-pull-left\" data-itemprop=\"monthlyCost\" itemprop=\"productPrice\"><%= product.skuPriceList[0].priceList[0].priceValue %></span> <% } %> </p> </div> <% if (product.splashTagList.length > 0) { %> <% _.forEach(product.splashTagList, function(splash) { %> <div class=\"list-item__splash <% if (splash.splashDesign) { %>list-item__splash--<%= splash.splashDesign %><% } %> <%= splash.position %>\"> <div class=\"flag\"> <div class=\"flag__body\"> <% if (splash.header) { %> <div class=\"title--xxsmall\"><%= splash.header %></div> <% } %> <% if (splash.content) { %> <div class=\"text--small\"><%= splash.content %></div> <% } %> </div> </div> </div> <% }) %> <% } %> <p class=\"list-item__status\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku && sku.stockInfo) { %> <span class=\"aria--visible\"><%= sku.stockInfo.deliveryText %></span> <span class=\"status-dot status-dot--<%= sku.stockInfo.style %> status-dot--small\" data-itemprop=\"stockInfo\" data-stock-text=\"stockInfoText\"><%= sku.stockInfo.deliveryText %></span> <% } %> <% }) %> </p> <div> <a href=\"<%= product.productUrl %>\" class=\"button button--action\">[Read more]</a> </div> </div> <div class=\"form-checkbox form-item--small mobile-one-whole\"> <% _.forEach(product.skuList, function(sku) { %> <% if (sku.isDefaultSku) { %> <input type=\"checkbox\" name=\"checkbox-<%= sku.skuId %>\" id=\"checkbox-<%= sku.skuId %>\" value=\"option<%= sku.skuId %>\"> <label class=\"text--xsmall text--muted\" for=\"checkbox-<%= sku.skuId %>\">[Compare]</label> <% } %> <% }) %> </div> </div> <a href=\"<%= product.productUrl %>\" class=\"list-item__note mobile-one-whole\"> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\"> <%= product.subscriptionText %> </span> <% } %> <% if (product.skuPriceList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"downPayment\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.downpaymentText %> <% } %> <% }) %> </span> <% } %> <% if (product.contractList.length) { %> <span class=\"mobile-one-whole omega\" data-itemprop=\"minPrice\"> <% _.forEach(product.skuPriceList, function(skuPrice){ %> <% if(skuPrice.skuId == product.selectedSku.skuId) { %> <%= skuPrice.minimumPriceText %> <% } %> <% }) %> </span> <% } %> </a> </div><% }}) %>",
+      ajaxFormSelector: '#filterProductsForm',
+      catalogId: 1
+    };
+  </script>
+  {{/content}}
+
+{{/extend}}

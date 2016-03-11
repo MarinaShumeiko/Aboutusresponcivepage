@@ -1,0 +1,241 @@
+.addon-page {
+  .section--productnav {
+    padding: 0;
+  }
+}
+
+.addon {
+  line-height: $base-line-height;
+
+  @include element(block) {
+    padding: $large-spacing-unit 0;
+    margin-right: 0;
+
+    @include until($bp-small) {
+      padding: $base-spacing-unit $small-spacing-unit;
+    }
+
+    @include modifier(price) {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      @include until($bp-small) {
+        position: static;
+        padding-top: 0;
+      }
+    }
+
+    @include modifier(expire) {
+      background-color: $color-white;
+      
+      @include until($bp-small) {
+        position: relative;
+        min-height: 145px;
+      }
+    }
+  }
+
+  @include element(info) {
+    @include element(title) {
+      color: $color-grey-dark;
+    }
+  }
+
+  @include element(info-block) {
+    padding-top: $med-spacing-unit;
+
+    &.border--top {
+      margin-top: $med-spacing-unit;
+    }
+  }
+
+  @include element(description) {
+    min-height: 195px;
+    padding-left: $base-spacing-unit;
+
+    @include until($bp-small) {
+      padding-left: $small-spacing-unit;
+      min-height: 0;
+    }
+
+    @include element(order) {
+      margin-top: $med-spacing-unit;
+    }
+
+    @include element(text) {
+      @include until($bp-small) {
+        .text--med {
+          @include rem('font-size', 13px);
+        }
+      }
+    }
+
+    .title--medium {
+      @include until($bp-small) {
+        @include rem('font-size', 24px);
+      }
+    }
+
+    @include element(info) {
+      height: 0;
+      overflow: hidden;
+
+      &.is-open {
+        height: auto;
+      }
+    }
+  }
+
+  @include element(cancelation) {
+    overflow: hidden;
+    margin-bottom: 40px;
+    height: 15px;
+
+    &.is-open,
+    &.collapsing {
+      margin-bottom: 0;
+    }
+
+    &.is-collapsed {
+      display: block;
+    }
+
+    @include element(button) {
+      position: absolute;
+      display: none;
+
+      .addon__description__info.is-open & {
+        display: block;
+      }
+
+      .addon__cancelation.is-open &,
+      .addon__cancelation.collapsing & {
+        display: none;
+      }
+    }
+
+    @include element(info) {
+      background-color: $color-white;
+    }
+  }
+
+  @include element(price) {
+    padding-left: $base-spacing-unit;
+    height: 100%;
+
+    &:before {
+      @extend .border--left;
+
+      position: absolute;
+      top: $large-spacing-unit;
+      bottom: $large-spacing-unit;
+      width: 1px;
+      margin-left: -$base-spacing-unit;
+      content: " ";
+
+      @include until($bp-small) {
+        display: none;
+      }
+    }
+
+    @include element(type) {
+      @include until($bp-small) {
+        padding-top: 14px;
+
+        &.trailer--small {
+          margin-bottom: $base-spacing-unit;
+        }
+      }
+    }
+
+    @include until($bp-small) {
+      padding-right: $base-spacing-unit;
+      padding-top: $base-spacing-unit;
+      border-top: $border;
+    }
+
+    @include element(value) {
+      @include until($bp-small) {
+        text-align: right;
+      }
+    }
+  }
+
+  @include element(date-wrap) {
+    padding: 8px;
+  }
+
+  @include element(separator) {
+    width: 10%;
+  }
+
+  @include element(modify-button) {
+    width: 140px;
+
+    &.button--accept.is-expanded {
+      @extend .button--default;
+    }
+
+    @include element(close-text) {
+      .button--accept.is-expanded & {
+        display: none;
+      }
+    }
+
+    @include element(open-text) {
+      display: none;
+
+      .button--accept.is-expanded & {
+        display: inline;
+      }
+    }
+
+    @include until($bp-small) {
+      width: $all-space;
+      display: block;
+    }
+  }
+
+  @include element(expire) {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    @include element(text) {
+      position: absolute;
+      bottom: $large-spacing-unit;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+
+  color: $color-black-light;
+  position: relative;
+  margin: 0;
+
+  .text--small,
+  .text--xsmall {
+    color: $color-grey-dark;
+    line-height: $base-line-height;
+  }
+
+  .form--daterange.form-item--inline {
+    margin-top: 0;
+    margin-left: 0;
+
+    @include until($bp-medium) {
+      min-width: 170px;
+    }
+  }
+
+  .icon-bullet {
+    &:before {
+      font-size: 8px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.form--editable {
+  @include element(icons-submit) {
+    display: none;
+  }
+
+	.icon-save,
+  .icon-clear {
+		margin: 0 .5rem;
+    height: 19px;
+    width: 19px;
+	}
+
+  .icon-save,
+  .icon-edit,
+  .icon-clear {
+    cursor: pointer;
+
+    &:hover:before {
+      color: $color-telenor-blue-light;
+    }
+  }
+
+  .not-valid {
+    border: $border-form-input-error;
+  }
+}

@@ -1,0 +1,48 @@
+---
+title: "Shop: Plan page"
+
+author: Marina Shumeyko, Telenor
+date: July, 2014
+status: in progress
+index: 10
+fullpage-prototype: true
+description: Prototype of a select your plan.
+config: 
+  buttontext:
+    button-text: Add to basket
+    button-class: 'add-product'
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+  <section class="section--plan">
+    <div class="banner-image trailer--large" style="background: url('assets/images/planpage-banner.png') ; background-size: cover; -moz-background-size: cover;">
+      <div class="container banner-info">
+        <div class="banner-title">
+          <h1 class="title--xxlarge">Danmarks <strong>bedste</strong> netværk</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      {{> block--plan config.buttontext}}
+    </div>
+  </section>
+  {{/content}}
+
+
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  {{/content}}
+
+{{/extend}}

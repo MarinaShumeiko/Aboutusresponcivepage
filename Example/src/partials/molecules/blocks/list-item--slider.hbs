@@ -1,0 +1,28 @@
+---
+title: List item with product details for use in a slider
+
+author: Rasmus Thulstrup, Designit
+date: March, 2014
+---
+
+<!-- : Product -->
+<div class="list-item">
+  <img src="{{image}}">
+  <div class="list-item__inner-wrapper">
+    {{> rating--stars--single}}
+    <p>
+      <span class="list-item__name mobile-one-whole" itemprop="productName">{{title}}</span>
+      <span class="list-item__price mobile-one-whole" itemprop="productPrice">{{price}}</span>
+    </p>
+    <p class="list-item__status mobile-one-whole">
+      <span class="status-indicator status--green" aria-hidden="true"></span>
+      <span class="aria--visible">In stock</span>
+      <span class="text--secondary">Express delivery: 1-2 days</span>
+    </p>
+    {{#if added}}
+    <button class="button button--added" disabled>Lagt i kurv!</button>
+    {{else}}
+    <button class="button button--action button--buy" data-sku="{{sku}}" data-bought="Lagt i kurv!">Læg i kurv</button>
+    {{/if}}
+  </div>
+</div>

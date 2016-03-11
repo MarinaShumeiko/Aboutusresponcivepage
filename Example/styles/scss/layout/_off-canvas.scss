@@ -1,0 +1,89 @@
+// Javascript enhanced navigation.
+// ===========================================
+
+// Off-canvas navigation element.
+// -------------------------------------------
+// .offcanvas applied to body when canvas menu is enabled.
+// .offcanvas--open applied to body when canvas menu is activated.
+
+.offcanvas {
+
+  // Closed
+  .section {
+    // Off canvas menu
+    @include modifier(offcanvas) {
+      position: fixed;
+      z-index: 0;
+      width: 100%;
+      max-width: $login-panel-width;
+      right: 0;
+      top: 0;
+      height: 100%;
+      overflow-x: scroll;
+    }
+
+    // Content to be hidden when menu is open.
+    @include modifier(oncanvas) {
+      background-color: #fff;
+      position: relative;
+      transition: transform .3s ease-out;
+      -webkit-transition: -webkit-transform .3s ease-out;
+      min-height: 100%;
+      z-index: 1;
+
+      @include at-least($bp-medium) {
+        padding-bottom: 475px; // Should be the same as the height of the footer.
+      }
+
+      @include at-least($bp-large) {
+        padding-bottom: 345px; // Should be the same as the height of the footer.
+      }
+    }
+  }
+
+  // Off-canvas nav open.
+  // class applied to body when off canvas nav is open.
+  @include modifier(open) {
+    height: 100%;
+    overflow: hidden;
+
+    .section {
+      // Content to be hidden when menu is open.
+      @include modifier(oncanvas) {
+        box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+        transform: translateX(-$login-panel-width);
+        -webkit-transform: translateX(-$login-panel-width);
+      }
+    }
+  }
+}
+
+// Transparent overlay.
+.section--oncanvas {
+  &:after {
+    background-color: rgba(#000, .35);
+    content: "";
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: zindex(overlay);
+  }
+
+  &.is-disabled {
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+      user-select: none;
+      transition: opacity .5s;
+      visibility: visible;
+    }
+  }
+}

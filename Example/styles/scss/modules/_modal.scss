@@ -1,0 +1,39 @@
+.modal {
+  background: $color-white-grey;
+  position: fixed;
+  width: 460px;
+  min-height: 270px;
+  left: 50%;
+  top: 50%;
+  margin-top: -135px;
+  margin-left: -230px;
+  z-index: zindex(modal);
+
+  .button {
+    float: left;
+    width: 49%;
+
+    & + .button {
+      float: right;
+    }
+  }
+}
+
+.modal__header {
+  background: $color-white url("../assets/icons-prot/thumb_bubble.png") $base-spacing-unit center no-repeat;
+  padding: $small-spacing-unit $base-spacing-unit $small-spacing-unit 75px;
+  min-height: 70px;
+
+  p {
+    padding: 7px 0;
+  }
+}
+
+.modal__body {
+  padding: $large-spacing-unit $base-spacing-unit $base-spacing-unit;
+}
+
+.modal__close {
+  color: $color-telenor-blue;
+  outline: none;
+}

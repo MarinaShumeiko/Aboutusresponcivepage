@@ -1,0 +1,27 @@
+.block {
+  // Media block with left-aligned images/icons
+  // ----------------------------------------------
+  // .block--media
+  // .block--media__img
+  // .block--media__content
+
+  @include modifier(media) {
+    @extend %clearfix;
+    @include rem('margin-top', 35px);
+
+    @include element(img) {
+      width: 50px;
+      float: left;
+      overflow: hidden;
+    }
+
+    @include element(content) {
+      margin-left: 55px;
+
+      > * {
+        margin-top: 0;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,65 @@
+---
+title: "Shop: The Plan Guide"
+
+author: Marina Shumeyko, Telenor
+date: July, 2014
+status: in progress
+index: 10
+fullpage-prototype: true
+description: Prototype of a plan guide page.
+config:
+  planguide:
+    planscale:
+      - title: E-mail
+        weight: 312 kb /mo.
+      - title: Facebook
+        weight: 1.5 GB /mo.
+      - title: Internet Suft
+        weight: 5 GB /mo.
+      - title: WebTV
+        weight: 5 GB /mo.
+      - title: Music Streamin
+        weight: 0.5 GB /mo.
+      - title: Skype
+        weight: 1.5 GB /mo.
+      - title: Youtube HD
+        weight: 1.5 GB /mo.
+    planhours:
+      - hour: +10h
+      - hour: 9h
+      - hour: 8h
+      - hour: 7h
+      - hour: 6h
+      - hour: 5h
+      - hour: 4h
+      - hour: 3h
+      - hour: 2h
+      - hour: 1h
+      - hour: 0h
+
+
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+      {{> block--plan-guide config.planguide }}
+      {{> block--accessories--list}}
+  {{/content}}
+
+
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  {{/content}}
+
+{{/extend}}

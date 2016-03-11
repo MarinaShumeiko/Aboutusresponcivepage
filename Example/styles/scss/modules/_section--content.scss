@@ -1,0 +1,11 @@
+.section {
+
+  // Contains primary content on white background.
+  @include modifier(content) {
+    $footer-height: 17px;
+
+    position: relative;
+    background: $color-white;
+    z-index: 1; // To address negative z-index used on buttons.
+  }
+}

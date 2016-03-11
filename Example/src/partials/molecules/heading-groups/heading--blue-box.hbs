@@ -1,0 +1,16 @@
+---
+title: Title wrapped in a blue box
+
+author: Rasmus Thulstrup, Designit
+date: April, 2014
+---
+
+<!-- : title blue box -->
+<header class="box--blue">
+  {{#if link}}
+  <h2 class="title--medium tablet-two-thirds">{{title}}</h2>
+  <a class="bullet-link text--small tablet-one-third tablet-pull-right tablet-text-right tablet-leader" href="#">{{link}}</a>
+  {{else}}
+  <h2 class="title--medium">{{title}}</h2>
+  {{/if}}
+</header>

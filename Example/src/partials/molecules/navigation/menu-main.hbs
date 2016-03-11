@@ -1,0 +1,28 @@
+---
+title: Main menu
+
+author: Dan Sunesen and Jesper Wøldiche, Designit
+date: January, 2014
+
+links:
+- label: Shop
+  active: true
+- label: My Telenor
+  subnav: parts/subnav--mytelenor.html
+- label: Support
+  subnav: parts/subnav--support.html
+---
+<h2 class="aria--visible">Main menu</h2>
+<ul class="menu--main clear" data-module="main-nav">
+  {{#each links}}
+  {{#if this.active}}
+  <li class="item--open active-trail" data-menu="tree">
+    <a id="main-menu--active" href="#" class="active-trail">{{this.label}}</a>
+  </li>
+  {{else}}
+  <li class="item--closed" {{#if this.subnav}}data-append="{{this.subnav}}" data-media="{{> media-until-tablet}}"{{/if}} data-menu="tree">
+    <a href="#">{{this.label}}</a>
+  </li>
+  {{/if}}
+  {{/each}}
+</ul>

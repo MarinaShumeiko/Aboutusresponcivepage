@@ -1,0 +1,281 @@
+.section--multiple-number {
+  li.form-radio {
+    @include rem('font-size', 13px);
+  }
+}
+
+.section--new-number {
+  .block__combsearch {
+    > div {
+      margin-bottom: 10px;
+    }
+
+    .button--switch {
+      display: inline-block;
+      width: 160px;
+      height: 34px;
+      border-radius: 2px;
+      background-color: #fff;
+      padding: 2px;
+      border-radius: 4px;
+      border: 1px solid $color-grey-light;
+
+
+      a {
+        display: inline-block;
+        @include rem('padding', 4px);
+        @include rem('font-size', 13px);
+        width: 49.5%;
+        @include rem('margin-right', -2px);
+        text-align: center;
+        cursor: pointer;
+
+        &.active {
+          background: $color-telenor-blue;
+          border-radius: 5px;
+          color: $color-white;
+        }
+      }
+    }
+
+    .form-search {
+      text-align: right;
+
+      input {
+        width: 100%;
+        margin: 0 10px 10px 0;
+      }
+
+      label {
+        text-align: left;
+      }
+
+      @include at-least($bp-small) {
+        input {
+          width: 85%;
+          margin: 0;
+          float: left;
+        }
+      }
+    }
+
+    @include at-least($bp-medium) {
+      > div {
+        margin: 0;
+        width: 48.8%;
+      }
+
+      .form-search {
+        label {
+          display: inline-block;
+          vertical-align: middle;
+          padding: 0 0 10px;
+        }
+
+        input {
+          max-width: 180px;
+          margin: 0 0 10px 10px;
+          float: none;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .button {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  .form-item--inline {
+    vertical-align: middle;
+    text-align: right;
+  }
+}
+
+//MAKE YOUR SELECTION/SELECTED NUMBERS numbers list
+.numbers-list {
+  @include rem('padding-bottom', 10px);
+
+  @include element(selection) {
+    li {
+      float: left;
+      width: 48%;
+      height: 32px;
+      border-radius: 5px;
+      border: 1px solid $color-grey-light;
+      @include rem('padding', 2px 5px 0);
+      @include rem('margin-bottom', 10px);
+      margin-right: 2%;
+      box-shadow: 0 2px 0 $color-grey-light;
+      background: $color-white;
+
+      &.active {
+        background: $color-green;
+
+        label {
+          color: $color-white;
+        }
+      }
+
+      @include at-least($bp-small) {
+        width: 31.33%;
+      }
+
+      @include at-least($bp-medium) {
+        width: 18%;
+      }
+    }
+  }
+
+  @include element(selected) {
+    border-radius: 5px;
+    background: $color-white-grey;
+    @include rem('padding', 20px);
+
+    li {
+      border: none;
+      box-shadow: none;
+      @include rem('font-size', 13px);
+      color: $color-grey-dark;
+      @include rem('padding', 6px 5px 2px 11px);
+
+      &:before {
+        visibility: hidden !important;
+      }
+
+      &:last-child {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &.active {
+        position: relative;
+        color: $color-white;
+
+        a {
+          &:before {
+            visibility: visible;
+            right: 10px;
+            position: absolute;
+            top: 6px;
+            cursor: pointer;
+          }
+        }
+
+        label {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//Transfer/select and combine with plans
+.section--combplans {
+  .form--editable {
+    .icon-edit {
+      background-position: 100% 0;
+      overflow: inherit;
+      text-indent: 0;
+      width: auto;
+      height: auto;
+      padding-right: 20px;
+      display: block;
+    }
+  }
+
+  .form-select {
+    &.form-item--inline {
+      margin-left: 0;
+
+        label {
+        display: block;
+
+        a {
+          color: $color-telenor-blue;
+        }
+      }
+
+      @include at-least($bp-small) {
+        width: 230px;
+      }
+    }
+  }
+
+  .col {
+    @include modifier(expander) {
+
+      &:before {
+        @include icon;
+        @include icon-plus;
+        margin-right: $small-spacing-unit;
+        background: $color-telenor-blue;
+        width: 15px;
+        height: 15px;
+        color: $color-white;
+        @include rem('padding', 3px 6px 16px 12px);
+        border-radius: 5px;
+      }
+
+      &.is-expanded {
+        &:before {
+          @include icon-minus;
+          background: $color-telenor-blue-light;
+        }
+      }
+    }
+  }
+
+  @include at-least($bp-xsmall) {
+    .button__next {
+      margin-top: -34px;
+    }
+  }
+
+  .block-extra {
+    margin: 0 -20px;
+    @include rem('padding-bottom', $xsmall-spacing-unit);
+
+    .col--expand-row {
+      @include at-least($bp-small) {
+        @include rem('padding-left', 64px);
+      }
+    }
+  }
+
+  /*Opera < 11 */
+  @media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) {
+  .block-extra {
+    @include rem('padding-bottom', $large-spacing-unit);}
+  }
+
+  @include at-least($bp-small) {
+    .button--verify {
+      margin-bottom: 37px;
+    }
+  }
+}
+
+//Forms select style
+.form-select {
+  &.form-inline {
+    display: block;
+    margin: 0 0 20px;
+  }
+
+  @include at-least($bp-small) {
+    &.form-inline {
+      display: inline-block;
+      vertical-align: bottom;
+      margin: 0 $small-spacing-unit 0 0;
+      line-height: 1.2;
+    }
+
+    button {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+}

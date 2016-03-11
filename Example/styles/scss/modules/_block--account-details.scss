@@ -1,0 +1,112 @@
+.block--acount-details {
+  @extend .block--company-info;
+
+  .block--credit-maximum {
+    @extend .box--greyed;
+    padding: 8px;
+    @include telenor-regular;
+    position: relative;
+    color: $color-grey-dark;
+
+    span {
+      @extend %size-15;
+      padding-left: 20px;
+    }
+
+    &:before {
+      position: absolute;
+      top: 11px;
+      left: 8px;
+    }
+  }
+
+  .header-link {
+    @extend %size-13;
+
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    color: $color-grey-dark;
+  }
+
+  .bill-monitor-description {
+    @extend %size-13;
+    color: $color-grey-dark;
+    @include telenor-regular;
+    line-height: 1.15rem;
+  }
+
+  .account-status {
+    @extend %size-11;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-left: 12px;
+    color: $color-white;
+    border-radius: 3px;
+    margin-top: 2px;
+
+    background-color: $color-telenor-red;
+
+    @include element(active) {
+      background-color: $color-telenor-green;
+    }
+  }
+
+  .block--info {
+    padding-left: 16px;
+  }
+
+  & legend,
+  & .bill-notification-number,
+  & .button {
+    @include telenor-regular;
+  }
+
+  .terms-list {
+    color: $color-grey-dark;
+    line-height: .9375rem;
+    margin: 1.25rem 0 0;
+
+    @include modifier(bold) {
+      @include telenor-regular;
+
+      dd {
+        @extend %size-16;
+      }
+    }
+
+    &.mobile-one-whole {
+      margin-top: 0;
+    }
+
+    dt {
+      font-size: .8125rem;
+    }
+
+    dd {
+      color: #494949;
+      line-height: 1.4rem;
+      margin: 0 0 1rem;
+    }
+  }
+
+  .form--editable {
+    input {
+      @include rem("margin", 0 0 13px);
+      padding: 0;
+    }
+
+    &.edit-start {
+      .title--block {
+        height: 32px;
+      }
+    }
+
+    .title--block {
+      .icon-clear:before,
+      .icon-save:before {
+        @extend %size-19;
+      }
+    }
+  }
+}

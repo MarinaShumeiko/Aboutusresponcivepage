@@ -1,0 +1,6 @@
+.product {
+  @include modifier(icon) {
+    float: right;
+    margin-left: 15px;
+  }
+}

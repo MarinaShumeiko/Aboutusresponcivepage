@@ -1,0 +1,19 @@
+.block {
+  // Product support hero block.
+  // ----------------------------------------------
+  // .block--hero--support
+  @include modifier(hero) {
+    @include modifier(support) {
+      position: relative;
+
+      img {
+        @include rem('max-width', 135px);
+
+        position: absolute;
+        right: $grid-padding/2;
+        top: -15px;
+        height: auto;
+      }
+    }
+  }
+}

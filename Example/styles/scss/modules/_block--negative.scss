@@ -1,0 +1,6 @@
+.block {
+  @include modifier(negative) {
+    background-color: $color-telenor-blue;
+    color: $color-white;
+  }
+}

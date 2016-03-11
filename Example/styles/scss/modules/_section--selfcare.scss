@@ -1,0 +1,267 @@
+.section {
+  // Self care header section
+  // -------------------------------------------------------------
+  @include modifier(selfcare) {
+    @include element(header) {
+      @include rem('margin', 0 -$grid-padding); // Needed to cancel out the default padding on the section--hero wrapper.
+      // @todo: Map colors and gradients to appropriate settings.
+      background-color: $color-telenor-blue;
+      background-image: linear-gradient(bottom, #028bd5 0%, #028bd5 14.99%, #007dc5 85.01%, #007dc5 100%), linear-gradient(top, #028bd5 -39%, #028bd5 -28%);
+
+      @at-root .section--hero & {
+        @include rem('padding-bottom', 40px);
+      }
+    }
+
+    @include element(datausage) {
+
+      @at-root .js & .doughnut__data__remaining {
+        display: none;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+
+      a {
+        color: $color-telenor-blue;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+
+      .circle {
+        padding-left: 21px;
+
+        &:before {
+          left: 4px;
+        }
+      }
+    }
+
+    @include element(timeline) {
+      background-color: $color-white-grey;
+      border-top: 1px solid $color-white-dark;
+      position: relative;
+
+      @at-root .timeline__filter {
+        color: $color-grey-dark;
+
+        li {
+          display: inline-block;
+
+          & + li {
+            margin-left: $base-spacing-unit;
+
+            @include at-least($bp-small) {
+              margin-left: $large-spacing-unit;
+            }
+          }
+        }
+
+        a {
+          text-align: center;
+
+          [class^="icon-"] {
+            background-color: $color-white;
+            border: 1px solid $color-grey-light;
+            border-radius: 50%;
+            content: "";
+            display: block;
+            font-size: 20px;
+            margin-bottom: $small-spacing-unit;
+            padding-top: 10px;
+            width: 40px;
+            height: 40px;
+
+            @include at-least($bp-small) {
+              font-size: 30px;
+              padding-top: 15px;
+              width: 60px;
+              height: 60px;
+            }
+          }
+
+          &:hover,
+          &:focus,
+          &:active,
+          &.is-active {
+            [class^="icon-"] {
+              background-color: $color-telenor-blue;
+              border-color: $color-telenor-blue;
+              color: $color-white;
+            }
+          }
+        }
+      }
+
+      @at-root .timeline {
+        position: relative;
+        padding-bottom: 60px;
+        margin-top: 50px;
+
+        // Vertical timeline gradient line.
+        @include at-least($bp-small) {
+          overflow: hidden;
+
+          &:after {
+            background-color: $color-telenor-blue;
+            background-image: linear-gradient(bottom, #028bd5 0%, #00b9dd 49.51%, #8bc53f 100%);
+            content: "";
+            width: 4px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+          }
+        }
+
+        > li {
+          position: relative;
+          z-index: 1;
+
+          & + li {
+            margin-top: $small-spacing-unit;
+
+            @include at-least($bp-small) {
+              margin-top: $large-spacing-unit;
+            }
+          }
+
+          @include at-least($bp-small) {
+            float: right;
+            clear: right;
+            padding-left: 40px;
+            width: 50%;
+
+            &:nth-child(even) {
+              float: left;
+              clear: left;
+              padding-left: 0;
+              padding-right: 40px;
+              top: 60px;
+
+              .timeline__item__icon {
+                left: auto;
+                right: -60px;
+
+                &:before {
+                  left: auto;
+                  right: 38px;
+                  border-color: transparent transparent transparent $color-grey-light;
+                }
+
+                &:after {
+                  left: auto;
+                  right: 40px;
+                  border-color: transparent transparent transparent $color-white;
+                }
+              }
+
+              [class^="icon-"] {
+                right: -60px;
+                left: auto;
+              }
+            }
+          }
+        }
+      }
+
+      @at-root .timeline__item {
+        background: #fff;
+        border: 1px solid $color-grey-light;
+        text-align: left;
+        position: relative;
+
+        img {
+          max-width: 20%;
+        }
+
+        li + li {
+          margin-top: 0;
+        }
+
+        footer .text--small {
+          line-height: 1.4;
+        }
+      }
+
+      @at-root .timeline__item__update {
+        background-color: $color-white-dark;
+        border: 1px solid $color-grey-light;
+        border-bottom: none;
+        padding: $base-spacing-unit $small-spacing-unit;
+        text-align: center;
+      }
+
+      @at-root .timeline__item__icon {
+        @include until($bp-small) {
+          display: none;
+        }
+
+        position: absolute;
+        left: -60px;
+        top: 30px;
+        height: 40px;
+        width: 40px;
+        z-index: 1;
+
+        // Arrow stroke
+        &:before {
+          content: "";
+          position: absolute;
+          left: 38px;
+          top: 9px;
+          width: 0;
+          height: 0;
+          border-color: transparent $color-grey-light transparent transparent;
+          border-style: solid;
+          border-width: 11px;
+        }
+
+        // Arrow fill
+        &:after {
+          content: "";
+          position: absolute;
+          top: 10px;
+          left: 40px;
+          width: 0;
+          height: 0;
+          border-color: transparent $color-white transparent transparent;
+          border-style: solid;
+          border-width: 10px;
+        }
+
+        // Icon on blue background.
+        [class^="icon-"] {
+          background: $color-telenor-blue;
+          border-radius: 50%;
+          color: #fff;
+          display: block;
+          left: -60px;
+          font-size: 25px;
+          line-height: 40px;
+          height: 40px;
+          width: 40px;
+          text-align: center;
+
+          // Same background as the section background.
+          &:after {
+            background: $color-white-grey;
+            content: "";
+            height: 50px;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: -5px;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}

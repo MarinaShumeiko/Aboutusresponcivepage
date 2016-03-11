@@ -1,0 +1,558 @@
+---
+title: "Shop: Multiple numbers"
+
+author: Marina Shumeiko, Telenor
+date: July, 2014
+status: in progress
+index: 10
+fullpage-prototype: true
+description: Prototype of be able to port in multiple numbers at the time.
+config:
+  radiooptions:
+    id: size
+    classes: form-inline
+    li-class: form-radio--small
+    label-class: text--small
+    items:
+    - value: Keep current numbers
+      label: Keep current numbers
+      id: radio-1
+      checked: true
+    - value: Choose new numbers
+      label: Choose new numbers
+      id: radio-2
+    - value: A combination - I need to both transfer and choose new numbers
+      label: A combination - I need to both transfer and choose new numbers
+      id: radio-3
+  heading:
+    title: Keep mobile numbers or get new
+  selectheading:
+    title: First, select your 3 new numbers below
+  transferheading:
+    title: Transfer/select and combine with plans
+  termsconditions:
+    title: Terms & Conditions for number transfer
+  itemcheck:
+    items:
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-1
+      checked: true
+      active: true
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-2
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-3
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-4
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-5
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-6
+      checked: true
+      active: true
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-7
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-8
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-9
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-10
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-11
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-12
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-13
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-14
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-15
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-16
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-17
+    - value: 00 00 00 00
+      label: 00 00 00 00
+      id: check-18
+  combineplans:
+    plans:
+    - name: 1. John Schuster
+      link: Change name
+      imey: IMEI 0000 0000 0000 0000
+      simno: SIM No. 000 0000 0000 0000
+      phone: iPhone 5c, 16 GB, White with FRI+ 5 GB plan
+      id1: id-1
+      id: 123
+      checked: true
+      currentnumber: true
+      currentnumberlogin: false
+      newnumber: false
+      radiokeepchoose:
+        id: size1
+        classes: form-inline
+        li-class: form-radio--small
+        label-class: text--small
+        items:
+          - value: Keep current numbers
+            label: Keep current numbers
+            id: radio-11
+            checked: true
+          - value: Choose new number/Choose new number from previous selection
+            label: Choose new number/Choose new number from previous selection
+            id: radio-22
+      keepnumber:
+        radiomove:
+          id: size2
+          classes: form-inline
+          li-class: form-radio--small
+          label-class: text--small
+          items:
+            - value: Move number asap (min. 7 days)
+              label: Move number asap (min. 7 days)
+              id: radio-00
+              checked: true
+            - value: Move number asap (min. 7 days)
+              label: Move number asap (min. 7 days)
+              id: radio-01
+        selectsrow:
+          selects:
+          - label: Current number
+            option: Input here (8 digits, no space)
+            isSelect: false
+          selectspermonth:
+          - label: Usage allowance per month
+            option: 100 DDK
+            isSelect: true
+          - label: Number listing
+            option: Normal listing
+            isSelect: true
+      extraplanrow:
+        service:
+        - name: Service A
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service B
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service C
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service D
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: 49.00 kr./md
+        - name: Service E
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service F
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service G
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: 49.00 kr./md
+    - name: 2. Anna Schuster
+      link: Change name
+      imey: IMEI 0000 0000 0000 0000
+      simno: SIM No. 000 0000 0000 0000
+      phone: iPhone 5c, 16 GB, White with FRI+ 5 GB plan
+      id1: id-2
+      id: 1234
+      currentnumber: false
+      currentnumberlogin: true
+      newnumber: false
+      radiokeepchoose:
+        id: size11
+        classes: form-inline
+        li-class: form-radio--small
+        label-class: text--small
+        items:
+          - value: Keep current numbers
+            label: Keep current numbers
+            id: radio-111
+            checked: true
+          - value: Choose new number/Choose new number from previous selection
+            label: Choose new number/Choose new number from previous selection
+            id: radio-222
+      keepnumber:
+        selectsrow:
+          selects:
+          - label: Current number
+            option: 100 DDK
+            isSelect: false
+          selectscontrol:
+          - label: Usage control
+            option: Input here (8 digits, no space)
+            isSelect: true
+          - label: Number listing
+            option: Completely unlisted
+            isSelect: true
+          selectslogin:
+          - label: Username
+            option: Input here (8 digits, no space)
+            isSelect: false
+          - label: Password
+            option: Input here (8 digits, no space)
+            isSelect: false
+      extraplanrow:
+        service:
+        - name: Service A
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service B
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service C
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service D
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: 49.00 kr./md
+        - name: Service E
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service F
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service G
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: 49.00 kr./md
+    - name: 3. Isabella Schuster
+      link: Change name
+      imey: IMEI 0000 0000 0000 0000
+      simno: SIM No. 000 0000 0000 0000
+      phone: iPhone 5c, 16 GB, White with FRI+ 5 GB plan
+      id1: id-2
+      id: 12345
+      currentnumber: false
+      currentnumberlogin: false
+      newnumber: true
+      radiokeepchoose:
+        id: size111
+        classes: form-inline
+        li-class: form-radio--small
+        label-class: text--small
+        items:
+          - value: Keep current numbers
+            label: Keep current numbers
+            id: radio-1111
+            checked: true
+          - value: Choose new number/Choose new number from previous selection
+            label: Choose new number/Choose new number from previous selection
+            id: radio-2222
+      keepnumber:
+        selectsrow:
+          selects:
+          - label: Choose number for this plan
+            option: +45 00 00 00 00
+            isSelect: true
+          selectscontrol:
+          - label: Usage control
+            option: Input here (8 digits, no space)
+            isSelect: true
+          - label: Number listing
+            option: Completely unlisted
+            isSelect: true
+      extraplanrow:
+        service:
+        - name: Service A
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service B
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service C
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service D
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: 49.00 kr./md
+        - name: Service E
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service F
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: Free service
+        - name: Service G
+          info: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          infolink: View details
+          price: 49.00 kr./md
+    
+
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+  <section class="section section--padding section--multiple-number container" data-module="shop.numbers">
+
+    {{> heading--box-with-gradient config.heading}}
+    <section class="trailer--large" data-submodule="head">
+      <div class="border--bottom padding-trailer--small block--form clear box--greyed">
+         <div class="padding-trailer">
+           {{> form-radios-list config.radiooptions}}
+         </div>
+      </div>
+      <div class="block--form trailer--medium">
+        <div class="padding-trailer form-select">
+          <h3 class="title--xsmall trailer--large leader--small">You have 5 plans in your basket. How would you like to divide them?</h3>
+          <div data-module="form.select" class="form-select form-inline">
+            <label class="trailer--small">Keepers</label>
+            <select>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+          <div data-module="form.select" class="form-select form-inline">
+            <label class="trailer--small">New numbers</label>
+            <select>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+          <button class="button button--action form-inline">OK</button>
+        </div>
+      </div>
+    </section>
+
+    {{> heading--box-with-gradient config.selectheading}}
+    <section class="section--new-number trailer--large" data-module="shop.numbers.select">
+      <div class="border--bottom block--form clear box--greyed">
+         <div class="padding-trailer container block__combsearch">
+            <div class="mobile-one-whole desk-one-half" >
+              <div class="button--switch align-middle">
+                <a class="normal">Normal</a>
+                <a class="gold active">Gold</a>
+              </div>
+              <span class="inline-block align-middle text--small">(Gold number are +99,-/pcs.)</span>
+            </div>
+            <div class="mobile-one-whole desk-one-half desk-pull-right">
+              <div class="form-search is-empty form-item--small" data-module="form.search" >
+                <label for="">Search for a combination</label>
+                <input id="" type="search" placeholder="Input search (6 digits max.)">
+                <button type="button" tabindex="-1" class="form-search__clear no-js--hidden icon-clear" data-list-clear><span class="aria--visible"></span></button>
+                <button id="-button" class="button button--action inline-block align-middle toleft--small" tabindex="-1">
+                  Search
+                </button>
+              </div>
+            </div>
+          
+         </div>
+      </div>
+      <div class="block--form clear ">
+        <div class="container">
+          <h3 class="mobile-one-whole  tablet-one-half title--xsmall trailer--small text--uppercase">Make your selection</h3>
+          <button class="tablet-pull-right button button--action ">Refresh numbers</button>
+        </div>
+        
+        <ul class="form-item numbers-list leader--large numbers-list__selection container border--bottom">
+          {{#each config.itemcheck.items}}
+            <li class="form-checkbox form-checkbox--small {{#if active}} active {{/if}}" >
+              <input type="checkbox" name="{{../id}}" id="{{id}}" value="{{this.value}}"{{#if checked}} checked{{/if}} >
+              <label class="text--small" for="{{id}}">{{label}}</label>
+            </li>
+          {{/each}}
+        </ul>
+
+        <h3 class="title--xsmall trailer--large text--uppercase leader--large trailer--large text--uppercase">Selected numbers</h3>
+        <ul class="container numbers-list numbers-list__selection numbers-list__selected trailer--small">
+            <li class="active">12 34 56 78<a class="icon icon-remove"></a></li>
+            <li class="active icon-remove">87 65 43 21 <a class="icon icon-remove"></a></li>
+            <li>Awaiting your choice ...</li>
+        </ul>
+        <div class="text-right trailer--large">
+          <button class="button button--action inline-block">Save selection and continue</button>
+        </div>
+      </div>
+    </section>
+
+    {{> heading--box-with-gradient config.transferheading}}
+    <section class="section--combplans trailer--large">
+      {{#each config.combineplans.plans}}
+        <div class="border padding-trailer--small block trailer--large">
+          <div class="form--editable inline-block leader--small trailer--small" data-module="editable-form" data-url="/test-url">
+            <div class="title--small" data-editable="true" data-name="name" data-type="text"><a class="icon-edit">{{this.name}}</a></div>
+            <div class="form--editable__icons-submit">
+              <a class="icon-save pull-right"></a>
+              <a class="icon-clear pull-right"></a>
+            </div>
+            
+                    
+          </div>
+          <div class="border--bottom border--top trailer--large clear">
+             <div class="padding-trailer--small padding-leader--small">
+               {{> form-radios-list radiokeepchoose}}
+             </div>
+          </div>
+          <div class="trailer--small media media--small">
+            <div class="container">
+              <div class="media__image">
+                <span class="img--icon img--medium">
+                  <img src="assets/images/product-dummy.png" width="50" height="50" alt="">
+                </span>
+              </div>
+              <div class="media__body padding-leader--xsmall">
+                <div class="mobile-one-whole tablet-one-half">{{phone}}</div>
+                <div class="mobile-one-whole tablet-one-half omega text-right">
+                <p>{{simno}}</p>
+                <p>{{imey}}</p>
+                </div>
+              </div>
+            </div>
+            
+            {{#if currentnumber}}
+              {{> block--numbers--keep-number keepnumber}}
+            {{/if}}
+
+            {{#if currentnumberlogin}}
+              {{> block--numbers--keep-number-customerlog keepnumber}}
+            {{/if}}
+
+            {{#if newnumber}}
+              {{> block--numbers--new-number keepnumber}}
+            {{/if}}
+            
+            <table class="table--default">
+              <tr>
+                <td class="col--expand">
+                  <form id="{{id1}}" class="clear" action="parts/dummy.html" method="get" data-interaction>
+                    <fieldset class="clear">
+                      <div class="mobile-ten-twelfths">
+                        <legend class="col--expander" data-toggle="collapse" data-target="#{{id}}">Add extra services to this plan</legend>
+                      </div>
+                    </fieldset>  
+                  </form>
+
+                  <form class="clear" action="parts/dummy.html" method="get" data-interaction>
+                    <div id="{{id}}" class="is-collapsed block-extra padding-leader">
+                      <div class="table-wrapper ">
+                        <div class="trailer text--small">
+                          <table class="table--default table--zebra">
+                           {{#each extraplanrow.service}}
+                            <tr>
+                              <td class="col--expand">
+                                <div class="clear col--expand-row block--small">
+                                  <div class="mobile-two-twelfths tablet-two-twelfths padding-leader--small">
+                                    <strong>{{this.name}}</strong>
+                                  </div>
+                                  <div class="mobile-five-twelfths tablet-six-twelfths padding-leader--small">
+                                    <span>{{info}}</span>
+                                    <a href="" class="bullet-link">{{infolink}}</a>
+                                  </div>
+                                  <div class="mobile-two-twelfths tablet-two-twelfths padding-leader--small">
+                                    <span>{{price}}</span>
+                                  </div>
+                                  <div class="mobile-three-twelfths tablet-two-twelfths">
+                                    <div class="form-item--toggle form-item--small mobile-pull-rigth" >
+                                      <input class="toggle__radio" data-toggle-value="on" data-toggle="show" data-target="#mbb-pay-via-mobile-details" data-toggle-submit-target="#mbb-pay-via-mobile-toggle-form" id="mbb-pay-via-mobile-enabled" type="radio" name="mbb-pay-via-mobile-radiogroup"><label for="mbb-pay-via-mobile-enabled">ON</label>
+                                      <input class="toggle__radio" data-toggle-value="off" data-toggle="hide" data-target="#mbb-pay-via-mobile-details" data-toggle-submit-target="#mbb-pay-via-mobile-toggle-form" id="mbb-pay-via-mobile-disabled" type="radio" name="mbb-pay-via-mobile-radiogroup" checked><label for="mbb-pay-via-mobile-disabled">OFF</label>
+                                      <div class="form-item--toggle__switch"><span class="icon-drag"></span></div>
+                                      <div class="form-item--toggle__track"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                           {{/each}}
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right button__next">
+                      <a class="button button--action button--small">Next, please</a>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      {{/each}}
+    </section>
+
+    {{> heading--box-with-gradient config.termsconditions}}
+    <section class="section--terms">
+      <div class="table-one-whole form-checkbox text--small trailer--small border block">
+        <input type="checkbox" name="optionsCheck2" id="checkbox1option2" value="option2" {{#if checked}} checked {{/if}}>
+        <label for="checkbox1option1">Jeg bekræfter, at jeg ønsker at flytte de valgte mobilnumre fra deres respektive, nuværende teleselskaber til Telenor. Jeg bekræfter samtidig, at jeg har de nødvendige rettigheder til, at give Telenor fuldmagt - med henblik på nummeroverførsel - til at opsige mit abonnement hos de nuværende teleselskaber. Jeg er indforstået med, at numrene flyttes på det tidspunkt, jeg har valgt.
+        </label>
+      </div>
+    </section>
+  </section>
+  <script>
+    window.TN = TN || {};
+    (function(TN) {
+      var shopNumbers, services;
+      TN.config = TN.config || {};
+      TN.config.shop = TN.config.shop || {};
+      shopNumbers = TN.config.shop.numbers = TN.config.shop.numbers || {};
+      services = shopNumbers.services = shopNumbers.services || {};
+
+      services.getNumbersService = 'src/data/selectNumbers.json';
+      services.addNumberService = "/Custom/SelectSearchNumbersBlock/AddNumber";
+      services.removeNumberService = "/Custom/SelectSearchNumbersBlock/RemoveNumber";
+
+      shopNumbers.numberTemplate = '<li class="active" data-number="<%= number %>"><%= number %><a class="icon icon-remove"></a></li>';
+
+
+
+    })(TN);
+  </script>
+  {{/content}}
+
+
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  {{/content}}
+
+{{/extend}}

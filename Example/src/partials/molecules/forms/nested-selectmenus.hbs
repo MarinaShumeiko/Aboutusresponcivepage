@@ -1,0 +1,16 @@
+---
+title: Nested select menus
+---
+
+<!-- : Nested select menus -->
+{{#if options}}
+<div class="form-item--select{{#if classes}} {{classes}}{{/if}}" {{#if attributes}}{{#each attributes}} {{@key}}="{{this}}" {{/each}}{{/if}}>
+  <div class="select-wrapper">
+    <select{{#if id}} id="{{id}}"{{/if}}>
+      {{#each options}}
+        <option value="{{this.value}}"{{#if this.selected}} selected{{/if}}>{{this.title}}</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+{{/if}}

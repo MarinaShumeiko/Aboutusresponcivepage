@@ -1,0 +1,61 @@
+---
+title: Checkbox toggle
+status: In progress
+version: 0.5.1
+tabs:
+  - tab: html
+viewport:
+
+toggle-check:
+  id: toggle-check
+  label: Toggle check label
+
+toggle-check-checked:
+  id: toggle-check
+  label: Toggle check label
+  attributes: checked
+
+toggle-check-disabled:
+  id: toggle-check
+  label: Toggle check label
+  attributes: disabled
+
+toggle-check-error:
+  id: toggle-check
+  label: Toggle check label
+  classes: form-item--toggle--error
+
+toggle-check-wide:
+  id: toggle-check-wide
+  label: Toggle check label
+  classes: form-item--toggle--wide
+
+toggle-check-negative:
+  id: toggle-check-negative
+  label: Toggle check label
+
+toggle-check-wide-negative:
+  id: toggle-check-wide-negative
+  label: Toggle check label
+  classes: form-item--toggle--wide
+---
+
+{{> form-toggle-checkbox sgComponentContext.toggle-check }}
+
+<br>
+{{> form-toggle-checkbox sgComponentContext.toggle-check-checked }}
+
+<br>
+{{> form-toggle-checkbox sgComponentContext.toggle-check-disabled }}
+
+<br>
+{{> form-toggle-checkbox sgComponentContext.toggle-check-error }}
+
+<br>
+{{> form-toggle-checkbox sgComponentContext.toggle-check-wide }}
+
+<br>
+<div class="section--negative box--blue">
+{{> form-toggle-checkbox sgComponentContext.toggle-check-negative }}
+{{> form-toggle-checkbox sgComponentContext.toggle-check-wide-negative }}
+</div>

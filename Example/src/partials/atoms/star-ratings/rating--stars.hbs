@@ -1,0 +1,26 @@
+---
+title: Five star ratings with text
+
+status: In progress
+version: 0.5.1
+tabs:
+  - tab: html
+viewport:
+
+author: Dan Sunesen and Jesper Wøldiche, Designit
+date: January, 2014
+---
+
+<div class="sg-component__label">Five star rating</div>
+<div class="rating--stars" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+  <span class="rating__stars--blue rating__stars" aria-hidden="true">
+    <span class="icon-star fill--whole"></span>
+    <span class="icon-star fill--whole"></span>
+    <span class="icon-star fill--whole"></span>
+    <span class="icon-star fill--half"></span>
+    <span class="icon-star"></span>
+  </span>
+  <span class="aria--visible">
+    <span class="aria--visible">Rated </span><span itemprop="ratingValue">3.4</span> <span class="aria--visible">out of <span itemprop="bestRating">5</span></span> from <span itemprop="reviewCount">86</span> users reviews
+  </span>
+</div>

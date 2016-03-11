@@ -1,0 +1,17 @@
+---
+status: In progress
+version: 0.5.1
+label:
+  text: Filter product
+  inline: true
+---
+<!-- component:field-fiter:start (field--filter.hbs) -->
+<!-- options:class [form-item--inline, form-item--small] -->
+<div class="form-item form-item--filter form-item--inline form-item--small is-empty"{{#if attributes}}{{#each attributes}} {{@key}}="{{this}}" {{/each}}{{/if}}>
+  <!-- options:end -->
+  <label class="aria--visible" for="search">Search</label>
+  <input type="search" placeholder="Search">
+  <button type="button" class="no-js--hidden icon-clear" data-list-clear><span class="aria--visible">Clear filter</span></button>
+  <input class="js--hidden" type="submit" value="Search">
+</div>
+<!-- component:field-fiter:end -->

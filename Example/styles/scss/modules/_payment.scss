@@ -1,0 +1,300 @@
+.payment {
+
+  a {
+    color: $color-telenor-blue;
+  }
+
+  .title--small {
+    @extend %title-light;
+    padding-top: 17px;
+    margin-bottom: 0;
+  }
+
+  .form-item__description {
+    @include rem('padding-top', $small-spacing-unit);
+    margin-top: 0;
+  }
+
+  @include element(input) {
+    background: $color-white-grey;
+    border: 1px solid $color-white-dark;
+    padding: $base-spacing-unit 15px;
+    margin-bottom: 50px;
+
+    @include element(header) {
+      background: url("../assets/images/payment-cards.png") right top no-repeat;
+      border-bottom: 1px solid $color-white-dark;
+      padding-bottom: 15px;
+    }
+  }
+
+  @include element(devider) {
+    border-top: 1px solid $color-white-dark;
+    margin: 15px 0;
+    height: 1px;
+  }
+}
+
+//Payment page (choose your payment method)
+.section--payment-block {
+  .return-link {
+    @include rem('margin-right', 10px);
+  }
+
+  .box--greyed {
+
+     .form-item--inline {
+        @include rem('margin-top', 8px);
+     }
+
+    .accont__row {
+      &.form-item--inline {
+        margin-top: 0;
+      }
+
+      > div:first-child {
+        @include rem('margin-right', -6px);
+        @include rem('margin-left', 10px);
+        width: 90px;
+      }
+
+      .form-item--inline {
+        margin-left: 0; 
+      }
+
+      &.accont__row--small {
+        > div {
+          @include rem('margin-right', -6px);
+          width: 23%;
+        }
+
+        > div:last-child {
+          @include rem('margin-right', 10px);
+        }
+      }
+    }
+
+    .icon-save {
+      &:before {
+        color: $color-telenor-green;
+      }
+    }
+
+    .text-field {
+      @include rem('margin-top', 10px);
+      @include rem('margin-left', 10px);  
+    }
+  }
+
+  .form-item { 
+    &.check-account {
+      vertical-align: bottom;
+      margin-bottom: $xsmall-spacing-unit;
+    }
+  }
+
+  .form-item--error {
+    .tooltip {
+      background: $color-error;
+      border: 1px solid $color-error-dark;
+      color: $color-white;
+    }
+  }
+
+  .swipe-box {
+    .icon-error {
+      color: $color-telenor-green;
+    }
+  }
+
+  .section--payment-minprice {
+    span {
+      min-width: 150px;
+      display: inline-block;
+    }
+  }
+
+  .returned {
+    color: $color-telenor-red;
+  }
+}
+
+.product-grid {
+  .product-grid__item {
+    height: 280px;
+
+    .product-grid__item__details {
+      height: 140px;
+
+      .button {
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+      }
+    }
+  }
+
+  .product-grid__item--tall {
+    height: 560px;
+
+     .product-grid__item__details {
+      height: 233px; 
+    }
+  }
+
+  .product-grid__item__banner_white {
+    background-color: $color-white;
+  }
+
+  @include until($bp-small) {
+    .product-grid__item--tall {
+      height: 280px;
+
+       .product-grid__item__details {
+        height: auto; 
+
+        .button {
+          bottom: -105px;
+        }
+      }
+    }
+  }
+}
+
+.section_order_success {
+  .icon-success-big {
+    display: inline-block;
+    background: url("../assets/images/success_big.png");
+    width: 100px;
+    height: 100px;
+  }
+}
+
+//Payment pruduct page (delivery)
+.section--login-block {
+
+  .box--greyed {
+    @include rem('padding-right', 20px);
+    @include rem('padding-left', 20px);
+    @include rem('padding-bottom', 20px);
+  }
+
+  .login-block {
+    background: url("../assets/images/bgnemid.png");
+
+    @include element(form) {
+      border: 3px solid #bacbcb;
+      margin: 0 auto;
+      width: 194px;
+      @include rem('padding', 24px 2px 2px);
+      background: $color-white url("../assets/images/nemid.png") 2px 3px no-repeat;
+
+      @include element(field) {
+        @include linear-gradient (#edf2f1, #fdfdfd);
+        @include rem('padding', 4px);
+
+        h4 {
+          color: $color-black;
+          font-weight: bold;
+          @include rem('margin-top', 5px);
+          @include rem('margin-bottom', 20px);
+        }
+
+        form {
+          > div {
+            position: relative;
+          }
+
+          label {
+            color: $color-black;
+            @include rem('padding-bottom', 2px);
+          }
+
+          
+
+          .form-item.form-item--small input[type="text"] {
+            @include rem('padding', 2px 5px 4px);
+            height: 22px;
+            border: 1px solid #bacbcb;
+            width: 152px;
+
+            &:hover {
+              border: 1px solid #a2b9b9;
+            }
+          }
+
+          span {
+            position: absolute;
+            right: 3px;
+            width: 18px;
+            height: 18px;
+            top: 30px;
+            cursor: pointer;
+            background: url("../assets/images/quastionmarknemid.png") 0 0 no-repeat;
+          }
+
+          .link {
+            @include rem('margin-top', 58px);
+            @include rem('margin-bottom', 5px);
+
+            a { 
+              color: #2da1a3;
+              text-decoration: underline;
+
+              &:hover {
+                text-decoration: none; 
+              }
+            } 
+          }
+
+          .buttons {
+            @include rem('margin-bottom', 5px);
+
+            a {
+              display: inline-block;
+              border: 1px solid #bacbcb;
+              width: 67px;
+              @include rem('padding', 2px 0);
+              @include rem('margin-right', 5px);
+              text-align: center;
+              color: $color-black;
+              @include linear-gradient (#fcfcfc, #e9f0ef);
+
+              &:hover {
+                 border: 1px solid #a2b9b9;
+                @include linear-gradient (#fcfcfc, #a2b9b9);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include element(success) {
+      margin: 0 auto;
+      width: 205px;
+    }
+  } 
+
+  .card-number {
+    position: relative;
+    width: 225px;
+    margin: 20px auto 0;
+
+    &.locked {
+      label,
+      input[type="text"] {
+        color: $color-grey-light;
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100px;
+        content: "";
+      }
+    }
+  } 
+}

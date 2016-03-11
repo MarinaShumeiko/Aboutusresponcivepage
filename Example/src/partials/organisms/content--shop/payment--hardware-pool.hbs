@@ -1,0 +1,325 @@
+{{> heading--box-with-gradient heading}}
+<section class="section--credit-card">
+  <div class="border">
+    <div class="box--greyed border--bottom trailer--large">
+      <div class="container">
+        <div class="mobile-one-whole tablet-two-thirds ">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Payment method</label>
+            <select>
+              <option>Please select your payment</option>
+              <option>Credit card</option>
+              <option>Pay cash</option>
+              <option>BS-Betalingsservice</option>
+              <option>Add to my next Telenor bill</option>
+              <option>Leasing agreement</option>
+              <option>Invoice/GORO</option>
+              <option>Hardware Pool</option>
+              <option>Pay with Paii</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+        <div class="mobile-one-whole tablet-one-third text-right">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Currency</label>
+            <select>
+              <option>DKK</option>
+              <option>EUR</option>
+              <option>GBP</option>
+              <option>USD</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+      </div>
+
+      <!--if user choose Hardware Pool-->
+      <div class="container">
+        <div class="mobile-one-whole tablet-two-thirds ">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Monthly payment</label>
+            <select>
+              <option>Hardware Pool</option>
+              <option>Pay by invoice – EXISTING account</option>
+              <option>Pay cash</option>
+              <option>BS-Betalingsservice</option>
+              <option>Add to my next Telenor bill</option>
+              <option>Leasing agreement</option>
+              <option>Invoice/GORO</option> 
+              <option>Pay with Paii</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+          <div class="inline-block align-bottom">
+            <span class="text--small toleft--small">Hardware pool can only be used to pay for your hardware.</span>
+          </div>
+        </div>
+        <div class="mobile-one-whole tablet-one-third text-right">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Currency</label>
+            <select>
+              <option>DKK</option>
+              <option>EUR</option>
+              <option>GBP</option>
+              <option>USD</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+          <label>Select hardware pool</label>
+          <select>
+            <option>HWP-A           DKK 235.900,00</option>
+            <option>HWP-A           DKK 235.900,00</option>
+          </select>
+          <div class="form-select__field">--</div>
+        </div>
+        <div class="accont__row form-item form-item--inline">
+          <div class="form-item form-item--small form-item--inline form-item__card-number">
+            <label>Ref.initials</label>
+            <input id="" type="text" value="" placeholder="ABCD">
+          </div>
+          <div class="form-item form-item--small form-item--inline form-item__card-number">
+            <label>Ref.e-mail</label>
+            <input id="" type="text" value="" placeholder="name.sername@email.com">
+          </div>
+        </div>
+      </div>
+      <!--end--> 
+
+      <!--if user choose Hardware Pool 1-->
+      <div class="container">
+        <div class="mobile-one-whole tablet-two-thirds ">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Monthly payment</label>
+            <select>
+              <option>Hardware Pool</option>
+              <option>Pay by invoice – EXISTING account</option>
+              <option>Pay cash</option>
+              <option>BS-Betalingsservice</option>
+              <option>Add to my next Telenor bill</option>
+              <option>Leasing agreement</option>
+              <option>Invoice/GORO</option> 
+              <option>Pay with Paii</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+          <div class="inline-block align-bottom">
+            <span class="text--small toleft--small">Hardware pool can only be used to pay for your hardware.</span>
+          </div>
+        </div>
+        <div class="mobile-one-whole tablet-one-third text-right">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Currency</label>
+            <select>
+              <option>DKK</option>
+              <option>EUR</option>
+              <option>GBP</option>
+              <option>USD</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div data-module="form.select" class="form-select form-item form-select--small form-item--inline form-item--error">
+          <label>Select hardware pool
+            <a class="toleft--xsmall icon-error text--med"> 
+              <div class="tooltip tooltip--error" data-module="tooltip" role="tooltip">
+                <p>Insufficient funds</p>
+                <p>Please choose a different hardware pool or a 2ND scource of payment for the remaining amount (969,00 kr.)</p>
+              </div>
+            </a>
+          </label>
+          <select>
+            <option>HWP-A           DKK 235.900,00</option>
+            <option>HWP-A           DKK 235.900,00</option>
+          </select>
+          <div class="form-select">
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+        <div class="accont__row form-item form-item--inline">
+          <div class="form-item form-item--small form-item--inline form-item__card-number">
+            <label>Ref.initials</a>
+            </label>
+            <input id="" type="text" value="" placeholder="ABCD">
+          </div>
+          <div class="form-item form-item--small form-item--inline form-item__card-number">
+            <label>Ref.e-mail</label>
+            <input id="" type="text" value="" placeholder="name.sername@email.com">
+          </div>
+        </div>
+        <div>
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Select 2-nd source of payment</label>
+            <select>
+              <option>Pay by invoice – EXISTING account</option>
+              <option>Pay by invoice – EXISTING account</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+        <div>
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Choose billing account</label>
+            <select>
+              <option>Please select your account</option>
+              <option>Please select your account</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+      </div>
+      <!--end-->
+
+      <!--if user choose Hardware Pool 2-->
+      <div class="container">
+        <div class="mobile-one-whole tablet-two-thirds ">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Monthly payment</label>
+            <select>
+              <option>Hardware Pool</option>
+              <option>Pay by invoice – EXISTING account</option>
+              <option>Pay cash</option>
+              <option>BS-Betalingsservice</option>
+              <option>Add to my next Telenor bill</option>
+              <option>Leasing agreement</option>
+              <option>Invoice/GORO</option> 
+              <option>Pay with Paii</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+          <div class="inline-block align-bottom">
+            <span class="text--small toleft--small">Hardware pool can only be used to pay for your hardware.</span>
+          </div>
+        </div>
+        <div class="mobile-one-whole tablet-one-third text-right">
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Currency</label>
+            <select>
+              <option>DKK</option>
+              <option>EUR</option>
+              <option>GBP</option>
+              <option>USD</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div data-module="form.select" class="form-select form-item form-select--small form-item--inline form-item--error">
+          <label>Select hardware pool
+            <a class="toleft--xsmall icon-error text--med"> 
+              <div class="tooltip tooltip--error" data-module="tooltip" role="tooltip">
+                <p>Insufficient funds</p>
+                <p>Please choose a different hardware pool or a 2ND scource of payment for the remaining amount (969,00 kr.)</p>
+              </div>
+            </a>
+          </label>
+          <select>
+            <option>HWP-A           DKK 235.900,00</option>
+            <option>HWP-A           DKK 235.900,00</option>
+          </select>
+          <div class="form-select">
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+        <div class="accont__row form-item form-item--inline">
+          <div class="form-item form-item--small form-item--inline form-item__card-number">
+            <label>Ref.initials</a>
+            </label>
+            <input id="" type="text" value="" placeholder="ABCD">
+          </div>
+          <div class="form-item form-item--small form-item--inline form-item__card-number">
+            <label>Ref.e-mail</label>
+            <input id="" type="text" value="" placeholder="name.sername@email.com">
+          </div>
+        </div>
+        <div>
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Select 2-nd source of payment</label>
+            <select>
+              <option>Pay by invoice – NEW account</option>
+              <option>Pay by invoice – NEW account</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+        </div>
+        <div>
+          <div data-module="form.select" class="form-select form-item form-select--small form-item--inline">
+            <label>Department name</label>
+            <select>
+              <option>Please select dep. name</option>
+              <option>Please select dep. name</option>
+            </select>
+            <div class="form-select__field">--</div>
+          </div>
+          <div class="accont__row form-item form-item--inline">
+            <div class="form-item form-item--small form-item--inline form-item__card-number">
+              <label>Reg.no</label>
+              <input id="" type="text" value="" placeholder="0000">
+            </div>
+            <div class="form-item form-item--small form-item--inline form-item__card-number">
+              <label>Account.no</label>
+              <input id="" type="text" value="" placeholder="0000 0000 0000 0000">
+            </div>
+          </div>
+          <div class="accont__row form-item form-item--inline">
+            <div class="form-item form-item--small form-item--inline form-item__card-number">
+              <label>Ref.initials</label>
+              <input id="" type="text" value="" placeholder="ABCD">
+            </div>
+            <div class="form-item form-item--small form-item--inline form-item__card-number">
+              <label>Ref.e-mail</label>
+              <input id="" type="text" value="" placeholder="name.sername@email.com">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end-->  
+    </div>
+   
+    <div class="section--payment-price trailer--small">
+      <div class="container trailer--small border--bottom padding-toleft padding-toright">
+        <div>
+          <div class="mobile-one-half">
+            <p><span class="title--medium trailer--small">Your payment now </span></p>
+          </div>
+          <div class="mobile-one-half text-right">
+            <p><span class="title--medium trailer--small"> 1.799.00</span></p>
+          </div>
+        </div>
+        <div class="form-item form-item--small">
+          <div class="mobile-one-half trailer--small">
+            <label>25 % VAT </label>
+          </div>
+          <div class="mobile-one-half text-right">
+            <p>189,00 kr</p>
+          </div>
+        </div>
+      </div>
+      <div class="container padding-toleft padding-toright form-item form-item--small">
+        <div class="mobile-one-half">
+          <label>Price excluding 25 % VAT </label>
+        </div>
+        <div class="mobile-one-half text-right">
+          <p>1.474,00 kr</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container section--payment-minprice  leader--small padding-toleft">
+  <div class="mobile-one-half form-item">
+    <label>All prices show are incl. 25 % VAT</label>
+  </div>
+  <div class="mobile-one-half text-right">
+    <button class="button button--default">Continue shopping</button>
+     <button class="button button--accept icon-arrow-next">Submit</button>
+  </div>
+</div>

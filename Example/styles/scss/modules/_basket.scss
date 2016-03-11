@@ -1,0 +1,838 @@
+.table--basket {
+  margin: 30px 0;
+  @include telenor-regular;
+
+  @include element(row) {
+    @extend %clearfix;
+    position: relative;
+    @include rem('padding', 20px 0);
+    padding-left: 1.5625%;// 5/320*100
+    padding-right: 1.5625%;// 5/320*100
+    border-style: solid;
+    border-width: 0 0 1px;
+    border-color: $color-grey-light;
+  }
+
+  @include element(headers) {
+    display: none;
+  }
+
+  @include element(item) {
+    float: left;
+    width: 18.75%; // 60/320*100
+    margin: 0 1.5625%; // 5/320*100
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @include element(details) {
+    float: left;
+    width: 38.625%; // 210/320*100
+    margin: 0 1.5625%; // 35/320*100 & 5/320*100
+
+    .product--title {
+      @extend %size-16;
+      line-height: 1.25;
+      @include rem('padding', 0 16px 8px 0);
+    }
+
+    a.toggle-link {
+      @extend %size-13;
+      color: $color-grey-dark;
+      cursor: pointer;
+    }
+
+    .product--details {
+      @extend %size-13;
+      color: $color-grey-dark;
+
+      p {
+        @include rem('padding', 0 0 8px);
+      }
+
+      ul {
+        @include rem('padding', 0 0 8px);
+
+        li {
+          list-style-type: disc;
+          @include rem('margin', 0 0 4px 20px);
+        }
+      }
+    }
+  }
+
+  @include element(qty) {
+    float: left;
+    width: 19.675%;
+
+    a.icon-remove {
+      position: absolute;
+      @include rem('right', 6px);
+      @include rem('top', 7px);
+      @include rem('font-size', 20px);
+      color: $color-grey-middle;
+
+      span {
+        display: none;
+        color: $color-grey-dark;
+      }
+    }
+
+    .form-item {
+      label {
+        padding-top: 0;
+      }
+
+      input {
+        background: $color-white;
+      }
+    }
+
+    .form-item__number-wrapper input {
+      text-align: center;
+    }
+
+    .form-item__number-wrapper {
+       display: inline-block; 
+       width: 100%;
+    }
+  }
+
+  @include element(period) {
+    @include rem('padding', 80px 0 0);
+  }
+
+  @include element(due) {
+    @include rem('padding', 8px 0 0);
+  }
+
+  .description,
+  .saving {
+    @extend %size-11;
+    @include rem('margin', 0 0 5px);
+    color: $color-grey-dark;
+    text-align: right;
+  }
+
+  .saving {
+    display: none;
+  }
+
+  .price {
+    @extend %size-19;
+    text-align: right;
+  }
+
+  @include element(subfoot) {
+    background: $color-white-grey;
+    @include rem('padding-top', 15px);
+    @include rem('padding-bottom', 15px);
+
+    @include until($bp-medium) {
+      .table--basket__rowhead {
+        strong {
+          display: block;
+          @include rem('font-size', 16px);
+          margin-bottom: $small-spacing-unit;
+        }
+      }
+
+      .table--basket__due,
+      .table--basket__period {
+        display: block;
+        position: absolute;
+        top: 16px;
+        right: 14px;
+        padding: 0;
+      }
+
+      .table--basket__period {
+        right: 100px;
+      }
+    }
+  }
+
+  @include element(foot) {
+    border-bottom: 1px solid $color-grey-light;
+    @include rem('padding', 15px 0 0);
+
+    .table--basket__row {
+      border: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: .5em;
+      display: table;
+    }
+
+    .table--basket__rowhead,
+    .table--basket__amount {
+      display: table-cell;
+      width: 50%;
+      padding: 0 1.5625%;
+
+      strong {
+        display: inline-block;
+        @include rem('font-size', 36px);
+        @include telenor-light;
+      }
+
+      small {
+        display: none;
+        @include rem('font-size', 13px);
+        color: $color-grey-dark;
+      }
+    }
+
+    .table--basket__amount {
+      text-align: right;
+    }
+  }
+
+  @include element(rowhead) {
+    width: 96.875%;
+    margin: 0 1.5625%;
+
+    strong {
+      display: none;
+      font-weight: normal;
+    }
+  }
+
+  @include element(delivery) {
+    @include until($bp-medium) {
+      .table--basket__rowhead {
+        strong {
+          margin-bottom: 0;
+        }
+      } 
+    }
+  }
+
+  @include element(minprice) {
+    text-align: right;
+    
+    padding: .5em 3.125%;
+    @include rem('font-size', 13px);
+
+    @include until($bp-large) {
+      margin-right: 3.125%;
+      padding-right: 0;
+    }
+
+    @include until($bp-small) {
+      margin-bottom: $base-spacing-unit;
+    }
+  }
+
+  .basket--actions {
+
+    @include element(accept) {
+      margin: 0 3.125% 20px;
+      @include rem('font-size', 13px);
+      line-height: 1.2;
+      float: right;
+
+      .form-checkbox {
+
+        label {
+          margin-right: 0;
+        }
+
+        a {
+          color: $color-telenor-blue;
+        }
+      }
+    }
+
+    @include element(buttons) {
+      @extend %clearfix;
+      @include rem('margin', 0 0 20px);
+
+      ul {
+        margin: 0 1.5625%;
+      }
+
+      li {
+        box-sizing: border-box;
+        float: left;
+        width: 50%;
+        padding: 0 1.5625%;
+
+        .button--flow {
+          text-align: center;
+        }
+
+        .button {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
+    @include element(links) {
+      @extend %clearfix;
+      margin: 0 1.5625%;
+      @include rem('padding', 0 0 20px);
+
+      li {
+        box-sizing: border-box;
+        float: left;
+        width: 50%;
+        padding-right: $large-spacing-unit;
+        margin: 0;
+
+        & + li {
+          text-align: right;
+        }
+
+        @include until($bp-large) {
+          padding: 0 1.25em;
+        }
+
+        @include until($bp-small) {
+          padding: 0 $small-spacing-unit;
+        }
+      }
+    }
+
+    @include element(checkout) {
+      display: none;
+    }
+  }
+
+  .button-present {
+    position: relative;
+    @include rem('padding-left', $base-spacing-unit + 5px);
+    
+    &:after {
+      background-image: url("../assets/icons/font/present.svg");
+      background-size: 14px auto;
+      width: 14px;
+      height: 16px;
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 0;
+
+      @include until($bp-medium) {
+        top: 0;
+      }
+    }
+  }
+
+  // styles for basket page until 400px width
+  @include until($bp-xsmall) {
+    @include element(details) {
+      width: 35.625%;
+    }
+
+    @include element(qty) {
+      width: 25.675%;
+    }
+  }
+
+  // styles for basket page above 600px width
+  .section-basket__full & {
+
+    @include at-least($bp-small) {
+
+      @include element(details) {
+        width: 40.675%;
+      }
+
+      @include element(qty) {
+        vertical-align: bottom;
+        width: 17.675%;
+
+        .form-item__number-wrapper {
+          width: 100px;
+
+          button {
+            display: block;
+          }
+        }
+      }
+
+      // overwrite hiding of details
+      [data-module="toggle"].is-collapsed {
+        display: block;
+      }
+
+      .toggle-link {
+        display: none;
+      }
+
+    }
+
+    // styles for basket page above 768px width
+    @include at-least($bp-medium) {
+
+      margin-bottom: 0;
+
+      @include element(row) {
+        display: table;
+        width: 100%;
+        padding: 0;
+
+        & > div {
+          display: table-cell;
+          margin: 0;
+          padding: 0 1.5625%;
+          float: none;
+        }
+      }
+
+      @include element(headers) {
+
+        div {
+          @include size-13;
+          @include telenor-bold;
+          padding: .5em 1.5625%;
+          border-left: 0;
+          text-align: left;
+
+          &.table--basket__qty {
+            display: block;
+          }
+        }
+      }
+
+      @include element(product) {
+        @include rem('padding', 20px 0);
+        min-height: 150px;
+      }
+
+      @include element(item) {
+        width: 15%;
+        vertical-align: top;
+      }
+
+      @include element(details) {
+        position: relative;
+        width: 41%;
+        vertical-align: top;
+
+        .product--details {
+
+          .discount-info {
+              display: none;
+          }
+        }
+      }
+
+      @include element(qty) {
+        position: relative;
+        border-left: 1px solid $color-grey-light;
+
+        a.icon-remove {
+          @include rem('font-size', 13px);
+          left: 9.5625%;
+
+          span {
+            @include rem('font-size', 13px);
+            margin-left: .5em;
+            display: inline-block;
+          }
+        }    
+      }
+
+      @include element(period) {
+        @include rem('padding', 8px 0 0);
+      }
+      
+
+      @include element(minprice) {
+        text-align: right;
+        padding: .25em 0;
+        @include rem('font-size', 16px);
+      }
+
+      @include element(period) {
+        width: 15%;
+        vertical-align: bottom;
+        text-align: right;
+        border-left: 1px solid $color-white-dark;
+      }
+
+      @include element(due) {
+        width: 15%;
+        vertical-align: bottom;
+        text-align: right;
+        border-left: 1px solid $color-white-dark;
+      }
+
+      .description {
+        display: none;
+      }
+
+      .saving {
+        display: block;
+      }
+
+      @include element(subfoot) {
+        border-width: 0 1px 1px;
+
+        > div {
+          padding: 10px 1.5625%;
+          border: 0;
+        }
+
+        strong {
+          @include rem('margin-right', 15px);
+        }
+
+        strong,
+        [class*="button"] {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+      }
+
+      @include element(rowhead) {
+        width: 70%;
+        @include rem('font-size: ', 13px);
+
+        strong,
+        small {
+          display: inline-block;
+        }
+       
+        .form-item {
+          display: inline-block;
+          width: 180px;
+          @include rem('margin-left', 10px);
+          vertical-align: middle;
+
+          input {
+            
+            @include rem('padding: ', 7px);
+          }
+        }
+      }
+
+      @include element(foot) {
+
+        .table--basket__row {
+          margin: 0;
+
+          & + .table--basket__row {
+            @include rem('padding', 0 0 10px);
+            @include rem('padding', 0 0 10px);
+          }
+        }
+      }
+    }
+
+    // styles for basket page above 1024px width
+    @include at-least($bp-large) {
+
+      @include element(headers) {
+
+        div.table--basket__details {
+          width: 42%;
+        }
+
+        div.table--basket__qty {
+          position: static;
+          display: table-cell;
+          width: 13%;
+        }
+      }
+
+      @include element(product) {
+        border-left: 1px solid $color-grey-light;
+        border-right: 1px solid $color-grey-light;
+      }
+
+      @include element(details) {
+
+        .product {
+          padding-right: 24%;
+        }
+      }
+
+      @include element(qty) {
+        width: 13.675%;
+        padding: 0 2%;
+
+        .form-item {
+          .form-item__number-wrapper {
+            width: 100%;
+          }
+        }
+      }
+
+      @include element(foot) {
+
+        .table--basket__rowhead,
+        .table--basket__amount {
+          padding: 0;
+        }
+
+        .table--basket__rowhead {
+
+          strong {
+            @include rem('font-size', 36px);
+          }
+        }
+      }
+
+      .basket--actions {
+        min-height: 1px;
+        overflow: hidden;
+
+        > div {
+          @include rem('margin', 0 0 20px);
+        }
+
+        @include element(accept) {
+          label {
+            margin-right: 0;
+          }
+        }
+
+        @include element(buttons) {
+          float: right;
+          width: 50%;
+
+          ul {
+            margin: 0;
+          }
+
+          li {
+            @include rem('padding', 0 0 0 20px);
+          }
+        }
+
+        @include element(links) {
+          float: left;
+          width: 50%;
+          margin: 90;
+
+          li {
+            float: left;
+            width: auto;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//Styles for minibasket popup block width 540px
+.minibasket {
+  position: relative;
+
+  .speach-bubble {
+    top: 65px !important;
+    right: 0;
+    left: inherit;
+    width: 540px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, .15);
+
+    &:before,
+    &:after {
+      border-width: 12px;
+      right: 42px;
+      top: -12px;
+      left: inherit;
+    }
+
+    &:before {
+      border-bottom-color: $color-black;
+    }
+  }
+
+  @include until($bp-small) {
+    .speach-bubble {
+      display: none;
+    }
+  }
+
+  .table--basket {
+    margin: 0;
+
+    @include element(headers) {
+      display: block;
+      padding: 10px 2.5625%;
+
+      .table--basket__period,
+      .table--basket__qty {
+        display: none;
+      }
+
+      .table--basket__details {
+        width: 50%;
+      }
+
+      .table--basket__item { 
+        text-align: left;
+      }
+
+      .table--basket__due { 
+       padding: 0;
+      }
+    }
+
+    @include element(details) {
+       width: 40.625%;
+    }
+
+    @include element(period) {
+       @include rem('padding-top', 25px);
+    }
+
+    @include element(content) {
+      max-height: 300px;
+      overflow: auto;
+    }
+
+    @include element(item) {
+      margin-left: 0;
+    }
+
+    @include element(subfoot) {
+      .button {
+        display: inline-block;
+        vertical-align: middle;
+        overflow: inherit;
+
+          .button-present {
+          &:after {
+            top: 0;
+          }
+        }
+      }
+
+      .table--basket__rowhead {
+        strong {
+          display: block;
+          @include rem('font-size', 16px);
+          margin-bottom: $small-spacing-unit;
+        }
+      }
+
+      .table--basket__due,
+      .table--basket__period {
+        display: block;
+        position: absolute;
+        top: 16px;
+        right: 14px;
+        padding: 0;
+      }
+
+      .table--basket__period {
+        right: 100px;
+      }
+
+      .form-item {
+        display: inline-block;
+        vertical-align: middle;
+        width: 180px;
+        @include rem('margin-left', 10px);
+
+        input {
+          @include rem('padding', 7px);
+        }
+      }
+    }
+
+     @include element(delivery) {
+      .table--basket__rowhead {
+        strong {
+          margin-bottom: 0;
+        }
+      } 
+    }
+
+    @include element(minprice) {
+      display: none;
+    }
+
+    .basket--actions__buttons {
+      display: none;
+    }
+
+    .basket--actions__links {
+      position: absolute;
+      bottom: 3px;
+      left: 10px;
+      width: 150px;
+
+      li { 
+        display: none;
+
+        &:first-child {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
+    .basket--actions__checkout {
+      display: block;
+      background: $color-white-grey;
+      text-align: right;
+      @include rem('padding', 15px);
+
+      .bullet-link {
+        display: inline-block;
+        vertical-align: middle;
+        color: $color-grey-dark;
+        @include rem('padding-right', 20px);
+        
+      }
+
+      .button {
+        @extend %size-13;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 1px 2.5em;
+        line-height: 2rem;
+      }
+    }
+
+    @include element(foot) {
+      background: $color-white-grey;
+      border: none;
+      
+      .table--basket__row {
+        &:first-child > div {
+          border-bottom: 1px solid $color-grey-light;
+        }
+      }
+    }
+
+    .table--basket__row {
+      padding-right: 2.5625%;
+      padding-left: 2.5625%;
+      @include rem('padding-bottom', 10px);
+      margin: 0;
+      width: 100%;
+
+      &.add {
+        background: $color-white-grey;
+      }
+    }
+
+    .table--basket__rowhead,
+    .table--basket__amount {
+      @include rem('font-size', 13px);
+
+      strong {
+        @include rem('font-size', 19px);
+      }
+
+      small { 
+        display: inline-block;
+      }
+    }
+  }
+}

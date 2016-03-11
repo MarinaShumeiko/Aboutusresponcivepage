@@ -1,0 +1,115 @@
+  {{#parseJSON '
+  {
+    "label": "Configure subscription",
+    "ariaLabel": "Configure subscription",
+    "id":"select-subscription",
+    "options": [{
+        "value":"basis-mini",
+        "label":"Basis mini"
+      }, {
+        "value":"basis",
+        "label":"Basis"
+      }, {
+        "value":"free-1",
+        "label":"FRI+ 1 GB - fri tale og 1 GB data"
+      }, {
+        "value":"free-5",
+        "label":"FRI+ 5 GB - fri tale og 5 GB data"
+      }, {
+        "value":"free-20",
+        "label":"FRI+ 20 GB - fri tale og 20 GB data"
+      }]
+  }
+'}}
+  {{> form-select }}
+{{/parseJSON}}
+  <div id="select-subscription-popup" style="display: none;" class="form-item--megaselect" data-select="select-subscription">
+    <a class="active" data-selectval="Basis mini">
+      <div class="tr">
+      	<div class="th">Basis mini</div>
+      	<div class="th">Monthly</div>
+      </div>
+      <div class="tr">
+      	<div class="td">
+      		<ul class="list--greybullet list--dual-column">
+	  			<li>300 MB data, 4g</li>
+	  			<li>2 hours voice</li>
+	  			<li>FREE sms & mms</li>
+	  			<li>4G connection</li>
+	  		</ul>
+      	</div>
+      	<div class="td">99 kr.</div>
+      </div>
+     </a>
+     <a data-selectval="Basis">
+      <div class="tr">
+      	<div class="th">Basis</div>
+      	<div class="th">Monthly</div>
+      </div>
+      <div class="tr">
+      	<div class="td">
+      		<ul class="list--greybullet list--dual-column">
+	  			<li>500 MB data, 4G</li>
+	  			<li>FREE voice</li>
+	  			<li>FREE sms & mms</li>
+	  			<li>4G connection</li>
+	  		</ul>
+      	</div>
+      	<div class="td">129 kr.</div>
+      </div>
+     </a>
+     <a data-selectval="FRI+ 1 GB - fri tale og 1 GB data">
+      <div class="tr">
+      	<div class="th">Fri+ 1 GB <span class="current">Current plan</span></div>
+      	<div class="th">Monthly</div>
+      </div>
+      <div class="tr">
+      	<div class="td">
+      		<ul class="list--greybullet list--dual-column">
+	  			<li>1 GB data, 4G</li>
+	  			<li>FREE voice</li>
+	  			<li>FREE sms & mms</li>
+	  			<li>4G connection</li>
+	  		</ul>
+      	</div>
+      	<div class="td">179 kr.</div>
+      </div>
+     </a>
+     <a data-selectval="Fri+ 5 GB - fri tale og 5 GB data">
+      <div class="tr">
+      	<div class="th">Fri+ 5GB <span class="recommended">Recommended</span></div>
+      	<div class="th">Monthly</div>
+      </div>
+      <div class="tr">
+      	<div class="td">
+      		<ul class="list--greybullet list--dual-column">
+	  			<li>5 GB data</li>
+	  			<li>FREE voice</li>
+	  			<li>FREE sms & mms</li>
+	  			<li>4G connection</li>
+	  		</ul>
+      	</div>
+      	<div class="td">199 kr.</div>
+      </div>
+     </a>
+     <a data-selectval="Fri+ 20GB - fri tale og 20 GB data">
+      <div class="tr">
+      	<div class="th">Fri+ 20GB</div>
+      	<div class="th">Monthly</div>
+      </div>
+      <div class="tr">
+      	<div class="td">
+      		<ul class="list--greybullet list--dual-column">
+	  			<li>20 GB data</li>
+	  			<li>FREE voice</li>
+	  			<li>FREE sms & mms</li>
+	  			<li>4G connection</li>
+	  		</ul>
+      	</div>
+      	<div class="td">299 kr.</div>
+      </div>
+     </a>
+
+
+
+  </div>

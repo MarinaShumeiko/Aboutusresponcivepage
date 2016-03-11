@@ -1,0 +1,6 @@
+.block {
+    @include modifier(overlay) {
+    position: relative;
+    z-index: 50;
+  }
+}

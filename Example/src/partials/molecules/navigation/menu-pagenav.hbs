@@ -1,0 +1,20 @@
+---
+title: Page navigation (tabs)
+
+author: Dan Sunesen and Jesper Wøldiche, Designit
+date: February, 2014
+---
+<nav class="section section--pagenav" role="navigation">
+  <ul class="tablet-wide-container menu--pagenav">
+    {{#if links}}
+      {{#each links}}
+      <li><a href="#{{anchor}}">{{text}}</a></li>
+      {{/each}}
+    {{else}}
+    <li><a href="#donotwork">My Phone doesn't work</a></li>
+    <li><a href="#brokenphone">Broken phone</a></li>
+    <li><a href="#lostphone">Lost phone</a></li>
+    {{/if}}
+  </ul>
+</nav>
+<!-- /.section-pagenav -->

@@ -1,0 +1,16 @@
+.confirmation {
+  @include rem('margin-bottom', 100px);
+  text-align: center;
+
+  p {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include element(header) {
+    background: url("../assets/icons-prot/thumb_bubble-large.png") center top no-repeat;
+    margin-bottom: 80px;
+    padding-top: 130px;
+  }
+}

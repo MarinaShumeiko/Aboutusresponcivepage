@@ -1,0 +1,164 @@
+.responsive {
+  max-width: 100%;
+  height: auto !important;
+}
+
+
+/**
+ * @todo: Move to typography.
+ */
+
+.devider-line {
+  position: relative;
+  text-align: center;
+
+  &:before,
+  &:after {
+    background-color: #4daadc;
+    background-color: rgba(#fff, .3);
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 45%;
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
+
+// Simple split item for creating two elements floated away from one another.
+.split {
+  text-align: right;
+  list-style: none;
+  margin-left: 0;
+
+  > * {
+    display: inline-block;
+
+    &:first-child {
+      text-align: left;
+      float: left;
+      clear: left;
+    }
+  }
+
+  // Styling for when two elements should split, but stick closely together
+  @include modifier(close) {
+    text-align: left;
+
+    > * {
+
+      &:first-child {
+        @include rem('margin-right', $base-spacing-unit);
+      }
+    }
+  }
+}
+
+
+
+.title--company-tbd {
+  &:after {
+    background-color: #f4e079;
+    border-radius: 3rem;
+    content: "tbd";
+    display: inline-block;
+    height: 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1.85rem;
+    margin: -1.5rem 1rem;
+    padding: 1.25rem 0;
+    position: relative;
+    top: -.5rem;
+    vertical-align: bottom;
+    text-align: center;
+    text-transform: uppercase;
+    width: 4.25rem;
+  }
+}
+
+.icon-edit {
+  background: url("../assets/images/ico-pencil.png") no-repeat;
+  display: inline-block;
+  height: 11px;
+  line-height: 1em;
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+  top: -.25rem;
+  width: 11px;
+  margin: 0 0 0 .4rem;
+  vertical-align: bottom;
+}
+
+.icon-pdf {
+  background: url("../assets/images/ico-pdf.png") no-repeat;
+  display: inline-block;
+  height: 19px;
+  line-height: 1em;
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+  top: 0;
+  width: 19px;
+  margin: 0 .4rem;
+  vertical-align: bottom;
+}
+
+.icon-xls {
+  background: url("../assets/images/ico-xls.png") no-repeat;
+  display: inline-block;
+  height: 19px;
+  line-height: 1em;
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+  top: 0;
+  width: 19px;
+  margin: 0 .4rem;
+  vertical-align: bottom;
+}
+
+.vert {
+  @include modifier(top) {
+    vertical-align: top;
+  }
+
+  @include modifier(mid) {
+    vertical-align: middle;
+  }
+
+  @include modifier(bottom) {
+    vertical-align: bottom;
+  }
+}
+
+.padding {
+  @include modifier(small) {
+    padding: $small-spacing-unit;
+  }
+
+  @include modifier(xsmall) {
+    padding: $xsmall-spacing-unit;
+  }
+}
+
+.rel {
+  position: relative;
+}
+
+.full {
+  @include modifier(width) {
+    width: $all-space;
+  }
+
+  @include modifier(height) {
+    height: $all-space;
+  }
+}

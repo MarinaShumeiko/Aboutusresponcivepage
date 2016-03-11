@@ -1,0 +1,11 @@
+.login {
+  @include modifier(panel) {
+    @include rem('padding', $base-spacing-unit);
+    float: left;
+    width: $login-panel-width;
+  }
+
+  @include modifier(cancel) {
+    padding: 7px 15px;
+  }
+}

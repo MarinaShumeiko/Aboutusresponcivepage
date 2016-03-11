@@ -1,0 +1,154 @@
+<table class="table table--order">
+  <thead>
+    <tr>
+      <th>Vare</th>
+      <th>Produkt navn</th>
+      <th>Antal</th>
+      <th>Betal nu kr.</th>
+      <th>Betal kr. pr. md.</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each cart.lines}}
+    <tr>
+      <td class="mobile-one-sixth"><img src="{{imageurl}}" alt="placekitten"></td>
+      <td class="mobile-one-half dark">
+        {{#if headline}}
+        <p class="title--xsmall">{{headline}}</p>
+        {{/if}}
+        {{#if repayments}}
+        <p>
+          {{#if size}}
+          <span class="mobile-one-third">Størrelse:</span><span class="mobile-two-thirds omega">{{size}}</span>
+          {{/if}}
+          <span class="mobile-one-third">Farve:</span><span class="mobile-two-thirds omega">{{color}}</span>
+        </p>
+        <p>
+          <span class="mobile-one-third">Afdrag:</span><span class="mobile-two-thirds omega">{{repayments}}</span>
+        </p>
+        {{/if}}
+        {{#if length}}
+        <p>
+          <span class="mobile-one-third">Farve:</span><span class="mobile-two-thirds omega">{{color}}</span>
+          <span class="mobile-one-third">Længde:</span><span class="mobile-two-thirds omega">{{length}}</span>
+        </p>
+        {{/if}}
+      </td>
+      <td class="mobile-one-sixth units dark">
+        <div class="form-item--select">
+          <h2 class="aria--visible">Vælg antal</h2>
+          <label for="select-storage" class="aria--visible">Antal</label>
+          <div class="select-wrapper">
+            <select id="select-storage">
+              <option>{{units}}</option>
+            </select>
+          </div>
+        </div>
+      </td>
+      <td class="mobile-one-sixth price">
+        {{#if price}}
+        {{totalLinePrice}},00
+        {{/if}}
+        {{#if entirepayment}}
+        {{entirepayment}},00
+        {{/if}}
+      </td>
+      <td class="mobile-one-sixth price">
+        {{#if totalMonthlyProductPrice}}
+        {{totalMonthlyProductPrice}},00
+        {{/if}}
+      </td>
+    </tr>
+    {{#if abonnement}}
+    <tr>
+      <td><img src="{{abonnement.imageurl}}" alt="placekitten"></td>
+      <td class="dark">
+        <p class="title--xsmall">{{abonnement.headline}}</p>
+        <p>
+          <span class="mobile-one-third">Data:</span><span class="mobile-two-thirds omega">{{abonnement.data}}</span>
+          <span class="mobile-one-third">Tale:</span><span class="mobile-two-thirds omega">{{abonnement.tale}}</span>
+          <span class="mobile-one-third">Sms & mms</span><span class="mobile-two-thirds omega">{{abonnement.sms}}</span>
+          <span class="mobile-one-third">Network</span><span class="mobile-two-thirds omega">{{abonnement.network}}</span>
+        </p>
+      </td>
+      <td class="units dark">
+        <div class="form-item--select">
+          <h2 class="aria--visible">Vælg antal</h2>
+          <label for="select-storage2" class="aria--visible">Antal</label>
+          <div class="select-wrapper">
+            <select id="select-storage2">
+              <option>{{units}}</option>
+            </select>
+          </div>
+        </div>
+      </td>
+      <td class="price">
+      </td>
+      <td class="price">
+        {{totalMonthlyAbonnementPrice}},00
+      </td>
+    </tr>
+    {{/if}}
+    {{/each}}
+    {{#if cart.insurance}}
+    <tr class="sikring">
+      <td class="mobile-one-sixth"><img src="assets/images/insurance.png" alt=""></td>
+      <td class="mobile-one-half dark">
+        <p class="title--xsmall">Telenor Sikring</p>
+        Dækker uheld i 3 år. <a href="/">Mere info</a>
+      </td>
+      <td class="mobile-one-sixth dark">
+
+      </td>
+      <td class="mobile-one-sixth"></td>
+      <td class="mobile-one-sixth price">
+        89,00
+      </td>
+    </tr>
+    {{/if}}
+    <tr class="paynow">
+      <td colspan="3" class="right-align">Til betaling nu</td>
+      <td class="price">{{cart.totalPrice}},00</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="4" class="right-align right-align--large">Derefter pr. md</td>
+      <td class="price">{{cart.totalMonthlyPrice}},00</td>
+    </tr>
+    <tr class="spacing">
+      <td></td>
+    </tr>
+    {{#if cart.lines.length}}
+    {{#unless cart.insurance}}
+    <tr class="sikring">
+      <td class="mobile-one-sixth"><img src="assets/images/insurance.png" alt=""></td>
+      <td class="mobile-one-half dark">
+        <p class="title--xsmall">Telenor Sikring</p>
+        Dækker uheld i 3 år. <a href="/">Mere info</a>
+      </td>
+      <td class="mobile-one-sixth dark">
+        <button class="button button--action add-insurance">Tilvælg</button>
+      </td>
+      <td class="mobile-one-sixth"></td>
+      <td class="mobile-one-sixth price not-added">
+        <p class="text--small">Ikke tilvalgt</p>
+        89,00
+      </td>
+    </tr>
+    {{/unless}}
+    {{/if}}
+    <tr class="total">
+      <td colspan="5">
+        <p style="padding-right: 45px;">Til betaling nu:</p><p class="big-text">{{cart.totalPrice}},00 kr.</p>
+      </td>
+    </tr>
+    {{#if cart.repayments}}
+    <tr class="minimumprice">
+      <td colspan="5">
+        <p class="text--small">Mindstepris over 6 mdr. inkl. mobil og abonnement</p>
+        <p class="text--small">{{cart.totalMinimumPrice}},00 kr.</p>
+      </td>
+    </tr>
+    {{/if}}
+  </tbody>
+</table>

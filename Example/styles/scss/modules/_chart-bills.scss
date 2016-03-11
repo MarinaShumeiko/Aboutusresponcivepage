@@ -1,0 +1,525 @@
+// ----------------------------------------------------------------
+// bills chart
+.chart-bills {
+
+  $tick-color: $color-grey-dark;
+  $color-average-line: $color-grey;
+
+  @include telenor-regular;
+
+  @mixin axis-label-size {
+    @include size-13;
+
+    @include until($bp-medium) {
+      @include size-11;
+    }
+  }
+
+  position: relative;
+
+  > button {
+    float: right;
+  }
+
+  // ----------------------------------------------------------------
+  // tick label
+
+  .flot-line-label,
+  .flot-tick-label {
+    color: $tick-color;
+  }
+
+  // ----------------------------------------------------------------
+  // relative inner box
+
+  .box--default {
+    position: relative;
+    overflow: visible;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  // ----------------------------------------------------------------
+  // tabs
+
+  .tabpanel--stretch-mobile {
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .tabpanel__list {
+    display: inline-block;
+  }
+
+  // ----------------------------------------------------------------
+  // place info panel
+
+  .chart-info-panel {
+
+    vertical-align: middle;
+    height: $small-button-size;
+
+
+    @include size-11;
+    @include sans-serif;
+    color: $color-grey-dark;
+
+    @include clearfix;
+
+    @include at-least($bp-medium) {
+      margin-right: 66px;
+      display: inline-block;
+      float: right;
+    }
+
+    @include until($bp-medium) {
+      background-color: transparent;
+      border: none;
+      text-align: right;
+      padding: 0;
+    }
+
+    .status-dot--green {
+      color: $color-telenor-green;
+    }
+
+    .status-dot--yellow {
+      color: $color-telenor-yellow;
+    }
+
+    .status-dot--red {
+      color: $color-telenor-red;
+    }
+
+    .average-line {
+
+      // add color to alow jquery pass value to flot-chart
+      color: $color-average-line;
+
+      &:before {
+        width: 15px;
+        height: 1px;
+        top: -4px;
+        left: -5px;
+        content: "";
+        display: inline-block;
+        position: relative;
+        background-color: $color-average-line;
+
+      }
+    }
+
+    ul,
+    li {
+      height: 100%;
+      line-height: $small-button-size;
+    }
+  }
+
+  //
+  &.bars-horizontal {
+    .chart-info-panel .average-line:before {
+      height: 15px;
+      width: 1px;
+      top: 3px;
+      left: -5px;
+  	}
+
+  	.flot-x-axis .flot-tick-label {
+        white-space: nowrap;
+      }
+
+  	.flot-y-axis .chart-bills__canvas-label:before {
+        left: 0;
+        line-height: 21px;
+        left: 70px;
+        font-size: 1em;
+    }
+
+    @include until($bp-small) {
+      .flot-x-axis .tickLabel {
+
+        visibility: hidden;
+
+        // show only ends
+        &:first-child,
+        &:last-child {
+          visibility: visible;
+        }
+      }
+    }
+
+    // ----------------------------------------------------------------
+    // small icon adjust for horizontal bars
+
+    .flot-y-axis .chart-bills__canvas-label .icon-wrapper {
+      position: absolute;
+      left: 0;
+      top: -4px;
+      line-height: 9px;
+      left: 70px;
+      font-size: 1em;
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // canvas
+
+  @include element(canvas) {
+
+    position: relative;
+    margin-bottom: $base-spacing-unit;
+    height: 300px;
+	  color: $color-grey-dark;
+
+    @include rem('padding-bottom', 15px);
+
+    @include telenor-regular;
+
+
+    // ----------------------------------------------------------------
+    // chart formating
+
+    .flot-line-label {
+      white-space: nowrap;
+      position: absolute;
+    }
+
+    .tickLabel {
+      z-index: 5;
+    }
+
+    .flot-x-axis .flot-tick-label {
+      display: block;
+      margin-top: 10px;
+      @include size-11;
+    }
+
+    .flot-line-label,
+    .flot-y-axis .flot-tick-label {
+       @include axis-label-size;
+    }
+
+    .flot-x-axis .flot-tick-label:first-child,
+    .flot-x-axis .flot-tick-label:last-child {
+      display: block;
+    }
+  }
+
+	// vertical bars
+  // label mode
+  &.bars-medium .flot-x-axis .tickLabel,
+  &.bars-many .flot-x-axis .tickLabel {
+
+    .label {
+      visibility: hidden;
+    }
+
+    // show only ends
+    &:first-child,
+    &:last-child {
+      .label {
+        visibility: visible;
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // sticky side labels
+
+  @include element(sticky-labels) {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  // ----------------------------------------------------------------
+  // month labels
+
+  // base icon
+
+  $icon-bubble-size: 30px;
+  $icon-bubble-size-small: 20px;
+
+  .flot-text .chart-bills__canvas-label .icon-wrapper:before {
+
+      @include icon;
+      @include icon-error-no-bg;
+      font-weight: 700;
+
+      line-height: $icon-bubble-size;
+
+      width: $icon-bubble-size;
+      height: $icon-bubble-size;
+
+      border-radius: $icon-bubble-size / 2;
+
+      margin: auto;
+
+      color: $color-white;
+      font-size: 1.5em;
+      background-color: $color-telenor-red;
+
+      text-align: center;
+  }
+
+  .flot-text .chart-bills__canvas-label.status-3 .icon-wrapper:before,
+  .flot-text .chart-bills__canvas-label.status-0 .icon-wrapper:before {
+      @include icon-input-checkbox-selected;
+      font-size: 1.4em;
+      line-height: $icon-bubble-size + 5;
+      background-color: $color-telenor-green;
+  }
+
+  .flot-text .chart-bills__canvas-label.status-4 .icon-wrapper:before {
+      background: none;
+      visibility: hidden;
+  }
+
+  .flot-text .chart-bills__canvas-label.status-3 .icon-wrapper:before {
+    background-color: $color-grey-light;
+  }
+
+  .flot-text .chart-bills__canvas-label.status-1 .icon-wrapper:before {
+      background-color: $color-telenor-yellow;
+  }
+
+  &.bars-many .flot-text .chart-bills__canvas-label:before {
+    font-size: 1em;
+  }
+
+  // vertical bars
+  &.bars-vertical {
+
+
+    .chart-bills__canvas {
+      margin-right: 35px;
+    }
+
+    .flot-y-axis .tickLabel {
+      padding-right: 5px;
+    }
+
+    // label mode
+    &.bars-medium .flot-x-axis .tickLabel,
+    &.bars-many .flot-x-axis .tickLabel {
+
+      .label {
+        visibility: hidden;
+      }
+
+
+      // show only ends
+      &:first-child,
+      &:last-child {
+        .label {
+          visibility: visible;
+        }
+      }
+    }
+
+    .flot-x-axis .chart-bills__canvas-label .icon-wrapper {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: -85px;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  &.bars-many .flot-text .chart-bills__canvas-label {
+    .icon-wrapper {
+
+      top: -81px;
+
+      &:before {
+        font-size: 1em;
+        line-height: $icon-bubble-size-small + 3;
+
+        width: $icon-bubble-size-small;
+        height: $icon-bubble-size-small;
+      }
+    }
+
+    // adjust
+    &.status-1,
+    &.status-2 {
+      .icon-wrapper:before {
+        line-height: 18px;
+        box-sizing: border-box;
+        padding-left: 1px;
+      }
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // totals table
+
+  @include element(total) {
+
+    margin: $base-spacing-unit 0;
+
+    .is-overdue {
+      color: $color-telenor-red;
+    }
+
+    // ----------------------------------------------------------------
+    // mobile typography
+
+    @include until($bp-small) {
+      .title--medium {
+        @include size-2x;
+      }
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+// bill info
+
+.bill-info-tip {
+
+  color: $color-grey-dark;
+
+  display: none;
+  position: absolute;
+  width: 200px;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: $color-white;
+  border-radius: $tool-tip-border-radius;
+
+  z-index: 100;
+
+  // animate in
+  opacity: 0;
+  transform: translateY(-$small-spacing-unit);
+  transition: opacity, transform $animation-time-tooltip $animation-easing-tooltip;
+
+  &.is-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  .container {
+    padding: $small-spacing-unit;
+  }
+
+  // wide button
+  a {
+    width: 100%;
+    display: none;
+  }
+
+  // status
+  &.status-1,
+  &.status-2 {
+    a {
+      display: block;
+    }
+  }
+
+  &.status-0 {
+    table {
+      margin-bottom: 0;
+    }
+  }
+
+  // arrow
+  $tool-tip-inner-arrow-size: $tool-tip-arrow-size - 1px;
+
+  &:before {
+    width: 0;
+    height: 0;
+    border-left: $tool-tip-arrow-size solid transparent;
+    border-right: $tool-tip-arrow-size solid transparent;
+    border-top: $tool-tip-arrow-size solid $color-grey-light;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -$tool-tip-arrow-size;
+    margin-left: -$tool-tip-arrow-size;
+  }
+
+  &:after {
+    width: 0;
+    height: 0;
+    border-left: $tool-tip-inner-arrow-size solid transparent;
+    border-right: $tool-tip-inner-arrow-size solid transparent;
+    border-top: $tool-tip-inner-arrow-size solid #fff;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -$tool-tip-inner-arrow-size;
+    margin-left: -$tool-tip-inner-arrow-size;
+  }
+
+  @include size-13;
+
+  // ----------------------------------------------------------------
+  // horizontal bars variation
+
+  .bars-horizontal & {
+    width: 175px;
+
+    $horizontal-arrow-offset-y: 42px;
+    left: 110px;
+
+    &:before {
+      top: $horizontal-arrow-offset-y - 1;
+      left: -$tool-tip-arrow-size;
+      border-top: $tool-tip-arrow-size solid transparent;
+      border-bottom: $tool-tip-arrow-size solid transparent;
+      border-right: $tool-tip-arrow-size solid $color-grey-light;
+    }
+
+    &:after {
+      top: $horizontal-arrow-offset-y;
+      left: -$tool-tip-arrow-size + 1;
+      border-top: $tool-tip-inner-arrow-size solid transparent;
+      border-bottom: $tool-tip-inner-arrow-size solid transparent;
+      border-right: $tool-tip-inner-arrow-size solid $color-white;
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // topbar
+
+  @include element(top-bar) {
+    background-image: $gradient-white-grey;
+
+    padding-top: 8px;
+    padding-bottom: 6px;
+    border-bottom: $border;
+  }
+
+  // ----------------------------------------------------------------
+  // table element
+
+  @include element(table) {
+
+    margin-bottom: $small-spacing-unit;
+
+    td {
+      padding: 3px 0;
+    }
+
+    td:first-child {
+      text-align: left;
+    }
+
+    td:last-child {
+
+      text-align: right;
+    }
+  }
+}

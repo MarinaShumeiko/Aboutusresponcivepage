@@ -1,0 +1,54 @@
+.block {
+  // Form blocks with padding
+  // ------------------------------------------------------
+  // .block--form
+  // .block--form__col
+  // .block--form__col--dark
+
+  @include modifier(form) {
+    @extend %clearfix;
+    @include rem('padding', $base-spacing-unit $small-spacing-unit 0 $small-spacing-unit);
+
+    border: 1px solid $color-grey-light;
+    border-top: none;
+
+    @include at-least($bp-small) {
+      @include rem('padding', $base-spacing-unit $base-spacing-unit 0 $base-spacing-unit);
+    }
+
+    @include element(row) {
+      @extend .block--content;
+      border-top: 1px solid $color-white-dark;
+      @include rem('margin-left', -$base-spacing-unit);
+      @include rem('margin-right', -$base-spacing-unit);
+    }
+
+    @include element(row_space) {
+      @extend .block--content;
+      clear: both;
+      border-top: 1px solid $color-white-dark;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @include modifier(base) {
+      padding-bottom: $base-spacing-unit;
+    }
+
+    @include modifier(xsmall) {
+      padding-bottom: $xsmall-spacing-unit;
+    }
+
+    @include modifier(small) {
+      padding-bottom: $small-spacing-unit;
+    }
+
+    @include modifier(large) {
+      padding-bottom: $large-spacing-unit;
+    }
+
+    @include modifier(xlarge) {
+      padding-bottom: $xlarge-spacing-unit;
+    }
+  }
+}

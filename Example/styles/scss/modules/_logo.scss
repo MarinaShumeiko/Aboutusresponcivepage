@@ -1,0 +1,20 @@
+.logo {
+  @include modifier(negative) {
+    @include modifier(small) {
+      background-image: url("../assets/graphics/logo--negative.png");
+      background-image: url("../assets/graphics/logo--negative.svg");
+      background-size: 66px auto;
+      width: 66px;
+      height: 27px;
+    }
+  }
+}
+
+.logo--small:after {
+  background: url("../assets/images/logo-small.png") right center no-repeat;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding-left: $base-spacing-unit;
+}

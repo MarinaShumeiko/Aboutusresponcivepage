@@ -1,0 +1,62 @@
+// section split to sub-modules
+@import "section--product-hero";
+@import "section--content";
+@import "section--big-slider";
+@import "section--login";
+@import "section--help";
+@import "section--footer";
+@import "section--banner";
+
+// block split to sub-modules
+@import "block--credit-maximum";
+@import "block--form";
+@import "block--backdrop";
+@import "block__option";
+@import "block--product";
+@import "block--hero";
+@import "block--map";
+@import "block--media";
+@import "block--overlay";
+@import "block--info";
+@import "block--divider";
+
+//
+@import "logo";
+@import "block--company";
+@import "block--account-details";
+@import "block--usage-overview";
+@import "contacts";
+
+
+//agent view
+@import "agent_view";
+
+//@import "avatar";
+@import "datepicker";
+
+@import "royalslider";
+@import "owlcarousel";
+@import "sliders";
+@import "accordion";
+@import "modal";
+@import "payment";
+@import "confirmation";
+@import "checkout";
+
+@import "product";
+@import "login";
+
+@import "chart";
+@import "chart-bills";
+@import "bills-balance-table";
+@import "chart-info-panel";
+
+@import "basket";
+@import "plan";
+@import "plan-guide";
+@import "editable-form";
+@import "numbers";
+@import "radio-grey-box";
+@import "select-dropdown";
+@import "abouttelenor";
+@import "addon"

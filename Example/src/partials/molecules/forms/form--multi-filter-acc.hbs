@@ -1,0 +1,9 @@
+<div class="multi-filter form-item--inline form-item--small" {{#each attributes}} {{@key}}="{{this}}" {{/each}}>
+  <a href="#" class="multi-filter__input" tabindex="1">
+    <div class="multi-filter__input-label text-truncate">
+      <strong>{{title}}: </strong><span class="multi-filter__selected-label"> All types</span>
+    </div>
+  </a>
+  <button type="button" class="no-js--hidden form-item__clear-button" data-list-clear=""><span class="aria--visible">Clear filter</span></button>
+  {{> form--speach-bubble speachBubble }}
+</div>

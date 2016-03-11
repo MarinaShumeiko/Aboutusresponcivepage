@@ -1,0 +1,127 @@
+.block {
+
+  // Product detail hero block.
+  // ----------------------------------------------
+  // .block--product
+  // .block--product__features
+  // .block--product__selector
+  // .block--product__delivery
+  // .block--product__price
+  // .block--product__notes
+  // .block--product__links
+
+  @include modifier(product) {
+    @include rem('padding-top', 30px);
+    background: $color-telenor-blue url("../assets/images/main_bg.png");
+    background-size: cover;
+    color: $color-white;
+
+    @include element(images) {
+      @include rem('margin-bottom', 24px);
+      text-align: center;
+
+      img {
+        @include rem('margin-bottom', 16px);
+
+        height: 430px;
+        width: auto;
+      }
+    }
+
+    .pager--carousel {
+
+      a {
+        background: #81c6eb;
+
+        &.current {
+          background: $color-white;
+        }
+      }
+    }
+
+    .hgroup {
+      @include rem('padding-bottom', 15px);
+    }
+
+    .rating__text {
+      color: $color-text-blue-light;
+    }
+
+    .wrapper {
+      @include at-least($bp-medium) {
+        @include rem('padding-bottom', 48px);
+      }
+
+    }
+
+    .radios--color {
+      text-align: left;
+    }
+
+    .form-radio--negative label {
+      @include telenor-regular;
+      @include size-13;
+    }
+
+    .form-item label {
+      padding-top: 0;
+    }
+
+    @include element(price) {
+
+      span {
+        @extend %default-label;
+
+        &.block--product__period {
+          padding: 0;
+          color: $color-white;
+        }
+      }
+
+      strong.block--product__amount {
+        display: block;
+        @include size-4x;
+        @include telenor-light;
+      }
+    }
+
+    @include element(status) {
+      position: relative;
+
+      @include size-13;
+
+      span {
+        color: $color-white;
+      }
+    }
+
+    @include element(details) {
+
+      border-top: 1px solid $color-telenor-blue-light;
+      @include size-13;
+      @include rem('padding-top', 12px);
+
+      a {
+        display: table;
+        width: 80%;
+      }
+
+      strong {
+        display: table-cell;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      span {
+        display: table-cell;
+        text-align: right;
+      }
+    }
+
+    .button--accept {
+      width: 100%;
+      margin-top: 21px;
+    }
+
+  }
+}

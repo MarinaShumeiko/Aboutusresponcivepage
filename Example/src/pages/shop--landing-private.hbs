@@ -1,0 +1,797 @@
+---
+title: "Shop: Landing Page Privat"
+author: Anders Pedersen and Kim Johannesen, Shift
+date: June, 2014
+status: in progress
+index: 4
+fullpage-prototype: true
+description: Prototype of shop landing page, including header and secondary content.
+
+media:
+  image: assets/images/resp/iphone5_white
+  type: png
+
+config:
+  hero:
+    title: One Stop Shopping
+    breadcrumb:
+    - Shop
+
+  productblock:
+    products:
+    - id: 1
+      title: Samsung Galaxy S4 - Something special
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 111
+      status: green
+      large: false
+      splashtitle: Halv Pris
+      splashbody: 145,00 Kr
+      splashcolor: orange
+    - id: 2
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Delivery: 4-5 days"
+      sku: 222
+      status: yellow
+      large: false
+    - id: 3
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Not in stock"
+      sku: 333
+      status: red
+      large: false
+      splashtitle: 200 MB
+      splashbody: Gratis data
+    - id: 4
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 444
+      status: green
+      large: false
+    - id: 5
+      title: Samsung Galaxy S4 G4+
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 555
+      status: green
+      large: true
+    - id: 6
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 666
+      status: green
+      large: false
+    - id: 7
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 8
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 9
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 10
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 11
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 12
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 13
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: false
+    - id: 14
+      title: Samsung Galaxy S4
+      price: 99,00 kr./mo.
+      delivery: "Express delivery: 1-2 days"
+      sku: 777
+      status: green
+      large: true
+
+  categoryblock:
+    categories:
+    - id: 1
+      title: Phones
+      img: phones
+    - id: 2
+      title: Tablets
+      img: tablets
+    - id: 3
+      title: Accessories
+      img: accesories
+    - id: 4
+      title: Mobile broadband
+      img: mobilebroadband
+    - id: 5
+      title: Broadband
+      img: broadband
+    - id: 6
+      title: Plans
+      img: plans
+    - id: 7
+      title: Services
+      img: services
+    - id: 8
+      title: Deals
+      img: deals
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+    <div id="hero" class="section section--hero section--negative">
+    {{> block--default--hero config.hero}}
+    </div>
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+    {{!-- Hero with two focus products --}}
+    <section class="section--product-hero section--product-hero--one-by-one section--no-header">
+      <div class="container">
+        <div class="product-list">
+          
+          <div class="list-item list-item--hero mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half">
+            <div class="list-item__inner-wrapper">
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  {{> image media}}
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Samsung Galaxy S4</a></span>
+                </p>
+
+                <ul class="list--check--dark">
+                  <li>Lorem ipsum dolor sit ame </li>
+                  <li>Morbi dignissim auctor</li>
+                  <li>Nulla porta facilisis</li>
+                </ul>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div> {{!-- End list-item __inner-wrapper --}}
+          </div> {{!-- End list-item --}}
+            
+          <div class="list-item list-item--hero mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half omega">
+            <div class="list-item__inner-wrapper">
+
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/galaxy.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Samsung Galaxy</a></span>
+                </p>
+
+                <ul class="list--check--dark">
+                  <li>Lorem ipsum dolor sit ame </li>
+                  <li>Morbi dignissim auctor</li>
+                  <li>Nulla porta facilisis</li>
+                </ul>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div>{{!-- End list-item __inner-wrapper --}}
+          </div>{{!-- End list-item --}}
+        </div>{{!-- End product-list --}}
+      </div>{{!-- End container --}}
+    </section>{{!-- End section--product-hero --}}
+
+    {{!-- Hero with four focus products --}}
+    <section class="section--product-hero section--product-hero--two-by-two section--no-header">
+      <div class="container">
+        <div class="product-list">
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half">
+            <div class="list-item__inner-wrapper">
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/iphone5c.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Apple iPhone 5c</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div> {{!-- End list-item __inner-wrapper --}}
+          </div> {{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half omega">
+            <div class="list-item__inner-wrapper">
+
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/apple-headset.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div>{{!-- End list-item __inner-wrapper --}}
+          </div>{{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half">
+            <div class="list-item__inner-wrapper">
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/beats-headset.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Beats headset</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div> {{!-- End list-item __inner-wrapper --}}
+          </div> {{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half omega">
+            <div class="list-item__inner-wrapper">
+
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  {{> image media}}
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Samsung Galaxy S4</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div>{{!-- End list-item __inner-wrapper --}}
+          </div>{{!-- End list-item --}}
+        </div>{{!-- End product-list --}}
+      </div>{{!-- End container --}}
+    </section>{{!-- End section--product-hero --}}
+
+    {{!-- Hero with three focus products --}}
+    <section class="section--product-hero section--product-hero--one-by-two section--no-header">
+      <div class="container">
+        <div class="product-list">
+
+          <div class="list-item list-item--hero mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half">
+            <div class="list-item__inner-wrapper">
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/galaxy.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Samsung Galaxy</a></span>
+                </p>
+
+                <ul class="list--check--dark">
+                  <li>Lorem ipsum dolor sit ame </li>
+                  <li>Morbi dignissim auctor</li>
+                  <li>Nulla porta facilisis</li>
+                </ul>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div> {{!-- End list-item __inner-wrapper --}}
+          </div> {{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half omega">
+            <div class="list-item__inner-wrapper">
+
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/iphone5c.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Apple iPhone 5c</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div>{{!-- End list-item __inner-wrapper --}}
+          </div>{{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half omega">
+            <div class="list-item__inner-wrapper">
+
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  {{> image media}}
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Samsung Galaxy S4</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div>{{!-- End list-item __inner-wrapper --}}
+          </div>{{!-- End list-item --}}
+        </div>{{!-- End product-list --}}
+      </div>{{!-- End container --}}
+    </section>{{!-- End section--product-hero --}}
+
+    {{!-- Hero with three focus products (one full-width) --}}
+    <section class="section--product-hero section--product-hero--one-on-two section--no-header">
+      <div class="container">
+        <div class="product-list">
+
+          <div class="list-item list-item--hero list-item--hero--full-width">
+            <div class="list-item__inner-wrapper">
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths">
+                <a href="#">
+                  {{> image media}}
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-six-twelfths">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name mobile-one-whole" itemprop="productName"><a title="product name" href="#">Samsung Galaxy S4</a></span>
+                </p>
+
+                <ul class="list--check--dark">
+                  <li>Lorem ipsum dolor sit ame </li>
+                  <li>Morbi dignissim auctor</li>
+                  <li>Nulla porta facilisis</li>
+                </ul>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+                </div>
+              </div>
+            </div> {{!-- End list-item __inner-wrapper --}}
+          </div> {{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half">
+            <div class="list-item__inner-wrapper">
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/apple-headset.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div> {{!-- End list-item __inner-wrapper --}}
+          </div> {{!-- End list-item --}}
+
+          <div class="list-item list-item--hero list-item--hero--small mobile-li-one-whole tablet-li-one-whole tablet-wide-li-one-half desk-li-one-half omega">
+            <div class="list-item__inner-wrapper">
+
+              <div class="list-item--hero__image-wrapper mobile-one-third tablet-five-twelfths desk-li-one-third">
+                <a href="#">
+                  <img src="assets/images/apple-cover.png" alt="">
+                </a>
+              </div>
+
+              <div class="list-item--hero__details mobile-two-thirds tablet-seven-twelfths desk-li-two-thirds omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="list-item__name title--medium mobile-one-whole" itemprop="productName"><a title="product name" href="#">Apple cover</a></span>
+                </p>
+
+                <div class="list-item__inner-bottom-wrapper">
+                  <div class="list-item--hero__call-to-action">
+                    <p>
+                      <span class="text--xsmall">Monthly from</span>
+                      <span class="list-item__price" itemprop="productPrice">
+                        <span>9999,00</span>
+                        <span class="text--note">kr.</span>
+                      </span>
+                    </p>
+                    <a href="" class="button button--small button--action">Read more</a>
+                  </div>
+
+                  <a href="/en/shop/Phones/Customer favorites" class="bullet-link category-link">Customer favorites</a>
+
+                  <p class="list-item__note mobile-one-whole">
+                    <span class="mobile-one-whole">With FRI+ 5GB for 12 months. Downpayment:  99,00 kr. Min. price, 6 mo:  6.223,25 kr.</span>
+                  </p>
+                </div>
+              </div>
+            </div>{{!-- End list-item __inner-wrapper --}}
+          </div>{{!-- End list-item --}}
+        </div>{{!-- End product-list --}}
+      </div>{{!-- End container --}}
+    </section>{{!-- End section--product-hero --}}
+
+    <section class="section section-block section--no-header section--island section--island--wide">
+      <div class="container">
+        <div class="block__header block__header--no-border-bottom">
+          <h4 class="title--medium">Mobility tools</h4>
+        </div>
+        <div class="product-grid">
+          <div class="product-grid__item product-grid__item--tall mobile-li-one-whole tablet-li-one-third desk-li-one-quarter">
+            <div class="product-grid__item__inner-wrapper">
+              <div class="product-grid__item__image-wrapper mobile-one-half tablet-one-whole">
+                <a href="#">
+                  {{> image media}}
+                </a>
+              </div>
+              <div class="product-grid__item__details mobile-one-half tablet-one-whole omega">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Galaxy S4</a></span>
+                </p>
+                <span class="product-price" itemprop="productPrice">
+                  <span>9999,00</span>
+                  <span class="text--note">kr.</span>
+                </span>
+                <div class="product-grid__note">
+                  <ul>
+                    <li>With FRI+ 5GB for 12 months.</li>
+                    <li>Downpayment:  99,00 kr.</li>
+                    <li>Min. price, 6 mo:  6.223,25 kr.</li>
+                  </ul>
+                </div>
+                <a class="category-link icon-arrow-next" href="">Phones</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="background-image: url('assets/images/banner.png');" class="product-grid__item product-grid__item--overlay product-grid__item--overlay--purple mobile-li-one-whole tablet-li-two-thirds desk-li-one-half">
+            <span class="title--xlarge product-grid__item__banner__title">A big heading</span>
+            <div class="product-grid__item__banner product-grid__item__banner--bottom product-grid__item__banner--right">
+              <p class="product-name">
+                <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Beats headset</a></span>
+              </p>
+              <span class="product-price" itemprop="productPrice">
+                <span>9999,00</span>
+                <span class="text--note">kr.</span>
+              </span>
+              <a class="category-link icon-arrow-next" href="">Phones</a>
+              <a href="" class="button button--default button--default--dark-bg">Read more</a>
+            </div>
+          </div>
+
+          <div class="product-grid__item mobile-li-one-half tablet-li-one-third desk-li-one-quarter">
+            <div class="product-grid__item__inner-wrapper">
+              <div class="product-grid__item__image-wrapper">
+                <a href="#">
+                  <img src="assets/images/beats-headset.png" alt="">
+                </a>
+              </div>
+              <div class="product-grid__item__details">
+                <p class="product-name">
+                  <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Beats headset Beats headset Beats headset</a></span>
+                </p>
+                <span class="product-price" itemprop="productPrice">
+                  <span>9999,00</span>
+                  <span class="text--note">kr.</span>
+                </span>
+                <a class="category-link icon-arrow-next" href="">Headphones & speakers</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-grid__item mobile-li-one-half tablet-li-one-third desk-li-one-quarter">
+            <div class="product-grid__item__inner-wrapper">
+              <div class="product-grid__item__image-wrapper">
+                <a href="#">
+                  <img src="assets/images/iphone5c.png" alt="">
+                </a>
+              </div>
+              <div class="product-grid__item__details">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">iPhone 5c</a></span>
+                </p>
+                <span class="product-price" itemprop="productPrice">
+                  <span>9999,00</span>
+                  <span class="text--note">kr.</span>
+                </span>
+                <a class="category-link icon-arrow-next" href="">Phones</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-grid__item mobile-hide tablet-hide desk-li-one-quarter">
+            <div class="product-grid__item__inner-wrapper">
+              <div class="product-grid__item__image-wrapper">
+                <a href="#">
+                  <img src="assets/images/apple-adapter.png" alt="">
+                </a>
+              </div>
+              <div class="product-grid__item__details">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple adapter</a></span>
+                </p>
+                <span class="product-price" itemprop="productPrice">
+                  <span>9999,00</span>
+                  <span class="text--note">kr.</span>
+                </span>
+                <a class="category-link icon-arrow-next" href="">Accessories</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-grid__item mobile-hide tablet-hide desk-li-one-quarter">
+            <div class="product-grid__item__inner-wrapper">
+              <div class="product-grid__item__image-wrapper">
+                <a href="#">
+                  <img src="assets/images/apple-headset.png" alt="">
+                </a>
+              </div>
+              <div class="product-grid__item__details">
+                {{> rating--stars--single--small-blue}}
+                <p class="product-name">
+                  <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                </p>
+                <span class="product-price" itemprop="productPrice">
+                  <span>9999,00</span>
+                  <span class="text--note">kr.</span>
+                </span>
+                <a class="category-link icon-arrow-next" href="">Headphones & speakers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{> block--category--list--icons config.categoryblock}}
+
+    {{> block--product--list--thumbs config.productblock}}
+    {{!-- <form id="filterProductsForm" method="post" action="src/data/productscategory.json"></form> --}}
+  {{/content}}
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+
+  {{/content}}
+
+{{/extend}}

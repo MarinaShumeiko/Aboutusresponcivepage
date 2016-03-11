@@ -1,0 +1,36 @@
+---
+title: Negative radio buttons horizontal
+status: In progress
+version: 0.5.1
+author: Rasmus Thulstrup, Designit
+date: April, 2014
+---
+
+<!-- : Inline radio buttons -->
+<ul class="form-item form-inline">
+	{{#if options}}
+		{{#each options}}
+			<li class="form-radio--negative">
+				<input type="radio" name="optionsRadiosNegative" id="radioxoptionneg{{@index}}" value="{{this.value}}" {{#unless @index}} checked {{/unless}} />
+				<label class="text--med" for="radioxoptionneg{{@index}}">{{this.value}}</label>
+			</li>
+		{{/each}}
+	{{else}}
+		<li class="form-radio--negative">
+			<input type="radio" name="optionsRadiosNegative" id="radiooption1Neg" value="option1" checked>
+			<label class="text--med" for="radio3option1Neg">Option one</label>
+		</li>
+	    <li class="form-radio--negative">
+			<input type="radio" name="optionsRadiosNegative" id="radio3option2Neg" value="option1" >
+			<label class="text--med" for="radio3option2Neg">Option two</label>
+	    </li>
+	    <li class="form-radio--negative">
+			<input type="radio" name="optionsRadiosNegative" id="radio3option3Neg" value="option1" >
+			<label class="text--med" for="radio3option3Neg">Option three</label>
+	    </li>
+	    <li class="form-radio--negative">
+			<input type="radio" name="optionsRadiosNegative" id="radio3option4Neg" value="option1" >
+			<label class="text--med" for="radio3option4Neg">Option four</label>
+	    </li>
+	{{/if}}
+</ul>

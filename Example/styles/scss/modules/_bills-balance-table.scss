@@ -1,0 +1,167 @@
+.bills-balance {
+
+  @include telenor-regular;
+
+  margin-top: $base-spacing-unit;
+
+  tbody tr:first-child {
+    th,
+    td {
+      padding-top: $base-spacing-unit;
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // color overdue
+
+  .is-overdue {
+    color: $color-telenor-red;
+  }
+
+  // ----------------------------------------------------------------
+  // table
+
+  .table--key-value {
+    border-top: $border;
+  }
+
+  // ----------------------------------------------------------------
+  // mobile typography
+
+  .title--medium {
+    @include rem("font-size", 24px);
+  }
+
+  @include until($bp-small) {
+    .title--medium {
+      @include size-2x;
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // payment button
+
+  @include element(payment-button-container) {
+    margin-top: $base-spacing-unit;
+    text-align: right;
+  }
+}
+
+.bill--table {
+    border: 1px solid $color-white-dark;
+
+    .drop-row th,
+    .drop-row td {
+      text-align: right;
+
+      &:first-child {
+        text-align: left;
+      };
+    }
+
+    th {
+      border-bottom: 1px solid $color-white-dark;
+      padding: 1.875rem 1.25rem .313rem;
+    }
+
+    td {
+      border-bottom: 1px solid $color-white-dark;
+      padding: .625rem 1.25rem;
+      vertical-align: middle;
+
+      &[colspan] {
+        padding: 0 1rem 1rem;
+      }
+
+      &.th_bill_product {
+        padding: .625rem 1.25rem .625rem .625rem;
+      }
+    }
+
+    .bill-no-border td {
+      border-bottom: 0;
+    }
+
+    tr.expanded {
+      .icon-expand:before {
+        content: "-";
+      };
+
+      td {
+        border-bottom: none;
+      }
+
+    }
+    
+    tr.bill-subtotal td {
+      font-weight: bold;
+      border-bottom: 0;
+    }
+
+    .grey-header {
+      background: $color-white;
+      border: $border;
+      
+      th {
+        padding: .625rem 1.25rem;
+      }
+    }
+
+    .drop-row {
+
+      .drop-row-holder {
+        background: $color-white-grey;
+        border: 1px solid $color-grey-light;
+        padding: 5px 0;
+        position: relative;
+
+        &:after,
+        &:before {
+          border: 10px solid transparent;
+          border-bottom-color: $color-white-grey;
+          content: "";
+          height: 0;
+          left: 30px;
+          position: absolute;
+          top: -19px;
+          width: 0;
+          z-index: 2;
+        };
+
+        &:before {
+          border-bottom-color: $color-grey-light;
+          top: -20px;
+          z-index: 1;
+        };
+
+        .block--content {
+          background: $color-white-grey;
+        }
+      }
+    }
+
+    .icon-expand {
+      border: 1px solid $color-grey-light;
+      border-radius: 11px;
+      color: $color-grey-dark;
+      display: inline-block;
+      font-size: 16px;
+      height: 22px;
+      line-height: 18px;
+      padding: 0 0 0 1px;
+      text-align: center;
+      vertical-align: top;
+      width: 22px;
+
+      &:before {
+        content: "+";
+      };
+    }
+
+    .icon-remove {
+      color: $color-grey-middle;
+      margin: -10px 0 0;
+      padding: 10px 0 0;
+    }
+  }
+

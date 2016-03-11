@@ -1,0 +1,39 @@
+---
+title: Grey box with radio buttons
+
+author: Viacheslav Nikolaienko
+date: August, 2014
+---
+<div class="radio-grey-box desk-one-half tablet-one-half mobile-one-whole pull-right {{#if right-buttons}}radio-grey-box--right{{/if}}" data-module="radio-list" {{#if sync-name}}data-sync-name="{{sync-name}}"{{/if}}>
+  <div class="block--content">
+    <header class="title--xsmall title--block title--tooltip title--article">
+      <h3>{{block-title}}</h3>
+    </header>
+    {{#if description}}
+      <div class="radio-grey-box__description">
+        <span>{{description}}</span>
+      </div>
+    {{/if}}
+    <div class="radio-grey-box__radios">
+      {{#if items}}
+        <form method="post">
+          <ul class="form-item form-row">
+            {{#each items}}
+              <li class="form-radio form-radio--small radio-grey-box__radio {{#if selected}}radio-grey-box__radio--selected{{/if}} clear">
+                <input id="radio-list-{{../name}}-{{@index}}" {{#if data-value}}data-value="{{data-value}}"{{/if}} type="radio" name="{{../name}}" value="{{this.value}}" {{#if checked}}checked="checked"{{/if}} />
+                <label class="text--small clear radio-grey-box__radio-label" for="radio-list-{{../name}}-{{@index}}">
+                  <span class="pull-left">{{label}}</span>
+                  {{#if comment}}<span class="radio-grey-box__comment">{{comment}}</span>{{/if}}
+                  <span class="pull-right">{{text}}</span></label>
+              </li>
+            {{/each}}
+          </ul>
+          <div class="radio-grey-box__buttons">
+            <a class="radio-grey-box__button-right radio-grey-box__button-big" href="#">{{right-button-text}}</a>
+            <a class="radio-grey-box__button-left">{{left-button-text}}</a>
+          </div>
+        </form>
+      {{/if}}
+    </div>
+  </div>
+</div>

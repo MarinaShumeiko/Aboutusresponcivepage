@@ -1,0 +1,12 @@
+.block {
+  @include modifier(divider) {
+    @include rem('padding-top', 25px);
+    @include rem('margin-top', 25px);
+    border-top: 1px solid $color-grey-light;
+
+    @at-root .section--negative & {
+      border-color: $color-white;
+      border-color: rgba($color-white, .3);
+    }
+  }
+}

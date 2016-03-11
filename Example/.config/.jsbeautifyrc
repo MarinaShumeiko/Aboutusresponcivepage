@@ -1,0 +1,11 @@
+{
+  "indent": 2,
+  "condense": true,
+  "indent_inner_html": true,
+  "padcomments": true,
+  "unformatted": [
+    "a",
+    "pre",
+    "code"
+  ]
+}

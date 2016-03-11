@@ -1,0 +1,363 @@
+// Slider variants, based on royalSlider
+// -----------------------------------------------------
+// .royalSlider.hero
+// .royalSlider.guide
+
+.royalSlider {
+  // Styling for hero slider, .royalSlider.hero
+  &.hero {
+    height: 400px;
+
+    .rsSlide-item {
+      @extend %clearfix;
+      @include rem('padding-top', 28px);
+    }
+
+    // Controls, icon.
+    .rsArrowLeft .rsArrowIcn {
+      &:after {
+        @extend %size-36;
+        @extend [class^="icon-"]:before;
+        @extend .icon-arrow-prev:before;
+      }
+    }
+
+    .rsArrowRight .rsArrowIcn {
+      &:after {
+        @extend %size-36;
+        @extend [class^="icon-"]:before;
+        @extend .icon-arrow-next:before;
+      }
+    }
+
+    // Controls, icon-wrapper.
+    .rsArrow {
+      @include rem('padding', 20px 30px);
+
+      display: none !important;
+      border-radius: 50%;
+      background-image: $gradient-darkblue;
+      position: absolute;
+      top: 50%;
+      margin-top: -40px;
+
+      &.rsArrowLeft {
+        left: -($arrowsize + $grid-padding * 3);
+      }
+
+      &.rsArrowRight {
+        right: -($arrowsize + $grid-padding * 3);
+      }
+
+      // Media queries
+      // ----------------------------------------------
+      // Tablet-wide, 850px
+      @include at-least($bp-medium) {
+        display: block !important;
+      }
+    }
+  }
+
+  // Styling for guide slider, .royalSlider.guide
+  &.guide {
+    min-height: 285px;
+    color: $color-black-light;
+
+    img {
+      display: block;
+      height: auto!important;
+      margin-left: 0!important;
+      margin-bottom: 0;
+      width: 100%!important;
+      max-width: 100%;
+    }
+
+    .rsSlide-item {
+      @extend %clearfix;
+
+      div + div {
+        @include rem('padding', $base-spacing-unit);
+
+        border: 0;
+        opacity: 0;
+        transform: translateX(25%);
+        transition: all 220ms ease-out;
+      }
+    }
+
+    .rsActiveSlide .rsSlide-item div + div {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @include modifier(vertical) {
+      .rsSlide-item {
+
+        div {
+          border: 0;
+
+		  & + div {
+          padding-bottom: 0;
+          border: 0;
+          }
+        }
+      }
+
+      & + .rsSlider-custom-controls {
+        @include rem('padding', $base-spacing-unit);
+
+        position: relative;
+        bottom: auto;
+        right: auto;
+      }
+    }
+
+    // Media queries
+    // ----------------------------------------------
+    // Tablet, 600px
+    // Tablet-wide, 850px
+    // Desktop, 1024px
+
+    // Respond tablet
+    @include at-least($bp-small) {
+      .text {
+        @include rem('margin-bottom', 60px);
+      }
+
+      .rsSlide-item {
+        div + div {
+          border-width: 0 0 0 1px;
+          border-style: solid;
+          border-color: $color-grey-light;
+        }
+      }
+
+      // Respond styling for vertical guide, .guide--vertical
+      @include modifier(vertical) {
+        .text {
+          margin: 0;
+        }
+
+        .rsSlide-item {
+          div + div {
+            border: 0;
+          }
+        }
+      }
+    }
+
+    // Respond tablet wide
+    @include at-least($bp-medium) {
+      .text {
+        margin-bottom: 0;
+      }
+
+      .rsSlide-item {
+        div {
+          border-right: 1px solid $color-grey-light;
+
+		  & + div {
+          border: 0;
+		  }
+        }
+      }
+
+      // Respond styling for vertical guide, .guide--vertical
+      @include modifier(vertical) {
+        .rsSlide-item {
+          div {
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Styling for product slider
+.product-slider {
+  .list-item {
+    height: 450px;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+
+  .list-item__name {
+    margin-bottom: 0;
+  }
+
+  .owl-item:first-child .list-item {
+    border-left-width: 1px;
+  }
+
+  .button {
+    position: static;
+  }
+
+  img {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+// Owl pagination
+.telenor-theme {
+  .owl-item {
+    img {
+      margin: 0 auto;
+      width: auto;
+    }
+  }
+
+  .owl-controls {
+    margin-top: 0;
+
+    .owl-dot {
+      display: inline-block;
+
+      &.active {
+        span {
+          background-color: $color-white;
+        }
+      }
+
+      span {
+        width: 9px;
+        height: 9px;
+        background-color: #81c6eb;
+        margin: 0 $xsmall-spacing-unit;
+        display: block;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &.slider-init {
+    .owl-nav > div {
+      opacity: 0;
+    }
+
+    &:hover {
+      .owl-nav > div {
+        opacity: .7;
+        transition: opacity .2s ease-in;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .owl-nav {
+    width: 100%;
+
+    > div {
+      width: 62px;
+      height: 62px;
+      line-height: 62px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: $color-telenor-blue-dark;
+      @include rem('font-size', 30px);
+      opacity: 1;
+      transition: opacity .5s ease-in;
+      position: absolute;
+      top: 50%;
+      margin-top: -31px;
+      color: $color-white;
+
+      .csstransforms & {
+        margin-top: 0;
+        transform: translate(0, -50%);
+      }
+    }
+
+    .owl-prev {
+      left: $small-spacing-unit;
+      padding-right: $xsmall-spacing-unit;
+    }
+
+    .owl-next {
+      right: $small-spacing-unit;
+      padding-left: $xsmall-spacing-unit;
+    }
+  }
+}
+
+
+// Wrappers and controls
+// ===============================================
+.rsSlider-wrapper {
+  @extend %clearfix;
+
+  border: 1px solid $color-grey-light;
+  position: relative;
+  overflow: hidden;
+  max-height: 555px;
+
+  .panel & {
+    border-width: 0;
+  }
+
+  @include modifier(inline) {
+    max-height: 360px;
+  }
+}
+
+.rsSlider-instance {
+  @extend %transition;
+}
+
+.rsSlider-custom-controls {
+  @include rem('padding', 0 $base-spacing-unit $base-spacing-unit $base-spacing-unit);
+
+  display: none;
+
+  span {
+    @include telenor-bold;
+  }
+
+  [class*="button"] {
+    width: 38px;
+    height: 42px;
+
+    &:before {
+      @include icon;
+    }
+  }
+
+  .button-next {
+    &:before {
+      @include icon-arrow-next;
+    }
+  }
+
+  .button-prev {
+    &:before {
+      @include icon-arrow-prev;
+    }
+  }
+
+  // Media queries
+  // ----------------------------------------------
+  // Tablet, 600px
+  @include at-least($bp-small) {
+    @include rem('padding', 0 0 0 $base-spacing-unit*2);
+
+    position: absolute;
+    bottom: $base-spacing-unit;
+    right: $base-spacing-unit;
+
+    [class*="button"] {
+      border: 0;
+    }
+  }
+}
+
+.rsSlideCount {
+  @include rem('line-height', 40px);
+
+  text-align: center;
+  color: $color-grey-dark;
+}

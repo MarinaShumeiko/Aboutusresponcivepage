@@ -1,0 +1,86 @@
+.section {
+  // Contains hero section and help sections on blue background.
+  @include modifier(product-hero) {
+    border-bottom: $border;
+    border-top: $border;
+    position: relative;
+    overflow: hidden;
+    @include rem('margin-bottom', $xlarge-spacing-unit);
+
+    @include at-least($bp-medium) {
+      @include modifier(two-by-two) {
+        &:before,
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          width: 50%;
+          background: $color-white;
+          border-top: $border;
+          height: 290px;
+          z-index: 20;
+
+          @include at-least($bp-large) {
+            height: 225px;
+          }
+        }
+
+        &:before {
+          left: 0;
+        }
+
+        &:after {
+          right: 0;
+          border-left: $border;
+        }
+      }
+
+      @include modifier(one-by-two) {
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          width: 50%;
+          background: $color-white;
+          border-top: $border;
+          z-index: 20;
+          right: 0;
+          border-left: $border;
+          height: 225px;
+        }
+      }
+
+      @include modifier(one-on-two) {
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          background: $color-white-grey;
+          background-image: $gradient-white;
+          height: 350px;
+        }
+
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 350px;
+          width: 100%;
+          background: $color-white;
+          height: 290px;
+          border-top: $border;
+          z-index: 20;
+
+          @include at-least($bp-large) {
+            height: 225px;
+          }
+        }
+      }
+    }
+  }
+}

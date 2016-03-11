@@ -1,0 +1,80 @@
+.select--dropdown {
+  .dropdown {
+    height: 33px;
+
+    &.is-open {
+      border: 1px solid $color-telenor-blue;
+    }
+
+    @include element(label) {
+      @include rem('padding', 6px);
+      height: 31px;
+      color: $color-black-light;
+    }
+
+    @include element(toggle) {
+      width: 23px;
+      height: 31px;
+
+      &:after {
+        @include rem('font-size', 24px);
+      }
+    }
+
+    @include element(filter) {
+      @include rem('padding', 15px 10px);
+      border-bottom: 1px solid $color-grey;
+      font-weight: bold;
+    }
+
+    @include element(scroll) {
+      max-height: 140px;
+
+      li {
+        @include rem('padding', 10px);
+        cursor: pointer;
+
+        &:hover {
+          color: $color-white;
+          background: $color-telenor-blue;
+        }
+      }
+
+      &.taken {
+        li {
+          cursor: inherit;
+
+          &:hover {
+            background: inherit;
+            color: inherit;
+          }
+
+          .icon-remove {
+            color: $color-telenor-red;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  } 
+
+  @include until($bp-small) {
+    .dropdown {
+      height: 42px;
+
+      @include element(label) {
+        height: 40px; 
+        @include rem('padding', 10px); 
+      }
+
+      @include element(toggle) {
+        width: 32px;
+        height: 40px;
+
+        &:after {
+          @include rem('font-size', 32px);
+        }
+      }
+    }
+  }
+}

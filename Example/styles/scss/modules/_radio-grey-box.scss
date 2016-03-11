@@ -1,0 +1,79 @@
+.radio-grey-box {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  @include telenor-regular;
+
+  .title--block {
+    color: $color-black-light;
+  }
+
+  @include element(radio) {
+    display: block;
+
+    @include rem('margin-bottom', 5px);
+  }
+
+  @include element(description) {
+    @extend %size-13;
+    color: $color-grey-dark;
+
+    margin: 15px 0;
+
+    @include telenor-regular;
+  }
+
+  @include element(radio-label) {
+    height: 18px;
+
+    html.checked .form-radio & {
+      display: block;
+      margin-right: 0;
+      color: $color-grey-dark;
+    }
+
+    html.checked .radio-grey-box .form-radio input[type=radio]:checked + & {
+      color: $color-black-light;
+    }
+  }
+
+  @include element(comment) {
+    @extend %size-11;
+    @extend .pull-left;
+
+    border: $border;
+    border-radius: 3px;
+    color: $color-grey-dark;
+    @include telenor-regular;
+    padding: 0 3px;
+    margin-left: 10px;
+    margin-top: 1px;
+  }
+
+  @include element(button-left) {
+    @extend .pull-right;
+    @extend %size-13;
+    cursor: pointer;
+    color: $color-grey-dark;
+
+    margin-top: 10px;
+
+    &:before {
+      content: "> ";
+    }
+  }
+
+  @include element(button-right) {
+    @extend .pull-right;
+    @extend .button;
+    @extend .button--small;
+    @extend .button--action;
+
+    &.radio-grey-box__button-big {
+      @extend %size-15;
+
+      @include rem('line-height', 30px);
+    }
+
+    margin-left: 20px;
+  }
+}

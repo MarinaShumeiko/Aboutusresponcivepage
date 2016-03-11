@@ -1,0 +1,12 @@
+---
+status: In progress
+version: 0.5.1
+---
+<ul class="form-item {{classes}}">
+  {{#each items}}
+    <li class="form-checkbox {{classes}}">
+      <input type="checkbox" {{#if disabled}}disabled{{/if}} {{#if checked}}checked{{/if}} name="{{../id}}-{{@index}}" id="{{../id}}-{{@index}}" value="--some-value--" >
+      <label class="{{../label-class}}" for="{{../id}}-{{@index}}">{{label}}</label>
+    </li>
+  {{/each}}
+</ul>

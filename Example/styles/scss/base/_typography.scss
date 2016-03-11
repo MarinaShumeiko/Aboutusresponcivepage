@@ -1,0 +1,22 @@
+// Developement typography here.
+.text {
+  @include modifier("blue") {
+    color: $color-telenor-blue;
+  }
+
+  @include modifier("black-light") {
+    color: $color-black-light;
+  }
+
+  @include modifier("black") {
+    color: $color-black;
+  }
+
+  @include modifier("grey-middle") {
+    color: $color-grey-middle;
+  }
+
+  @include modifier("bold") {
+    font-weight: bold;
+  }
+}

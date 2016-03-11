@@ -1,0 +1,36 @@
+.section {
+  // Help section
+  // -------------------------------------------------------------
+
+  // Contains the help area.
+  @include modifier(help) {
+    background: $color-telenor-blue url("../assets/images/main_bg.png") center top;
+
+    @include element(buttons) {
+      li + li {
+        margin-top: $base-spacing-unit;
+      }
+
+      a {
+        width: 100%;
+      }
+
+      @include at-least($bp-small) {
+        li {
+          display: inline-block;
+          vertical-align: top;
+
+          & + li {
+            margin-left: $base-spacing-unit;
+            margin-top: 0;
+          }
+        }
+
+        a {
+          min-width: 175px;
+          width: auto;
+        }
+      }
+    }
+  }
+}

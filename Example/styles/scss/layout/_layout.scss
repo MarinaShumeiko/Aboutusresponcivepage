@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.constrain-outer {
+  position: relative;
+  width: 100%;
+  padding-top: 150px;
+  background: url("../assets/main_bg.png") center top no-repeat;
+  z-index: 2;
+  max-height: 1000px;
+  background-size: cover;
+}
+
+
+.constrain-inner {
+  @include clearfix;
+
+  position: relative;
+  max-width: 64em;
+  margin: 0 auto;
+  min-height: 3000px;
+  border: 1px solid #000;
+  border-width: 0 1px;
+}

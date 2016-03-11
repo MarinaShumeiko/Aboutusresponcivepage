@@ -1,0 +1,289 @@
+---
+title: "Shop: Basket"
+author: Kim Johannesen, Shift
+date: June, 2014
+status: in progress
+index: 4
+fullpage-prototype: true
+description: Prototype of the full basket page
+
+config:
+  navigation:
+      mini-basket:
+        basketid: false
+  basket:
+    basketid: basketid
+    sendbasket:
+      title: Do you want to send & save you basket ?
+    confirmationtitle:
+      title: Confirmation
+    shairbasket:
+      confirmation: false
+      logged: true
+      customer: false
+      items:
+      - value: Name@name.com
+        label: Name@name.com
+        id: check-1
+        checked: true
+        className: user-field
+      - value: +45 26 72 51 32
+        label: +45 26 72 51 32
+        id: check-2
+        checked: true
+        className: user-field
+      - value: Someone else
+        label: Someone else
+        id: check-3
+
+
+
+---
+
+{{#extend "default-layout"}}
+
+  {{#content "region-header" mode="append"}}
+    {{> header--navigation config.navigation}}
+  {{/content}}
+
+  {{#content "region-hero" mode="append"}}
+  {{/content}}
+
+  {{#content "region-primary" mode="append"}}
+    {{> basket--usp}}
+
+    <section class="section-basket__full container basket">
+      {{> block--basket config.basket}}
+    </section>
+
+{{!-- Basket product list slider --}}
+    <section class="section--big-slider section--big-slider__middle-height">
+        <div class="product-grid" id="accessories-slider" data-module="module.simple-carousel">{{!-- start: slider --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item section--big-slider__item--double">
+            <div style="background-image: url('assets/images/banner-basket.png');" class="product-grid__item product-grid__item--slider product-grid__item--tall product-grid__item--overlay product-grid__item--overlay--purple mobile-li-one-whole tablet-li-one-third desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <span class="title--xxlarge ">Need something extra?</span>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+          {{!-- start: slider item --}}
+          <div class="section--big-slider__item">
+            <div class="product-grid__item product-grid__item--slider desk-li-one-quarter">
+              <div class="product-grid__item__inner-wrapper">
+                <div class="product-grid__item__image-wrapper">
+                  <a href="#">
+                    <img src="assets/images/apple-headset.png" alt="">
+                  </a>
+                </div>
+                <div class="product-grid__item__details">
+                  {{> radios--color product}}
+                  <p class="product-name">
+                    <span class="title--xxsmall" itemprop="productName"><a title="product name" href="#">Apple headset</a></span>
+                  </p>
+                  <span class="product-price" itemprop="productPrice">
+                    <span>9999,00</span>
+                    <span class="text--note">kr.</span>
+                  </span>
+                  <p class="product-grid__item__status">
+                    <span class="aria--hidden">In stock </span>
+                    <span class="status-dot status-dot--{{status}} status-dot--small">{{delivery}}</span>
+                  </p>
+                  <button class="button button--default button--small">Read more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{!-- end: slider item --}}
+
+        </div> {{!-- end: slider --}}
+    </section>
+{{!--End Basket product list slider --}}
+  {{/content}}
+
+
+
+  {{#content "region-footer" mode="append"}}
+  {{/content}}
+
+  {{#content "region-config" mode="append" }}
+  {{/content}}
+
+{{/extend}}

@@ -1,0 +1,84 @@
+.block {
+  // Store locator module
+  // ----------------------------------------------
+  // .block--map
+  @include modifier(map) {
+    $map-height-mobile: 322px;
+
+    @include rem('min-height', 350px);
+
+    @include element(map) {
+
+      @include until($bp-small) {
+        //@include container;
+        @include rem('height', $map-height-mobile);
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+      }
+
+      iframe {
+        display: block;
+      }
+    }
+
+    @include element(info) {
+      @include rem('padding', 25px 30px);
+      @include rem('margin-bottom', 65px);
+
+      td,
+    table,
+    th {
+        padding: 0;
+        font-weight: normal;
+      }
+
+      th {
+        padding-right: $small-spacing-unit;
+      }
+
+      @at-root .style--blue & {
+        background-color: $color-telenor-blue;
+      }
+
+      @include until($bp-small) {
+        @include rem('margin-bottom', $map-height-mobile);
+      }
+    }
+
+    @include element(traveltime) {
+      @include size-2x;
+
+      .uncial {
+        @include size-8x;
+        @include telenor-bold;
+        @include rem('padding-right', $small-spacing-unit);
+        float: left;
+      }
+
+      @at-root .style--blue & {
+        background-color: $color-telenor-blue;
+      }
+
+      @include until($bp-small) {
+        @include rem('padding', $base-spacing-unit);
+        @include size-16;
+        position: absolute;
+        bottom: 30px;
+        right: $grid-padding;
+
+        .uncial {
+          @include size-4x;
+          @include rem('padding-right', 6px);
+          line-height: .9;
+        }
+      }
+    }
+
+    @include element(adress) {
+      @include until($bp-small) {
+        margin-bottom: $small-spacing-unit;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{{#parseJSON '
+  {
+    "label": "Choose installment",
+    "arialabel": "Choose installment",
+    "id":"select-payment",
+    "options": [{
+        "value":"12",
+        "label":"12 Måneders afdrag"
+      }, {
+        "value":"24",
+        "label":"24 Måneders afdrag"
+      }, {
+        "value":"36",
+        "label":"36 Måneders afdrag"
+      }]
+  }
+'}}
+  {{> form-select }}
+{{/parseJSON}}
+  <div id="select-payment-popup" style="display: none;" class="form-item--megaselect" data-select="select-payment">
+    <a class="active" data-selectval="24 m&aring;neders afdrag">
+      <div class="tr">
+      	<div class="th">24 months installment</div>
+	  	<div class="th">Monthly</div>
+	  </div>
+	  <div class="tr">
+	  	<div class="td">
+	  		<ul class="list--greybullet">
+	  			<li>0 kr. down payment</li>
+	  			<li>0% interest</li>
+	  		</ul>
+	  	</div>
+	  	<div class="td">187 kr.</div>
+	  </div>
+    </a>
+    <a data-selectval="12 m&aring;neders afdrag">
+      <div class="tr">
+      	<div class="th">12 months installment</div>
+	  	<div class="th">Monthly</div>
+	  </div>
+	  <div class="tr">
+	  	<div class="td">
+	  		<ul class="list--greybullet">
+	  			<li>0 kr. down payment</li>
+	  			<li>0% interest</li>
+	  		</ul>
+	  	</div>
+	  	<div class="td">374 kr.</div>
+	  </div>
+    </a>
+	<a data-selectval="6 m&aring;neders afdrag">
+      <div class="tr">
+      	<div class="th">6 months installment</div>
+	  	<div class="th">Monthly</div>
+	  </div>
+	  <div class="tr">
+	  	<div class="td">
+	  		<ul class="list--greybullet">
+	  			<li>0 kr. down payment</li>
+	  			<li>0% interest</li>
+	  		</ul>
+	  	</div>
+	  	<div class="td">748 kr.</div>
+	  </div>
+	</a>
+     <a data-selectval="Betal nu">
+      <div class="tr">
+      	<div class="th">Pay now - installment</div>
+	  	<div class="th">Pay now</div>
+	  </div>
+	  <div class="tr">
+	  	<div class="td">
+	  		<ul class="list--greybullet">
+	  			<li>No monthly installment</li>
+	  			<li>0% interest</li>
+	  		</ul>
+	  	</div>
+	  	<div class="td">5.453 kr.</div>
+	  </div>
+     </a>
+  </div>

@@ -1,0 +1,240 @@
+.section--plan-guide {
+  .arrow-icon {
+    display: inline-block;
+    width: 35px;
+    height: 24px;
+    vertical-align: bottom;
+    background: url("../assets/images/arrow-slider-grey.png") 0 0 no-repeat;
+  }
+}
+
+.table-plan-guide {
+  position: relative;
+  @include rem('padding-right', 18px);
+  color: $color-grey-dark;
+
+  .hours-line {
+
+    li {
+      position: relative;
+      float: right;
+      height: auto;
+      width: 6.85%;
+      min-height: 470px;
+
+      &:first-child {
+        float: left;
+        margin: 0;
+        width: 20%;
+        text-align: right;
+
+        &:after {
+          border: none;
+        }
+      }
+
+      &:last-child {
+        width: 1px;
+
+        &:after {
+          border-left: 1px solid $color-grey-middle;
+        } 
+      }
+
+      &:after {
+        position: absolute;
+        top: 22px;
+        right: 11.5%;
+        content: "";
+        height: 91%;
+        width: 1px;
+        border-left: 1px solid $color-grey;
+      }
+
+      span {
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        @include rem('font-size', 11px);
+        height: 15px;
+      }
+    }
+  }
+
+  .weekly-scale {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    max-height: 400px;
+    height: 400px;
+    overflow: auto;
+    @include rem('padding-right', 25px);
+
+    > div {
+      position: relative;
+      padding: 0 0% 0 24.8%;
+      position: relative;
+      height: 32px;
+      margin-bottom: 25px;
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .mobile-one-twelfth {
+      float: left;
+      margin-left: 0;
+    }
+
+    @include element(mark) {
+      min-width: 8%;
+      height: 32px !important;
+      position: relative;
+      background: $color-telenor-blue;
+      border-radius: 0 3px 3px 0;
+      @include linear-gradient (left, #038cd6, #22a8ad, #43c682);
+
+      .button-arrow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        background: url("../assets/images/arrow-slider.png") no-repeat 49% 50%;
+      }
+
+      .permonth {
+        position: absolute;
+        bottom: -17px;
+        right: 0;
+        @include rem('font-size', 11px);
+      }
+    }
+
+    @include element(name) {
+      @include rem('font-size', 13px);
+      line-height: 1.2rem;
+      position: absolute;
+      width: 16%;
+      left: 0;
+      top: 4px;
+    }
+
+    .tooltip__trigger {
+      position: absolute;
+      left: 15%;
+      top: 2px;
+      border-radius: 10px;
+      background: $color-grey-middle;
+      width: 21px;
+      height: 21px;
+      color: $color-white;
+      text-align: center;
+      font-weight: bold;
+      @include rem('font-size', 13px);
+    }
+  }
+
+  .table-plan-name {
+    display: table;
+    width: 100%;
+    @include rem('padding', 6px 0);
+
+    > div {
+      display: table-cell;
+      vertical-align: top;
+      text-align: center;
+      @include rem('font-size', 13px);
+      
+      &.active {
+        border: 1px solid $color-grey-light;
+        background: $color-white;
+      }
+
+      span,
+      strong {
+        display: inline-block;
+        @include rem('padding', 7px 0);
+      }
+    }
+
+    @include until($bp-small) {
+      margin-right: -18px;
+      display: block;
+
+      > div {
+        text-align: center;
+        display: block;
+      }
+    }
+  }
+}
+
+.section--plan-price { 
+  color: $color-grey-dark;
+  
+  .item--price-plan {
+    position: relative;
+    line-height: 1.6em;
+    @include rem('padding', 20px 10px 0);
+    text-align: center;
+
+     &:after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -1px;
+      @include linear-gradient (left, #6eb45b, #2b9ba8, #038cd6);
+      height: 3px;
+      width: 100%;
+      padding-right: 2px;
+    } 
+
+    .item-name {
+      color: $color-telenor-blue;
+    }
+
+    .item__qty {
+      float: left;
+      width: 31.915%;
+
+      @include until($bp-large) {
+        float: none;
+        width: 80%;
+        margin: 0 10% 20px;
+      }
+
+      @include until($bp-small) {
+        float: left;
+        width: 31.915%;
+        margin: 0;
+      }
+    }
+
+    .item__add {
+      float: right;
+      width: 65.957%;
+
+      @include until($bp-large) {
+        float: none;
+        width: 100%;
+      }
+
+      @include until($bp-small) {
+        float: right;
+        width: 65.957%;
+      }
+    }
+
+    .button--accept--border {
+      min-width: 85%;
+    }
+
+    .estimated {
+      margin: 28px -10px 0;
+      padding-bottom: 3px;
+      border-top: 1px solid $color-grey-light;
+    }  
+  }
+}

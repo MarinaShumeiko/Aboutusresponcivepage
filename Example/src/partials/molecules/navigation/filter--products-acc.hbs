@@ -1,0 +1,56 @@
+---
+title: Filter products
+
+status: In progress
+version: 0.5.1
+tabs:
+  - tab: html
+viewport:
+
+author: Marina Shumeiko, Telenor
+date: August, 2014
+---
+
+<!-- : Products filter menu -->
+<div class="menu--filtering" id="menu-filters-category">
+  <div class="menu--filtering__utils">
+    <div class="form-item--multi menu--filtering__search mobile-three-quarters" id="filterSearch">
+      <div class="form-item form-col">
+        <input id="search" type="search">
+      </div>
+      <div class="form-item form-col--last">
+        <button id="search" class="button button--default"><span class="icon-search"></span></button>
+      </div>
+    </div>
+    <button class="button button--filter-toggle mobile-one-quarter mobile-pull-right" data-mobile-removeClass="is-expanded" data-desk-removeClass="is-expanded" data-toggle="collapse" data-target=".filter-collapse" data-desk-append="filter-button-container" data-mobile-after="filterSearch">All filters</button>
+  </div>
+  <ul class="button--tabs" id="top-filters" data-module="flexnav" data-moretext="More">
+    <li><a class="is-active" href="#">All</a></li>
+    <li><a href="#">Top sellers</a></li>
+    <li><a href="#">Customers favorites</a></li>
+    <li><a href="#">Now trending</a></li>
+    <li><a href="#">Most popular</a></li>
+    <li class="flexnav__filter mobile-pull-right" id="filter-button-container"></li>
+  </ul>
+  <div class="menu--filtering__filters mobile-one-whole omega" id="filters-category">
+    <ul id="filters-chosen" class="form-item form-inline" data-desk-append="panel-brand" data-mobile-prepend="filters"></ul>
+    <div class="panel-group" id="filters-primary"></div>
+    <div class="panel-group is-collapsed filter-collapse" id="filters-secondary" data-desk-addClass="is-collapsed" data-desk-removeClass="is-open" data-mobile-removeClass="is-open" data-mobile-addClass="is-collapsed">
+
+    {{#each filters}}
+      <div class="panel panel-accordion panel-accordion--filter" {{#if primary}}data-desk-append="filters-primary" data-mobile-prepend="filters-secondary"{{/if}}>
+        <div id="panel-{{@key}}" class="panel-body panel-accordion__body is-collapsed" data-mobile-addClass="is-collapsed" data-desk-removeClass="is-collapsed filter-collapse is-open">
+          <ul id="filters-{{@key}}" class="form-item form-inline multifilter">
+          {{#each multifilter}}
+            <li  class="block-multi-filter">
+              {{> form--multi-filter-acc this }}
+            </li>
+          {{/each}}
+          </ul>
+        </div>
+      </div>
+    {{/each}}
+
+    </div>
+  </div>
+</div>
